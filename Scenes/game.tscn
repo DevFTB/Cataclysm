@@ -1,10 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://beancxtotpcf4"]
+[gd_scene load_steps=5 format=3 uid="uid://beancxtotpcf4"]
 
 [ext_resource type="Texture2D" uid="uid://cumlq5u7fe28r" path="res://Resources/Level/map1.png" id="1_bx5vf"]
+[ext_resource type="Texture2D" uid="uid://l6bfomveh046" path="res://Resources/UI/cursor.png" id="2_4rqab"]
+[ext_resource type="Script" path="res://Scenes/PlaceableArea.gd" id="2_gh5ds"]
+[ext_resource type="Script" path="res://Scenes/TowerPlacer.gd" id="2_yjuhy"]
 
 [node name="Game" type="Node2D"]
 
-[node name="MapSprite" type="Sprite2D" parent="."]
+[node name="Map" type="Node2D" parent="."]
+
+[node name="MapSprite" type="Sprite2D" parent="Map"]
 position = Vector2(575.5, 323.5)
 scale = Vector2(0.719375, 0.540833)
 texture = ExtResource("1_bx5vf")
+
+[node name="PlaceableArea" type="Node2D" parent="Map"]
+script = ExtResource("2_gh5ds")
+
+[node name="TopLeftArea" type="Area2D" parent="Map/PlaceableArea"]
+
+[node name="CollisionShape2d" type="CollisionPolygon2D" parent="Map/PlaceableArea/TopLeftArea"]
+polygon = PackedVector2Array(6, 106, 6, 237, 132, 237, 132, 289, 228, 289, 228, 435, 319, 435, 316, 175, 545, 175, 545, 71, 487, 71, 487, 8, 264, 8, 6, 8)
+
+[node name="TowerPlacer" type="Node2D" parent="."]
+script = ExtResource("2_yjuhy")
+
+[node name="Sprite2d" type="Sprite2D" parent="TowerPlacer"]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_4rqab")
+
+[connection signal="can_place_changed" from="Map/PlaceableArea" to="TowerPlacer" method="_on_placeable_area_can_place_changed"]
