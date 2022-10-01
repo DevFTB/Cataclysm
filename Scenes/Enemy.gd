@@ -17,10 +17,11 @@ const reactions : Array[Array] = [[1,2,0,3,0,4,0,0],[2,1,0,2,2,0,5,0],[0,0,1,6,0
 @export var enemy_name : String = "Enemy"
 @export var resistances : Dictionary
 
+@export var max_rand_offset : float = 25
 
 @onready var health = max_health
 
-
+var rng = RandomNumberGenerator.new()
 var applied_elements : Array[Element] = []
 
 var is_dead = false
@@ -29,6 +30,9 @@ var is_paused
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	rng.randomize()
+	
+	$SpriteBody.position += Vector2(0, rng.randf_range(-max_rand_offset, max_rand_offset))
 	pass # Replace with function body.
 
 var time = 0
