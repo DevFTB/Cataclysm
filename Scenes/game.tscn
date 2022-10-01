@@ -31,6 +31,9 @@ texture = ExtResource("2_4rqab")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TowerPlacer"]
 stream = ExtResource("6_xh4l0")
 
+[node name="GhostIcon" type="Sprite2D" parent="TowerPlacer"]
+modulate = Color(1, 1, 1, 0.176471)
+
 [node name="GUI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -43,7 +46,7 @@ mouse_filter = 1
 [node name="TowerSelectionGUI" type="Control" parent="GUI"]
 clip_contents = true
 custom_minimum_size = Vector2i(300, 130)
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -56,6 +59,7 @@ button_scene = ExtResource("8_7bdlq")
 towers = [ExtResource("10_m0pln"), ExtResource("4_lj420"), ExtResource("8_mnq4t")]
 
 [node name="ColorRect" type="ColorRect" parent="GUI/TowerSelectionGUI"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -64,6 +68,7 @@ grow_vertical = 2
 color = Color(0.196078, 0.196078, 0.435294, 1)
 
 [node name="HSplitContainer" type="HSplitContainer" parent="GUI/TowerSelectionGUI"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -71,6 +76,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GUI/TowerSelectionGUI/HSplitContainer"]
+layout_mode = 2
 offset_right = 91.0
 offset_bottom = 130.0
 grow_vertical = 2
@@ -78,18 +84,21 @@ size_flags_horizontal = 4
 alignment = 1
 
 [node name="GrewtTowerButton" type="Button" parent="GUI/TowerSelectionGUI/HSplitContainer/VBoxContainer"]
+layout_mode = 2
 offset_top = 14.0
 offset_right = 91.0
 offset_bottom = 45.0
 text = "Grewt"
 
 [node name="KhanovianTowerButton" type="Button" parent="GUI/TowerSelectionGUI/HSplitContainer/VBoxContainer"]
+layout_mode = 2
 offset_top = 49.0
 offset_right = 91.0
 offset_bottom = 80.0
 text = "Kahnovian"
 
 [node name="TheOrderTowerButton" type="Button" parent="GUI/TowerSelectionGUI/HSplitContainer/VBoxContainer"]
+layout_mode = 2
 offset_top = 84.0
 offset_right = 91.0
 offset_bottom = 115.0
@@ -97,6 +106,7 @@ text = "The Order"
 
 [node name="GridContainer" type="GridContainer" parent="GUI/TowerSelectionGUI/HSplitContainer"]
 clip_contents = true
+layout_mode = 2
 offset_left = 281.0
 offset_top = 65.0
 offset_right = 281.0
@@ -107,7 +117,7 @@ columns = 2
 
 [node name="TimelineGUI" type="Control" parent="GUI"]
 custom_minimum_size = Vector2i(100, 100)
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 0
 offset_right = 333.0
 offset_bottom = 500.0
@@ -115,6 +125,7 @@ script = ExtResource("12_uheij")
 timeline_list_item = ExtResource("13_ra0qq")
 
 [node name="Panel" type="Panel" parent="GUI/TimelineGUI"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -122,6 +133,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="HSplitContainer" type="HSplitContainer" parent="GUI/TimelineGUI"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -130,12 +142,14 @@ grow_vertical = 2
 split_offset = 400
 
 [node name="ScrollContainer" type="ScrollContainer" parent="GUI/TimelineGUI/HSplitContainer"]
+layout_mode = 2
 offset_right = 239.0
 offset_bottom = 500.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ListItemParent" type="VBoxContainer" parent="GUI/TimelineGUI/HSplitContainer/ScrollContainer"]
+layout_mode = 2
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -143,11 +157,13 @@ size_flags_vertical = 4
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GUI/TimelineGUI/HSplitContainer"]
+layout_mode = 2
 offset_left = 251.0
 offset_right = 333.0
 offset_bottom = 500.0
 
 [node name="AutoplayButton" type="Button" parent="GUI/TimelineGUI/HSplitContainer/VBoxContainer"]
+layout_mode = 2
 offset_right = 82.0
 offset_bottom = 31.0
 toggle_mode = true
@@ -155,6 +171,7 @@ text = "Auto Play"
 script = ExtResource("14_w72xv")
 
 [node name="PlayButton" type="Button" parent="GUI/TimelineGUI/HSplitContainer/VBoxContainer"]
+layout_mode = 2
 offset_top = 35.0
 offset_right = 82.0
 offset_bottom = 66.0

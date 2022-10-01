@@ -53,8 +53,8 @@ func instance_button(tower, tower_name, ui_image, clan):
 func _process(delta):
 	pass
 	
-func select_tower(tower: PackedScene):
-	get_node("/root/Game/TowerPlacer").tower = tower
+func select_tower(tower: PackedScene, ui_image: Texture2D):
+	get_node("/root/Game/TowerPlacer").set_tower(tower,  ui_image)
 	pass
 
 func switch_clan_view(clan):

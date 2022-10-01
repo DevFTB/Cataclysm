@@ -22,9 +22,12 @@ func _process(delta):
 
 func _input(event):
 	if event is InputEventMouseButton:
-		if event.is_action_pressed("target"):
+		if event.is_action_pressed("place"):
 			if can_place():
 				place_tower()
+		if event.is_action_pressed("cancel"):
+			if tower != null:
+				unset_tower()
 
 func can_place() -> bool:
 	var location_good = in_placeable_area and not obstructed
@@ -34,7 +37,7 @@ func can_place() -> bool:
 
 func place_tower():
 	var new_tower = tower.instantiate() as Node2D
-	get_node(tower_parent).add_child(new_tower)
+	get_node("/root/Game/Map/Towers").add_child(new_tower)
 
 	new_tower.position = get_viewport().get_mouse_position()
 	new_tower.connect("mouse_entered", on_Tower_mouse_entered)
@@ -44,6 +47,15 @@ func place_tower():
 	
 	get_node("AudioStreamPlayer").play()
 	towers_active += 1
+
+func set_tower(tower: PackedScene, icon: Texture2D) -> void:
+	self.tower = tower
+	$GhostIcon.texture = icon
+	$GhostIcon.visible = true
+	
+func unset_tower():
+	self.tower = null
+	$GhostIcon.visible = false
 
 func _on_placeable_area_can_place_changed(can_place):
 	self.in_placeable_area = can_place
