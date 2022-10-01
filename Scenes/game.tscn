@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://beancxtotpcf4"]
+
+[ext_resource type="Texture2D" uid="uid://cumlq5u7fe28r" path="res://Resources/Level/map1.png" id="1_bx5vf"]
+
+[node name="Game" type="Node2D"]
+
+[node name="MapSprite" type="Sprite2D" parent="."]
+position = Vector2(575.5, 323.5)
+scale = Vector2(0.719375, 0.540833)
+texture = ExtResource("1_bx5vf")
