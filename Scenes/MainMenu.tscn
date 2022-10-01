@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://c28f5q841d1pl"]
+[gd_scene load_steps=7 format=3 uid="uid://isintwion7lq"]
 
-[ext_resource type="Script" path="res://Scenes/MainMenu.gd" id="1_7lcni"]
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_7lcni"]
 [ext_resource type="Texture2D" uid="uid://ceelemggrkoos" path="res://Resources/UI/Menus/cataclysm_bg.png" id="1_cod3i"]
 [ext_resource type="Texture2D" uid="uid://blsb7jl7eq8cf" path="res://Resources/UI/Menus/cataclysm_title.png" id="1_vuw4o"]
 [ext_resource type="Texture2D" uid="uid://crhnp1xb53y3u" path="res://Resources/UI/Menus/cataclysm_play.png" id="2_63154"]
@@ -12,6 +12,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_7lcni")
 game_scene = ExtResource("2_sri2x")
 

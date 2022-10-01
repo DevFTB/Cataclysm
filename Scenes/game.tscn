@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" path="res://PackedScenes/Towers/Tower1.tscn" id="4_lj420"]
 [ext_resource type="AudioStream" uid="uid://dj6mhcpxf85lx" path="res://Resources/Level/Towers/tower_placement_sound.wav" id="6_xh4l0"]
 [ext_resource type="Script" path="res://Scripts/TowerSelector.gd" id="7_od436"]
-[ext_resource type="PackedScene" path="res://PackedScenes/TowerButton.tscn" id="8_7bdlq"]
+[ext_resource type="PackedScene" uid="uid://crnhotnw70sfy" path="res://PackedScenes/TowerButton.tscn" id="8_7bdlq"]
 [ext_resource type="PackedScene" path="res://PackedScenes/Towers/Tower2.tscn" id="8_mnq4t"]
 [ext_resource type="PackedScene" path="res://PackedScenes/Towers/GrewtEarthBasic.tscn" id="10_m0pln"]
 [ext_resource type="Script" path="res://Scripts/TimelineGUI.gd" id="12_uheij"]
