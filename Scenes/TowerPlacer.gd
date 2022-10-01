@@ -19,11 +19,15 @@ func _input(event):
 		if event.is_action_pressed("target"):
 			if can_place:
 				print(can_place)
-				var new_tower = tower.instantiate() as Node2D
-				get_node(tower_parent).add_child(new_tower)
-				
-				new_tower.position = get_viewport().get_mouse_position()
+				place_tower()
 
+func place_tower():
+	var new_tower = tower.instantiate() as Node2D
+	get_node(tower_parent).add_child(new_tower)
+
+	new_tower.position = get_viewport().get_mouse_position()
+
+	get_node("AudioStreamPlayer").play()
 
 func _on_placeable_area_can_place_changed(can_place):
 	self.can_place = can_place
