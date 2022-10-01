@@ -1,9 +1,8 @@
 [gd_scene load_steps=19 format=3 uid="uid://c016j0m0pf4si"]
 
-[ext_resource type="Texture2D" uid="uid://cumlq5u7fe28r" path="res://Resources/Level/map1.png" id="1_bx5vf"]
 [ext_resource type="Script" path="res://Scenes/Game.gd" id="1_f45j7"]
 [ext_resource type="Texture2D" uid="uid://l6bfomveh046" path="res://Resources/UI/cursor.png" id="2_4rqab"]
-[ext_resource type="Script" path="res://Scenes/PlaceableArea.gd" id="2_gh5ds"]
+[ext_resource type="PackedScene" uid="uid://ctpa5dqdysfu2" path="res://Scenes/notkhan.tscn" id="2_bt2wp"]
 [ext_resource type="Script" path="res://Scenes/TowerPlacer.gd" id="2_yjuhy"]
 [ext_resource type="PackedScene" uid="uid://c745fxfrmpo5n" path="res://PackedScenes/Towers/Tower1.tscn" id="4_lj420"]
 [ext_resource type="AudioStream" uid="uid://dj6mhcpxf85lx" path="res://Resources/Level/Towers/tower_placement_sound.wav" id="6_xh4l0"]
@@ -25,50 +24,11 @@ height = 34.0
 [node name="Game" type="Node"]
 script = ExtResource("1_f45j7")
 
-[node name="Map" type="Node2D" parent="."]
-
-[node name="MapSprite" type="Sprite2D" parent="Map"]
-position = Vector2(575.5, 323.5)
-scale = Vector2(0.719375, 0.540833)
-texture = ExtResource("1_bx5vf")
-
-[node name="PlaceableArea" type="Node2D" parent="Map"]
-script = ExtResource("2_gh5ds")
-
-[node name="BottomLeftArea" type="Area2D" parent="Map/PlaceableArea"]
-
-[node name="CollisionShape2d" type="CollisionPolygon2D" parent="Map/PlaceableArea/BottomLeftArea"]
-position = Vector2(650, 5)
-polygon = PackedVector2Array(-59, 129, 53, 130, 58, 218, 55, 393, 109, 401, 115, 154, 326, 154, 332, 269, 397, 271, 399, 227, 478, 231, 487, 71, 487, 8, 264, 8, 26, 1, 22, 66, -56, 73)
-
-[node name="BottomRightArea" type="Area2D" parent="Map/PlaceableArea"]
-
-[node name="CollisionShape2d" type="CollisionPolygon2D" parent="Map/PlaceableArea/BottomRightArea"]
-position = Vector2(777, 190)
-polygon = PackedVector2Array(41, 255, 117, 258, 119, 183, 241, 187, 290, 233, 277, 443, 362, 448, 364, 204, 284, 191, 262, 136, 161, 123, 160, 21, 44, 14)
-
-[node name="BottomRightArea2" type="Area2D" parent="Map/PlaceableArea"]
-
-[node name="CollisionShape2d" type="CollisionPolygon2D" parent="Map/PlaceableArea/BottomRightArea2"]
-position = Vector2(760, 486)
-polygon = PackedVector2Array(43, 92, 239, 106, 257, -48, 189, -46, 183, 38, 43, 32)
-
-[node name="TopLeftArea" type="Area2D" parent="Map/PlaceableArea"]
-
-[node name="CollisionShape2d" type="CollisionPolygon2D" parent="Map/PlaceableArea/TopLeftArea"]
-polygon = PackedVector2Array(6, 106, 6, 237, 132, 237, 132, 289, 228, 289, 228, 435, 319, 435, 316, 175, 527, 174, 526, 72, 487, 71, 487, 8, 264, 8, 6, 8)
-
-[node name="TopRightArea" type="Area2D" parent="Map/PlaceableArea"]
-
-[node name="CollisionShape2d" type="CollisionPolygon2D" parent="Map/PlaceableArea/TopRightArea"]
-position = Vector2(4, 459)
-polygon = PackedVector2Array(15, -90, 17, 163, 319, 168, 482, 170, 529, 113, 596, 109, 604, 67, 488.62, 63.8873, 496, -247, 353, -247, 347, 21, 169, 17, 172, -112)
-
-[node name="Towers" type="Node2D" parent="Map"]
+[node name="Map" parent="." instance=ExtResource("2_bt2wp")]
 
 [node name="TowerPlacer" type="Node2D" parent="."]
 script = ExtResource("2_yjuhy")
-tower_parent = NodePath("../Map/Towers")
+tower_parent = NodePath("")
 
 [node name="Sprite2d" type="Sprite2D" parent="TowerPlacer"]
 scale = Vector2(0.3, 0.3)
