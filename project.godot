@@ -13,9 +13,21 @@ _global_script_classes=[{
 "class": &"Enemy",
 "language": &"GDScript",
 "path": "res://Scenes/Enemy.gd"
+}, {
+"base": "Node",
+"class": &"Game",
+"language": &"GDScript",
+"path": "res://Scenes/Game.gd"
+}, {
+"base": "Area2D",
+"class": &"Tower",
+"language": &"GDScript",
+"path": "res://Scenes/Tower.gd"
 }]
 _global_script_class_icons={
-"Enemy": ""
+"Enemy": "",
+"Game": "",
+"Tower": ""
 }
 
 [application]
@@ -32,7 +44,7 @@ window/stretch/mode="viewport"
 
 [input]
 
-place={
+select={
 "deadzone": 0.5,
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"pressed":false,"double_click":false,"script":null)
 ]

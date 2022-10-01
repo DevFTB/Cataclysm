@@ -1,6 +1,39 @@
 extends Node
+class_name Game
 
 @export var ticks_per_turn = 10
+
+enum Clan {
+	GREWT, KHANOVIAN, THE_ORDER
+}
+
+enum Element {
+	WATER, AIR, EARTH, FIRE, ELECTRICITY, STEEL, DARK, LIGHT
+}
+
+static func elementToString(e: Element): 
+	match e:
+		Element.WATER:
+			return "Water"
+		Element.AIR:
+			return "Air"
+		Element.EARTH:
+			return "Earth"
+		Element.FIRE:
+			return "Fire"
+		Element.STEEL:
+			return "Steel"
+		Element.DARK:
+			return "Dark"
+		Element.LIGHT:
+			return "Light"
+		
+	return "."
+
+
+enum Reaction {
+	DIFFUSION, REPLACE, CIRCULATE, EVAPORATE, CORROSION, GLOOM, WEALTH, BARRICADE, POISON, OVERCLOCK, SMITE, REINFORCE, JUDGMENT
+}
 
 signal paused
 signal resumed

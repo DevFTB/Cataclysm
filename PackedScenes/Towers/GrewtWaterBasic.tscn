@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://c075sftepr8bf"]
+[gd_scene load_steps=6 format=3 uid="uid://bpky6yb0jl87u"]
 
 [ext_resource type="Script" path="res://Scenes/Tower.gd" id="1_a8hxo"]
-[ext_resource type="Texture2D" uid="uid://y63di8or1h3p" path="res://Resources/Level/Towers/Grewt/earth_basic.png" id="2_mamel"]
+[ext_resource type="Texture2D" uid="uid://si2of2ojsqj3" path="res://Resources/Level/Towers/Grewt/water_basic.png" id="2_k1n6k"]
 [ext_resource type="Script" path="res://PackedScenes/Towers/HighlightableSprite2d.gd" id="3_338y5"]
 [ext_resource type="Material" uid="uid://4306q1dvomix" path="res://Shaders/OutlineShader.tres" id="4_kcd2u"]
 
@@ -10,10 +10,11 @@ size = Vector2(61, 52)
 
 [node name="Tower" type="Area2D"]
 script = ExtResource("1_a8hxo")
-tower_name = "Earth Basic"
-ui_image = ExtResource("2_mamel")
+tower_name = "Water Basic"
+ui_image = ExtResource("2_k1n6k")
 clan = 0
-element = 2
+element = 0
+is_aoe = true
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 1)
@@ -21,6 +22,6 @@ shape = SubResource("RectangleShape2D_e1rum")
 
 [node name="Sprite2d" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_mamel")
+texture = ExtResource("2_k1n6k")
 script = ExtResource("3_338y5")
 highlight_shader = ExtResource("4_kcd2u")

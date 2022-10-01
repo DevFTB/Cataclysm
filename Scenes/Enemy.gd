@@ -1,13 +1,7 @@
 extends PathFollow2D
 class_name Enemy
 
-enum Element {
-	WATER, AIR, EARTH, FIRE, ELECTRICITY, STEEL, DARK, LIGHT
-}
 
-enum Reaction {
-	DIFFUSION, REPLACE, CIRCULATE, EVAPORATE, CORROSION, GLOOM, WEALTH, BARRICADE, POISON, OVERCLOCK, SMITE, REINFORCE, JUDGMENT
-}
 
 const reactions : Array[Array] = [[1,2,0,3,0,4,0,0],[2,1,0,2,2,0,5,0],[0,0,1,6,0,7,8,0],[3,2,6,1,0,0,0,0],[0,2,0,0,1,9,0,10],[4,0,7,0,9,11,0,0],[0,5,8,0,0,0,1,12],[0,0,0,0,10,0,12,1]]
 
@@ -24,7 +18,7 @@ const reactions : Array[Array] = [[1,2,0,3,0,4,0,0],[2,1,0,2,2,0,5,0],[0,0,1,6,0
 @onready var game = get_node("/root/Game")
 
 var rng = RandomNumberGenerator.new()
-var applied_elements : Array[Element] = []
+var applied_elements : Array[Game.Element] = []
 
 var is_dead = false
 
@@ -45,10 +39,10 @@ func _process(delta):
 		
 	pass
 
-func apply_resistances(damage: int, element: Element) -> int:
+func apply_resistances(damage: int, element: Game.Element) -> int:
 	return floor(damage * resistances[element])
 
-func take_damage(damage: int, element: Element) -> void:
+func take_damage(damage: int, element: Game.Element) -> void:
 	applied_elements.append(element)
 	var true_damage = apply_resistances(damage, element)
 	
@@ -64,9 +58,9 @@ func modify_health(amount : int):
 	if health < 0:
 		die()
 	
-func apply_elemental_reactions() -> Reaction:
+func apply_elemental_reactions() -> Game.Reaction:
 	if applied_elements.size() > 2:
-		return Reaction.DIFFUSION
+		return Game.Reaction.DIFFUSION
 	else:
 		return reactions[applied_elements[0]][applied_elements[1]]
 	pass

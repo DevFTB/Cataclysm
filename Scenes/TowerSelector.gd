@@ -54,7 +54,7 @@ func _process(delta):
 	pass
 	
 func select_tower(tower: PackedScene, ui_image: Texture2D):
-	get_node("/root/Game/TowerPlacer").set_tower(tower,  ui_image)
+	get_node("/root/Game/TowerPlacer").set_tower_placement(tower,  ui_image)
 	pass
 
 func switch_clan_view(clan):

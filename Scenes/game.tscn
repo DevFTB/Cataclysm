@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c016j0m0pf4si"]
+[gd_scene load_steps=19 format=3 uid="uid://c016j0m0pf4si"]
 
 [ext_resource type="Script" path="res://Scenes/Game.gd" id="1_f45j7"]
 [ext_resource type="Texture2D" uid="uid://l6bfomveh046" path="res://Resources/UI/cursor.png" id="2_4rqab"]
@@ -10,11 +10,14 @@
 [ext_resource type="PackedScene" uid="uid://df0ecihsf08u2" path="res://PackedScenes/TowerButton.tscn" id="8_7bdlq"]
 [ext_resource type="PackedScene" uid="uid://cv5uipbpl6ndc" path="res://PackedScenes/Towers/Tower2.tscn" id="8_mnq4t"]
 [ext_resource type="PackedScene" uid="uid://c075sftepr8bf" path="res://PackedScenes/Towers/GrewtEarthBasic.tscn" id="10_m0pln"]
+[ext_resource type="Script" path="res://Scenes/TowerGUI.gd" id="11_mnlrn"]
+[ext_resource type="Texture2D" uid="uid://y63di8or1h3p" path="res://Resources/Level/Towers/Grewt/earth_basic.png" id="12_0cq6f"]
 [ext_resource type="Script" path="res://Scenes/TimelineGUI.gd" id="12_uheij"]
 [ext_resource type="Script" path="res://Scenes/ToggleStateButton.gd" id="13_6n20p"]
 [ext_resource type="PackedScene" uid="uid://ce56r78gtlak3" path="res://PackedScenes/TimelineTowerListItem.tscn" id="13_ra0qq"]
 [ext_resource type="Script" path="res://Scenes/AutoplayButton.gd" id="14_w72xv"]
 [ext_resource type="Script" path="res://Scenes/PausePlayButton.gd" id="15_24xnr"]
+[ext_resource type="PackedScene" uid="uid://bpky6yb0jl87u" path="res://PackedScenes/Towers/GrewtWaterBasic.tscn" id="18_56x5u"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_f45j7")
@@ -140,6 +143,118 @@ offset_bottom = 66.0
 text = "Play"
 script = ExtResource("15_24xnr")
 
+[node name="TowerGUI" type="Control" parent="GUI"]
+custom_minimum_size = Vector2i(100, 100)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -323.0
+offset_top = 6.0
+offset_right = -15.0
+offset_bottom = 383.0
+grow_horizontal = 0
+mouse_filter = 1
+script = ExtResource("11_mnlrn")
+
+[node name="VSplitContainer" type="VBoxContainer" parent="GUI/TowerGUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MinimiseButton" type="Button" parent="GUI/TowerGUI/VSplitContainer"]
+layout_mode = 2
+offset_left = 225.0
+offset_right = 308.0
+offset_bottom = 31.0
+size_flags_horizontal = 8
+toggle_mode = true
+button_pressed = true
+text = "Minimise "
+script = ExtResource("13_6n20p")
+toggled_text = "Hide Details"
+not_toggled_text = "Show Details"
+
+[node name="Control" type="Control" parent="GUI/TowerGUI/VSplitContainer"]
+layout_mode = 2
+anchors_preset = 0
+offset_top = 35.0
+offset_right = 308.0
+offset_bottom = 377.0
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="GUI/TowerGUI/VSplitContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TowerDetails" type="VBoxContainer" parent="GUI/TowerGUI/VSplitContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 7.0
+offset_right = 5.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.96, 0.96)
+alignment = 1
+
+[node name="TowerTitle" type="Label" parent="GUI/TowerGUI/VSplitContainer/Control/TowerDetails"]
+layout_mode = 2
+offset_top = 28.0
+offset_right = 308.0
+offset_bottom = 54.0
+text = "Tower Name"
+horizontal_alignment = 1
+
+[node name="TowerImage" type="TextureRect" parent="GUI/TowerGUI/VSplitContainer/Control/TowerDetails"]
+texture_filter = 1
+custom_minimum_size = Vector2i(96, 96)
+layout_mode = 2
+offset_left = 106.0
+offset_top = 58.0
+offset_right = 202.0
+offset_bottom = 154.0
+size_flags_horizontal = 4
+texture = ExtResource("12_0cq6f")
+
+[node name="TargetingOptionButton" type="OptionButton" parent="GUI/TowerGUI/VSplitContainer/Control/TowerDetails"]
+layout_mode = 2
+offset_top = 158.0
+offset_right = 308.0
+offset_bottom = 189.0
+item_count = 3
+selected = 0
+popup/item_0/text = "First"
+popup/item_0/id = 0
+popup/item_1/text = "Strong"
+popup/item_1/id = 1
+popup/item_2/text = "Spot"
+popup/item_2/id = 2
+
+[node name="TowerDescription" type="RichTextLabel" parent="GUI/TowerGUI/VSplitContainer/Control/TowerDetails"]
+custom_minimum_size = Vector2i(0, 120)
+layout_mode = 2
+offset_top = 193.0
+offset_right = 308.0
+offset_bottom = 313.0
+size_flags_vertical = 4
+text = "Element: Earth of the Grewt Clan
+
+Attack: 100
+Attack Duration: 3 seconds
+
+"
+
 [node name="TowerSelectionGUI" type="Control" parent="GUI"]
 layout_mode = 1
 anchors_preset = 2
@@ -154,7 +269,7 @@ mouse_filter = 1
 script = ExtResource("7_od436")
 button_parent = NodePath("VBoxContainer/Control/HSplitContainer/GridContainer")
 button_scene = ExtResource("8_7bdlq")
-towers = [ExtResource("10_m0pln"), ExtResource("4_lj420"), ExtResource("8_mnq4t")]
+towers = [ExtResource("10_m0pln"), ExtResource("4_lj420"), ExtResource("8_mnq4t"), ExtResource("18_56x5u")]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GUI/TowerSelectionGUI"]
 layout_direction = 2
@@ -248,6 +363,7 @@ not_toggled_text = "Show Shop"
 [connection signal="toggled" from="GUI/TimelineGUI/VSplitContainer/Control/HSplitContainer/VBoxContainer/AutoplayButton" to="." method="_on_autoplay_button_toggled"]
 [connection signal="toggled" from="GUI/TimelineGUI/VSplitContainer/Control/HSplitContainer/VBoxContainer/AutoplayButton" to="GUI/TimelineGUI/VSplitContainer/Control/HSplitContainer/VBoxContainer/AutoplayButton" method="_on_autoplay_button_toggled"]
 [connection signal="pressed" from="GUI/TimelineGUI/VSplitContainer/Control/HSplitContainer/VBoxContainer/PlayButton" to="." method="_on_pause_play_button_pressed"]
+[connection signal="toggled" from="GUI/TowerGUI/VSplitContainer/MinimiseButton" to="GUI/TowerGUI" method="_on_minimise_button_toggled"]
 [connection signal="pressed" from="GUI/TowerSelectionGUI/VBoxContainer/Control/HSplitContainer/VBoxContainer/GrewtTowerButton" to="GUI/TowerSelectionGUI" method="_on_grewt_tower_button_pressed"]
 [connection signal="pressed" from="GUI/TowerSelectionGUI/VBoxContainer/Control/HSplitContainer/VBoxContainer/KhanovianTowerButton" to="GUI/TowerSelectionGUI" method="_on_khanovian_tower_button_pressed"]
 [connection signal="pressed" from="GUI/TowerSelectionGUI/VBoxContainer/Control/HSplitContainer/VBoxContainer/TheOrderTowerButton" to="GUI/TowerSelectionGUI" method="_on_the_order_tower_button_pressed"]
