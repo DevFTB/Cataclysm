@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cv5uipbpl6ndc"]
+
+[ext_resource type="Script" path="res://Scenes/Tower.gd" id="1_80n8s"]
+[ext_resource type="Texture2D" uid="uid://bssaw6s7o81s8" path="res://Resources/Level/Towers/debug_tower_2.png" id="1_fvar2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k8n8h"]
+size = Vector2(61, 52)
+
+[node name="Tower" type="Area2D"]
+script = ExtResource("1_80n8s")
+tower_name = "My Tower 2"
+ui_image = ExtResource("1_fvar2")
+clan = 1
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_k8n8h")
+
+[node name="Sprite2d" type="Sprite2D" parent="."]
+texture = ExtResource("1_fvar2")
+script = "My Tower 2"
