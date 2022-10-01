@@ -29,6 +29,8 @@ func place_tower():
 	new_tower.connect("mouse_entered", on_Tower_mouse_entered)
 	new_tower.connect("mouse_exited", on_Tower_mouse_exited)
 	
+	get_node("/root/Game").auto_register_tower(new_tower)
+	
 	get_node("AudioStreamPlayer").play()
 
 func _on_placeable_area_can_place_changed(can_place):
