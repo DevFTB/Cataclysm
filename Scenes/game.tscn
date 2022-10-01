@@ -1,8 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://c016j0m0pf4si"]
+[gd_scene load_steps=15 format=3 uid="uid://c016j0m0pf4si"]
 
 [ext_resource type="Script" path="res://Scenes/Game.gd" id="1_f45j7"]
 [ext_resource type="Texture2D" uid="uid://l6bfomveh046" path="res://Resources/UI/cursor.png" id="2_4rqab"]
-[ext_resource type="PackedScene" uid="uid://ctpa5dqdysfu2" path="res://Scenes/notkhan.tscn" id="2_bt2wp"]
+[ext_resource type="PackedScene" uid="uid://byiwj8mxqy7th" path="res://Scenes/notkhan.tscn" id="2_bt2wp"]
 [ext_resource type="Script" path="res://Scenes/TowerPlacer.gd" id="2_yjuhy"]
 [ext_resource type="PackedScene" uid="uid://c745fxfrmpo5n" path="res://PackedScenes/Towers/Tower1.tscn" id="4_lj420"]
 [ext_resource type="AudioStream" uid="uid://dj6mhcpxf85lx" path="res://Resources/Level/Towers/tower_placement_sound.wav" id="6_xh4l0"]
@@ -14,12 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://ce56r78gtlak3" path="res://PackedScenes/TimelineTowerListItem.tscn" id="13_ra0qq"]
 [ext_resource type="Script" path="res://Scenes/AutoplayButton.gd" id="14_w72xv"]
 [ext_resource type="Script" path="res://Scenes/PausePlayButton.gd" id="15_24xnr"]
-[ext_resource type="Script" path="res://Scenes/Enemy.gd" id="16_73uux"]
-[ext_resource type="Texture2D" uid="uid://u3ai5csr2hwn" path="res://Resources/Level/Enemies/debug_enemy.png" id="16_b0vc3"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ag00i"]
-radius = 13.0
-height = 34.0
 
 [node name="Game" type="Node"]
 script = ExtResource("1_f45j7")
@@ -180,21 +174,6 @@ offset_right = 82.0
 offset_bottom = 66.0
 text = "Play"
 script = ExtResource("15_24xnr")
-
-[node name="Enemy" type="Area2D" parent="."]
-position = Vector2(559, 81)
-script = ExtResource("16_73uux")
-resistances = {
-0: 0.1
-}
-
-[node name="Sprite2d" type="Sprite2D" parent="Enemy"]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("16_b0vc3")
-
-[node name="CollisionShape2d" type="CollisionShape2D" parent="Enemy"]
-position = Vector2(1, 6)
-shape = SubResource("CapsuleShape2D_ag00i")
 
 [connection signal="paused" from="." to="GUI/TimelineGUI/HSplitContainer/VBoxContainer/PlayButton" method="_on_game_paused"]
 [connection signal="resumed" from="." to="GUI/TimelineGUI/HSplitContainer/VBoxContainer/PlayButton" method="_on_game_resumed"]

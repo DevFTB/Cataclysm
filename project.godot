@@ -8,6 +8,16 @@
 
 config_version=5
 
+_global_script_classes=[{
+"base": "PathFollow2D",
+"class": &"Enemy",
+"language": &"GDScript",
+"path": "res://Scenes/Enemy.gd"
+}]
+_global_script_class_icons={
+"Enemy": ""
+}
+
 [application]
 
 config/name="Cataclysm"
