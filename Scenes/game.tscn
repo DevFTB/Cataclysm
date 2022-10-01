@@ -18,10 +18,34 @@ texture = ExtResource("1_bx5vf")
 [node name="PlaceableArea" type="Node2D" parent="Map"]
 script = ExtResource("2_gh5ds")
 
+[node name="BottomLeftArea" type="Area2D" parent="Map/PlaceableArea"]
+
+[node name="CollisionShape2d" type="CollisionPolygon2D" parent="Map/PlaceableArea/BottomLeftArea"]
+position = Vector2(650, 5)
+polygon = PackedVector2Array(-59, 129, 53, 130, 58, 218, 55, 393, 109, 401, 115, 154, 326, 154, 332, 269, 397, 271, 399, 227, 478, 231, 487, 71, 487, 8, 264, 8, 26, 1, 22, 66, -56, 73)
+
+[node name="BottomRightArea" type="Area2D" parent="Map/PlaceableArea"]
+
+[node name="CollisionShape2d" type="CollisionPolygon2D" parent="Map/PlaceableArea/BottomRightArea"]
+position = Vector2(777, 190)
+polygon = PackedVector2Array(41, 255, 117, 258, 119, 183, 241, 187, 290, 233, 277, 443, 362, 448, 364, 204, 284, 191, 262, 136, 161, 123, 160, 21, 44, 14)
+
+[node name="BottomRightArea2" type="Area2D" parent="Map/PlaceableArea"]
+
+[node name="CollisionShape2d" type="CollisionPolygon2D" parent="Map/PlaceableArea/BottomRightArea2"]
+position = Vector2(760, 486)
+polygon = PackedVector2Array(43, 92, 239, 106, 257, -48, 189, -46, 183, 38, 43, 32)
+
 [node name="TopLeftArea" type="Area2D" parent="Map/PlaceableArea"]
 
 [node name="CollisionShape2d" type="CollisionPolygon2D" parent="Map/PlaceableArea/TopLeftArea"]
-polygon = PackedVector2Array(6, 106, 6, 237, 132, 237, 132, 289, 228, 289, 228, 435, 319, 435, 316, 175, 545, 175, 545, 71, 487, 71, 487, 8, 264, 8, 6, 8)
+polygon = PackedVector2Array(6, 106, 6, 237, 132, 237, 132, 289, 228, 289, 228, 435, 319, 435, 316, 175, 527, 174, 526, 72, 487, 71, 487, 8, 264, 8, 6, 8)
+
+[node name="TopRightArea" type="Area2D" parent="Map/PlaceableArea"]
+
+[node name="CollisionShape2d" type="CollisionPolygon2D" parent="Map/PlaceableArea/TopRightArea"]
+position = Vector2(4, 459)
+polygon = PackedVector2Array(15, -90, 17, 163, 319, 168, 482, 170, 529, 113, 596, 109, 604, 67, 488.62, 63.8873, 496, -247, 353, -247, 347, 21, 169, 17, 172, -112)
 
 [node name="Towers" type="Node2D" parent="Map"]
 
