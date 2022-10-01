@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://0fro8ru7emgc"]
+[gd_scene load_steps=4 format=3]
 
 [ext_resource type="Texture2D" uid="uid://c3bipgu5y3wsy" path="res://Resources/Level/Enemies/hb_bg.png" id="1_vfjik"]
-[ext_resource type="Script" path="res://Scenes/HPBar.gd" id="2_43eqn"]
+[ext_resource type="Script" path="res://Scripts/HPBar.gd" id="2_43eqn"]
 [ext_resource type="Texture2D" uid="uid://bt1by7wx3htv8" path="res://Resources/Level/Enemies/hb_fill.png" id="2_jrpke"]
 
 [node name="TextureRect" type="TextureRect"]

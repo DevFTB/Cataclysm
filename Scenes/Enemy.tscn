@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://b5uwh80h0jpqm"]
 
-[ext_resource type="Script" path="res://Scenes/Enemy.gd" id="1_vbl1w"]
+[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_uwu77"]
 [ext_resource type="Texture2D" uid="uid://u3ai5csr2hwn" path="res://Resources/Level/Enemies/debug_enemy.png" id="2_o7kpr"]
-[ext_resource type="PackedScene" uid="uid://0fro8ru7emgc" path="res://Scenes/HPBar.tscn" id="3_xbeyu"]
+[ext_resource type="PackedScene" path="res://Scenes/HPBar.tscn" id="3_xbeyu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ag00i"]
 radius = 13.0
@@ -11,7 +11,7 @@ height = 34.0
 [node name="Enemy" type="PathFollow2D"]
 rotates = false
 loop = false
-script = ExtResource("1_vbl1w")
+script = ExtResource("1_uwu77")
 max_health = null
 base_move_speed = 20
 enemy_name = null
