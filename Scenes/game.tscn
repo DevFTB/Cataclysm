@@ -1,13 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://beancxtotpcf4"]
+[gd_scene load_steps=10 format=3 uid="uid://c3i8o4wqr5qqm"]
 
 [ext_resource type="Texture2D" uid="uid://cumlq5u7fe28r" path="res://Resources/Level/map1.png" id="1_bx5vf"]
 [ext_resource type="Texture2D" uid="uid://l6bfomveh046" path="res://Resources/UI/cursor.png" id="2_4rqab"]
 [ext_resource type="Script" path="res://Scenes/PlaceableArea.gd" id="2_gh5ds"]
 [ext_resource type="Script" path="res://Scenes/TowerPlacer.gd" id="2_yjuhy"]
-[ext_resource type="PackedScene" uid="uid://b3jh030uaw7tg" path="res://PackedScenes/Tower.tscn" id="4_lj420"]
+[ext_resource type="PackedScene" uid="uid://b4ebwynglgle6" path="res://PackedScenes/Towers/Tower1.tscn" id="4_lj420"]
 [ext_resource type="AudioStream" uid="uid://dj6mhcpxf85lx" path="res://Resources/Level/Towers/tower_placement_sound.wav" id="6_xh4l0"]
+[ext_resource type="Script" path="res://Scenes/TowerSelector.gd" id="7_od436"]
+[ext_resource type="PackedScene" uid="uid://df0ecihsf08u2" path="res://PackedScenes/Towers/TowerButton.tscn" id="8_7bdlq"]
+[ext_resource type="PackedScene" uid="uid://i1182iwtil2o" path="res://PackedScenes/Towers/Tower2.tscn" id="8_mnq4t"]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node"]
 
 [node name="Map" type="Node2D" parent="."]
 
@@ -61,5 +64,79 @@ texture = ExtResource("2_4rqab")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TowerPlacer"]
 stream = ExtResource("6_xh4l0")
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="TowerSelectionGUI" type="Control" parent="GUI"]
+clip_contents = true
+custom_minimum_size = Vector2i(300, 150)
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+offset_right = 478.0
+grow_vertical = 0
+script = ExtResource("7_od436")
+button_parent = NodePath("HSplitContainer/GridContainer")
+button_scene = ExtResource("8_7bdlq")
+towers = [ExtResource("4_lj420"), ExtResource("8_mnq4t")]
+
+[node name="ColorRect" type="ColorRect" parent="GUI/TowerSelectionGUI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.196078, 0.196078, 0.435294, 1)
+
+[node name="HSplitContainer" type="HSplitContainer" parent="GUI/TowerSelectionGUI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/TowerSelectionGUI/HSplitContainer"]
+offset_right = 91.0
+offset_bottom = 150.0
+grow_vertical = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="GrewtTowerButton" type="Button" parent="GUI/TowerSelectionGUI/HSplitContainer/VBoxContainer"]
+offset_top = 24.0
+offset_right = 91.0
+offset_bottom = 55.0
+text = "Grewt"
+
+[node name="KhanovianTowerButton" type="Button" parent="GUI/TowerSelectionGUI/HSplitContainer/VBoxContainer"]
+offset_top = 59.0
+offset_right = 91.0
+offset_bottom = 90.0
+text = "Kahnovian"
+
+[node name="TheOrderTowerButton" type="Button" parent="GUI/TowerSelectionGUI/HSplitContainer/VBoxContainer"]
+offset_top = 94.0
+offset_right = 91.0
+offset_bottom = 125.0
+text = "The Order"
+
+[node name="GridContainer" type="GridContainer" parent="GUI/TowerSelectionGUI/HSplitContainer"]
+clip_contents = true
+offset_left = 290.0
+offset_top = 75.0
+offset_right = 290.0
+offset_bottom = 75.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 2
 
 [connection signal="can_place_changed" from="Map/PlaceableArea" to="TowerPlacer" method="_on_placeable_area_can_place_changed"]

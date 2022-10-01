@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://i1182iwtil2o"]
+
+[ext_resource type="Script" path="res://Scenes/Tower.gd" id="1_80n8s"]
+[ext_resource type="Texture2D" uid="uid://bssaw6s7o81s8" path="res://Resources/Level/Towers/debug_tower_2.png" id="1_fvar2"]
+
+[node name="Tower" type="Node2D"]
+script = ExtResource("1_80n8s")
+tower_name = "My Tower 2"
+ui_image = ExtResource("1_fvar2")
+
+[node name="Sprite2d" type="Sprite2D" parent="."]
+texture = ExtResource("1_fvar2")
+script = "My Tower 2"
