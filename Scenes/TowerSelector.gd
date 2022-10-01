@@ -74,3 +74,8 @@ func _on_khanovian_tower_button_pressed():
 func _on_the_order_tower_button_pressed():
 	switch_clan_view(Clan.THE_ORDER)
 	pass # Replace with function body.
+
+
+func _on_minimise_button_toggled(button_pressed):
+	$VBoxContainer/Control.visible = button_pressed
+	pass # Replace with function body.

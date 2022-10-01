@@ -1,8 +1,8 @@
 extends Control
 
 @export var timeline_list_item : PackedScene
-@onready var item_parent = $HSplitContainer/ScrollContainer/ListItemParent
-
+@export var item_parent_path : NodePath
+@onready var item_parent = get_node(item_parent_path)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -37,3 +37,9 @@ func regenerate_list():
 		else:
 			item.init_empty()
 		item_parent.add_child(item)
+
+
+func _on_minimise_button_toggled(button_pressed):
+	$VSplitContainer/Control.visible = button_pressed
+
+	pass # Replace with function body.
