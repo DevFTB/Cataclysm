@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://byqnq6r7dckit"]
+
+[ext_resource type="Texture2D" uid="uid://cumlq5u7fe28r" path="res://Resources/Level/map1.png" id="1_g1hyj"]
+[ext_resource type="Script" path="res://Scenes/PlaceableArea.gd" id="2_41fu2"]
+
+[node name="Map" type="Node2D"]
+
+[node name="MapSprite" type="Sprite2D" parent="."]
+position = Vector2(575.5, 323.5)
+scale = Vector2(0.719375, 0.540833)
+texture = ExtResource("1_g1hyj")
+
+[node name="PlaceableArea" type="Node2D" parent="."]
+script = ExtResource("2_41fu2")
+
+[node name="BottomLeftArea" type="Area2D" parent="PlaceableArea"]
+
+[node name="CollisionShape2d" type="CollisionPolygon2D" parent="PlaceableArea/BottomLeftArea"]
+position = Vector2(650, 5)
+polygon = PackedVector2Array(-59, 129, 53, 130, 58, 218, 55, 393, 109, 401, 115, 154, 326, 154, 332, 269, 397, 271, 399, 227, 478, 231, 487, 71, 487, 8, 264, 8, 26, 1, 22, 66, -56, 73)
+
+[node name="BottomRightArea" type="Area2D" parent="PlaceableArea"]
+
+[node name="CollisionShape2d" type="CollisionPolygon2D" parent="PlaceableArea/BottomRightArea"]
+position = Vector2(777, 190)
+polygon = PackedVector2Array(41, 255, 117, 258, 119, 183, 241, 187, 290, 233, 277, 443, 362, 448, 364, 204, 284, 191, 262, 136, 161, 123, 160, 21, 44, 14)
+
+[node name="BottomRightArea2" type="Area2D" parent="PlaceableArea"]
+
+[node name="CollisionShape2d" type="CollisionPolygon2D" parent="PlaceableArea/BottomRightArea2"]
+position = Vector2(760, 486)
+polygon = PackedVector2Array(43, 92, 239, 106, 257, -48, 189, -46, 183, 38, 43, 32)
+
+[node name="TopLeftArea" type="Area2D" parent="PlaceableArea"]
+
+[node name="CollisionShape2d" type="CollisionPolygon2D" parent="PlaceableArea/TopLeftArea"]
+polygon = PackedVector2Array(6, 106, 6, 237, 132, 237, 132, 289, 228, 289, 228, 435, 319, 435, 316, 175, 527, 174, 526, 72, 487, 71, 487, 8, 264, 8, 6, 8)
+
+[node name="TopRightArea" type="Area2D" parent="PlaceableArea"]
+
+[node name="CollisionShape2d" type="CollisionPolygon2D" parent="PlaceableArea/TopRightArea"]
+position = Vector2(4, 459)
+polygon = PackedVector2Array(15, -90, 17, 163, 319, 168, 482, 170, 529, 113, 596, 109, 604, 67, 488.62, 63.8873, 496, -247, 353, -247, 347, 21, 169, 17, 172, -112)
+
+[node name="Towers" type="Node2D" parent="."]
