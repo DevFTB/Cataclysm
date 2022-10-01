@@ -2,11 +2,17 @@ extends Node
 
 @export var ticks_per_turn = 10
 
+signal paused
+signal resumed
+
+var game_over = false
+var autoplay = false
+
+var game_paused = true
+
 var tick = 0
-var wave = 0
-
+var turn = 0
 var time = 0
-
 var tick_registration : Dictionary = {}
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,6 +20,8 @@ func _ready():
 		tick_registration[i] = null
 		
 	$GUI/TimelineGUI.regenerate_list()
+	
+	new_turn()
 	pass # Replace with function body.
 
 
@@ -21,11 +29,32 @@ func _ready():
 func _process(delta):
 	time += delta
 	
-	# 1 second clock
 	if time > 1:
-		do_tick(tick % 10)
-		tick += 1
 		time = 0
+		
+		if not game_paused and (tick >= 0 and tick < ticks_per_turn):
+			do_tick(tick)
+			tick += 1
+				
+		if not game_paused and tick >= ticks_per_turn:
+			if autoplay:
+				new_turn()
+			else:
+				emit_signal("paused")
+				game_paused = true
+		
+	if game_paused:
+		pass
+
+	pass
+	
+func new_turn():
+	tick = 0
+	turn += 1
+	
+	game_paused = false
+	emit_signal("resumed")
+	print("new turn")
 	pass
 	
 func do_tick(tick): 
@@ -63,3 +92,14 @@ func swap_tower_to(src_tick, dest_tick):
 func register_tower(tick, tower):
 	tick_registration[tick] = tower
 	$GUI/TimelineGUI.regenerate_list()
+
+
+func _on_pause_play_button_pressed():
+	if game_paused:
+		new_turn()
+	pass # Replace with function body.
+
+
+func _on_autoplay_button_toggled(button_pressed):
+	autoplay = button_pressed
+	pass # Replace with function body.
