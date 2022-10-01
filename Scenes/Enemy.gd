@@ -21,6 +21,8 @@ const reactions : Array[Array] = [[1,2,0,3,0,4,0,0],[2,1,0,2,2,0,5,0],[0,0,1,6,0
 
 @onready var health = max_health
 
+@onready var game = get_node("/root/Game")
+
 var rng = RandomNumberGenerator.new()
 var applied_elements : Array[Element] = []
 
@@ -38,7 +40,9 @@ func _ready():
 var time = 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	progress += base_move_speed * delta
+	if not game.game_paused:
+		progress += base_move_speed * delta
+		
 	pass
 
 func apply_resistances(damage: int, element: Element) -> int:
