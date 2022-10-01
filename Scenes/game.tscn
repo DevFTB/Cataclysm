@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://c016j0m0pf4si"]
+[gd_scene load_steps=16 format=3 uid="uid://c016j0m0pf4si"]
 
 [ext_resource type="Texture2D" uid="uid://cumlq5u7fe28r" path="res://Resources/Level/map1.png" id="1_bx5vf"]
+[ext_resource type="Script" path="res://Scenes/Game.gd" id="1_f45j7"]
 [ext_resource type="Texture2D" uid="uid://l6bfomveh046" path="res://Resources/UI/cursor.png" id="2_4rqab"]
 [ext_resource type="Script" path="res://Scenes/PlaceableArea.gd" id="2_gh5ds"]
 [ext_resource type="Script" path="res://Scenes/TowerPlacer.gd" id="2_yjuhy"]
@@ -9,9 +10,14 @@
 [ext_resource type="Script" path="res://Scenes/TowerSelector.gd" id="7_od436"]
 [ext_resource type="PackedScene" uid="uid://df0ecihsf08u2" path="res://PackedScenes/TowerButton.tscn" id="8_7bdlq"]
 [ext_resource type="PackedScene" uid="uid://cv5uipbpl6ndc" path="res://PackedScenes/Towers/Tower2.tscn" id="8_mnq4t"]
-[ext_resource type="PackedScene" uid="uid://8wga028twtb0" path="res://PackedScenes/Towers/GrewtEarthBasic.tscn" id="10_m0pln"]
+[ext_resource type="PackedScene" uid="uid://c075sftepr8bf" path="res://PackedScenes/Towers/GrewtEarthBasic.tscn" id="10_m0pln"]
+[ext_resource type="Script" path="res://Scenes/TimelineGUI.gd" id="12_uheij"]
+[ext_resource type="PackedScene" uid="uid://ce56r78gtlak3" path="res://PackedScenes/TimelineTowerListItem.tscn" id="13_ra0qq"]
+[ext_resource type="Script" path="res://Scenes/AutoplayButton.gd" id="14_w72xv"]
+[ext_resource type="Script" path="res://Scenes/PausePlayButton.gd" id="15_24xnr"]
 
 [node name="Game" type="Node"]
+script = ExtResource("1_f45j7")
 
 [node name="Map" type="Node2D" parent="."]
 
@@ -76,13 +82,13 @@ mouse_filter = 1
 
 [node name="TowerSelectionGUI" type="Control" parent="GUI"]
 clip_contents = true
-custom_minimum_size = Vector2i(300, 150)
+custom_minimum_size = Vector2i(300, 130)
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -150.0
-offset_right = 478.0
+offset_top = -130.0
+offset_right = 459.0
 grow_vertical = 0
 script = ExtResource("7_od436")
 button_parent = NodePath("HSplitContainer/GridContainer")
@@ -109,44 +115,112 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="GUI/TowerSelectionGUI/HSplitContainer"]
 layout_mode = 2
 offset_right = 91.0
-offset_bottom = 150.0
+offset_bottom = 130.0
 grow_vertical = 2
 size_flags_horizontal = 4
 alignment = 1
 
 [node name="GrewtTowerButton" type="Button" parent="GUI/TowerSelectionGUI/HSplitContainer/VBoxContainer"]
 layout_mode = 2
-offset_top = 24.0
+offset_top = 14.0
 offset_right = 91.0
-offset_bottom = 55.0
+offset_bottom = 45.0
 text = "Grewt"
 
 [node name="KhanovianTowerButton" type="Button" parent="GUI/TowerSelectionGUI/HSplitContainer/VBoxContainer"]
 layout_mode = 2
-offset_top = 59.0
+offset_top = 49.0
 offset_right = 91.0
-offset_bottom = 90.0
+offset_bottom = 80.0
 text = "Kahnovian"
 
 [node name="TheOrderTowerButton" type="Button" parent="GUI/TowerSelectionGUI/HSplitContainer/VBoxContainer"]
 layout_mode = 2
-offset_top = 94.0
+offset_top = 84.0
 offset_right = 91.0
-offset_bottom = 125.0
+offset_bottom = 115.0
 text = "The Order"
 
 [node name="GridContainer" type="GridContainer" parent="GUI/TowerSelectionGUI/HSplitContainer"]
 clip_contents = true
 layout_mode = 2
-offset_left = 290.0
-offset_top = 75.0
-offset_right = 290.0
-offset_bottom = 75.0
+offset_left = 281.0
+offset_top = 65.0
+offset_right = 281.0
+offset_bottom = 65.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 columns = 2
 
+[node name="TimelineGUI" type="Control" parent="GUI"]
+custom_minimum_size = Vector2i(100, 100)
+layout_mode = 1
+anchors_preset = 0
+offset_right = 333.0
+offset_bottom = 500.0
+script = ExtResource("12_uheij")
+timeline_list_item = ExtResource("13_ra0qq")
+
+[node name="Panel" type="Panel" parent="GUI/TimelineGUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="GUI/TimelineGUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = 400
+
+[node name="ScrollContainer" type="ScrollContainer" parent="GUI/TimelineGUI/HSplitContainer"]
+layout_mode = 2
+offset_right = 239.0
+offset_bottom = 500.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ListItemParent" type="VBoxContainer" parent="GUI/TimelineGUI/HSplitContainer/ScrollContainer"]
+layout_mode = 2
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/TimelineGUI/HSplitContainer"]
+layout_mode = 2
+offset_left = 251.0
+offset_right = 333.0
+offset_bottom = 500.0
+
+[node name="AutoplayButton" type="Button" parent="GUI/TimelineGUI/HSplitContainer/VBoxContainer"]
+layout_mode = 2
+offset_right = 82.0
+offset_bottom = 31.0
+toggle_mode = true
+text = "Auto Play"
+script = ExtResource("14_w72xv")
+
+[node name="PlayButton" type="Button" parent="GUI/TimelineGUI/HSplitContainer/VBoxContainer"]
+layout_mode = 2
+offset_top = 35.0
+offset_right = 82.0
+offset_bottom = 66.0
+text = "Play"
+script = ExtResource("15_24xnr")
+
+[connection signal="paused" from="." to="GUI/TimelineGUI/HSplitContainer/VBoxContainer/PlayButton" method="_on_game_paused"]
+[connection signal="resumed" from="." to="GUI/TimelineGUI/HSplitContainer/VBoxContainer/PlayButton" method="_on_game_resumed"]
 [connection signal="can_place_changed" from="Map/PlaceableArea" to="TowerPlacer" method="_on_placeable_area_can_place_changed"]
 [connection signal="pressed" from="GUI/TowerSelectionGUI/HSplitContainer/VBoxContainer/GrewtTowerButton" to="GUI/TowerSelectionGUI" method="_on_grewt_tower_button_pressed"]
 [connection signal="pressed" from="GUI/TowerSelectionGUI/HSplitContainer/VBoxContainer/KhanovianTowerButton" to="GUI/TowerSelectionGUI" method="_on_khanovian_tower_button_pressed"]
 [connection signal="pressed" from="GUI/TowerSelectionGUI/HSplitContainer/VBoxContainer/TheOrderTowerButton" to="GUI/TowerSelectionGUI" method="_on_the_order_tower_button_pressed"]
+[connection signal="toggled" from="GUI/TimelineGUI/HSplitContainer/VBoxContainer/AutoplayButton" to="." method="_on_autoplay_button_toggled"]
+[connection signal="toggled" from="GUI/TimelineGUI/HSplitContainer/VBoxContainer/AutoplayButton" to="GUI/TimelineGUI/HSplitContainer/VBoxContainer/AutoplayButton" method="_on_autoplay_button_toggled"]
+[connection signal="pressed" from="GUI/TimelineGUI/HSplitContainer/VBoxContainer/PlayButton" to="." method="_on_pause_play_button_pressed"]

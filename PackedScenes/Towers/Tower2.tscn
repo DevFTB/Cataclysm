@@ -1,10 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://cv5uipbpl6ndc"]
+[gd_scene load_steps=7 format=3 uid="uid://cv5uipbpl6ndc"]
 
 [ext_resource type="Script" path="res://Scenes/Tower.gd" id="1_80n8s"]
 [ext_resource type="Texture2D" uid="uid://bssaw6s7o81s8" path="res://Resources/Level/Towers/debug_tower_2.png" id="1_fvar2"]
+[ext_resource type="Script" path="res://PackedScenes/Towers/HighlightableSprite2d.gd" id="3_6whyf"]
+[ext_resource type="Shader" path="res://Shaders/OutlineShader.gdshader" id="4_oypkh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k8n8h"]
 size = Vector2(61, 52)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wcl3o"]
+shader = ExtResource("4_oypkh")
+shader_parameter/line_color = Vector4(0, 12, 0, 0)
+shader_parameter/line_thickness = 1.0
 
 [node name="Tower" type="Area2D"]
 script = ExtResource("1_80n8s")
@@ -18,4 +25,5 @@ shape = SubResource("RectangleShape2D_k8n8h")
 
 [node name="Sprite2d" type="Sprite2D" parent="."]
 texture = ExtResource("1_fvar2")
-script = "My Tower 2"
+script = ExtResource("3_6whyf")
+highlight_shader = SubResource("ShaderMaterial_wcl3o")
