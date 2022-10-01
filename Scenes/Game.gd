@@ -12,6 +12,8 @@ var tick_registration : Dictionary = {}
 func _ready():
 	for i in ticks_per_turn:
 		tick_registration[i] = null
+		
+	$GUI/TimelineGUI.regenerate_list()
 	pass # Replace with function body.
 
 
@@ -49,6 +51,15 @@ func auto_register_tower(tower):
 		if tick_registration[tick] == null:
 			tick_registration[tick] = tower
 			break
+	$GUI/TimelineGUI.regenerate_list()
+	
+func swap_tower_to(src_tick, dest_tick):
+	var old = tick_registration[dest_tick]
+	var new = tick_registration[src_tick]
+	tick_registration[dest_tick] = new
+	tick_registration[src_tick] = old
+	$GUI/TimelineGUI.regenerate_list()
 	
 func register_tower(tick, tower):
 	tick_registration[tick] = tower
+	$GUI/TimelineGUI.regenerate_list()
