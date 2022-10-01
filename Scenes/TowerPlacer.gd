@@ -1,6 +1,7 @@
 extends Node2D
 
-
+@export var tower : PackedScene
+@export var tower_parent : NodePath
 
 var can_place : bool = false
 # Called when the node enters the scene tree for the first time.
@@ -16,7 +17,12 @@ func _process(delta):
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.is_action_pressed("target"):
-			print(can_place)
+			if can_place:
+				print(can_place)
+				var new_tower = tower.instantiate() as Node2D
+				get_node(tower_parent).add_child(new_tower)
+				
+				new_tower.position = get_viewport().get_mouse_position()
 
 
 func _on_placeable_area_can_place_changed(can_place):
