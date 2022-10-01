@@ -22,7 +22,7 @@ func regenerate_list():
 		var item_at_tick = tick_registration[tick]
 		
 		if item_at_tick != null:
-			item.set_details(item_at_tick.tower_name, item_at_tick.ui_image, tick)
+			item.set_details(item_at_tick, tick)
 		else:
 			item.init_empty()
 		$ScrollContainer/ListItemParent.add_child(item)
