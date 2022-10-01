@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c016j0m0pf4si"]
+[gd_scene load_steps=19 format=3 uid="uid://c016j0m0pf4si"]
 
 [ext_resource type="Texture2D" uid="uid://cumlq5u7fe28r" path="res://Resources/Level/map1.png" id="1_bx5vf"]
 [ext_resource type="Script" path="res://Scenes/Game.gd" id="1_f45j7"]
@@ -15,6 +15,12 @@
 [ext_resource type="PackedScene" uid="uid://ce56r78gtlak3" path="res://PackedScenes/TimelineTowerListItem.tscn" id="13_ra0qq"]
 [ext_resource type="Script" path="res://Scenes/AutoplayButton.gd" id="14_w72xv"]
 [ext_resource type="Script" path="res://Scenes/PausePlayButton.gd" id="15_24xnr"]
+[ext_resource type="Script" path="res://Scenes/Enemy.gd" id="16_73uux"]
+[ext_resource type="Texture2D" uid="uid://u3ai5csr2hwn" path="res://Resources/Level/Enemies/debug_enemy.png" id="16_b0vc3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ag00i"]
+radius = 13.0
+height = 34.0
 
 [node name="Game" type="Node"]
 script = ExtResource("1_f45j7")
@@ -215,9 +221,23 @@ offset_bottom = 66.0
 text = "Play"
 script = ExtResource("15_24xnr")
 
+[node name="Enemy" type="Area2D" parent="."]
+position = Vector2(559, 81)
+script = ExtResource("16_73uux")
+resistances = {
+0: 0.1
+}
+
+[node name="Sprite2d" type="Sprite2D" parent="Enemy"]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("16_b0vc3")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Enemy"]
+position = Vector2(1, 6)
+shape = SubResource("CapsuleShape2D_ag00i")
+
 [connection signal="paused" from="." to="GUI/TimelineGUI/HSplitContainer/VBoxContainer/PlayButton" method="_on_game_paused"]
 [connection signal="resumed" from="." to="GUI/TimelineGUI/HSplitContainer/VBoxContainer/PlayButton" method="_on_game_resumed"]
-[connection signal="can_place_changed" from="Map/PlaceableArea" to="TowerPlacer" method="_on_placeable_area_can_place_changed"]
 [connection signal="pressed" from="GUI/TowerSelectionGUI/HSplitContainer/VBoxContainer/GrewtTowerButton" to="GUI/TowerSelectionGUI" method="_on_grewt_tower_button_pressed"]
 [connection signal="pressed" from="GUI/TowerSelectionGUI/HSplitContainer/VBoxContainer/KhanovianTowerButton" to="GUI/TowerSelectionGUI" method="_on_khanovian_tower_button_pressed"]
 [connection signal="pressed" from="GUI/TowerSelectionGUI/HSplitContainer/VBoxContainer/TheOrderTowerButton" to="GUI/TowerSelectionGUI" method="_on_the_order_tower_button_pressed"]

@@ -11,6 +11,7 @@ var towers_active = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	get_node("/root/Game/Map/PlaceableArea").connect("can_place_changed", _on_placeable_area_can_place_changed)
 	pass # Replace with function body.
 
 
