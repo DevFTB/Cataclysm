@@ -1,14 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://c3i8o4wqr5qqm"]
+[gd_scene load_steps=11 format=3 uid="uid://c016j0m0pf4si"]
 
 [ext_resource type="Texture2D" uid="uid://cumlq5u7fe28r" path="res://Resources/Level/map1.png" id="1_bx5vf"]
 [ext_resource type="Texture2D" uid="uid://l6bfomveh046" path="res://Resources/UI/cursor.png" id="2_4rqab"]
 [ext_resource type="Script" path="res://Scenes/PlaceableArea.gd" id="2_gh5ds"]
 [ext_resource type="Script" path="res://Scenes/TowerPlacer.gd" id="2_yjuhy"]
-[ext_resource type="PackedScene" uid="uid://b4ebwynglgle6" path="res://PackedScenes/Towers/Tower1.tscn" id="4_lj420"]
+[ext_resource type="PackedScene" uid="uid://c745fxfrmpo5n" path="res://PackedScenes/Towers/Tower1.tscn" id="4_lj420"]
 [ext_resource type="AudioStream" uid="uid://dj6mhcpxf85lx" path="res://Resources/Level/Towers/tower_placement_sound.wav" id="6_xh4l0"]
 [ext_resource type="Script" path="res://Scenes/TowerSelector.gd" id="7_od436"]
-[ext_resource type="PackedScene" uid="uid://df0ecihsf08u2" path="res://PackedScenes/Towers/TowerButton.tscn" id="8_7bdlq"]
-[ext_resource type="PackedScene" uid="uid://i1182iwtil2o" path="res://PackedScenes/Towers/Tower2.tscn" id="8_mnq4t"]
+[ext_resource type="PackedScene" uid="uid://df0ecihsf08u2" path="res://PackedScenes/TowerButton.tscn" id="8_7bdlq"]
+[ext_resource type="PackedScene" uid="uid://cv5uipbpl6ndc" path="res://PackedScenes/Towers/Tower2.tscn" id="8_mnq4t"]
+[ext_resource type="PackedScene" uid="uid://8wga028twtb0" path="res://PackedScenes/Towers/GrewtEarthBasic.tscn" id="10_m0pln"]
 
 [node name="Game" type="Node"]
 
@@ -55,7 +56,6 @@ polygon = PackedVector2Array(15, -90, 17, 163, 319, 168, 482, 170, 529, 113, 596
 
 [node name="TowerPlacer" type="Node2D" parent="."]
 script = ExtResource("2_yjuhy")
-tower = ExtResource("4_lj420")
 tower_parent = NodePath("../Map/Towers")
 
 [node name="Sprite2d" type="Sprite2D" parent="TowerPlacer"]
@@ -87,7 +87,7 @@ grow_vertical = 0
 script = ExtResource("7_od436")
 button_parent = NodePath("HSplitContainer/GridContainer")
 button_scene = ExtResource("8_7bdlq")
-towers = [ExtResource("4_lj420"), ExtResource("8_mnq4t")]
+towers = [ExtResource("10_m0pln"), ExtResource("4_lj420"), ExtResource("8_mnq4t")]
 
 [node name="ColorRect" type="ColorRect" parent="GUI/TowerSelectionGUI"]
 layout_mode = 1
