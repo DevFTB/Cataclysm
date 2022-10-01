@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c28f5q841d1pl"]
+[gd_scene load_steps=7 format=3 uid="uid://c28f5q841d1pl"]
 
+[ext_resource type="Script" path="res://Scenes/MainMenu.gd" id="1_7lcni"]
 [ext_resource type="Texture2D" uid="uid://ceelemggrkoos" path="res://Resources/UI/Menus/cataclysm_bg.png" id="1_cod3i"]
 [ext_resource type="Texture2D" uid="uid://blsb7jl7eq8cf" path="res://Resources/UI/Menus/cataclysm_title.png" id="1_vuw4o"]
 [ext_resource type="Texture2D" uid="uid://crhnp1xb53y3u" path="res://Resources/UI/Menus/cataclysm_play.png" id="2_63154"]
+[ext_resource type="PackedScene" uid="uid://dgurjghfxgrdv" path="res://Scenes/game.tscn" id="2_sri2x"]
 [ext_resource type="Texture2D" uid="uid://b7btkqpa46uq0" path="res://Resources/UI/Menus/cataclysm_play_pressed.png" id="3_bh26d"]
 
 [node name="MainMenu" type="Control"]
@@ -10,6 +12,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource("1_7lcni")
+game_scene = ExtResource("2_sri2x")
 
 [node name="ColorRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -48,7 +52,7 @@ offset_bottom = -76.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="TextureButton" type="TextureButton" parent="VBoxContainer"]
+[node name="PlayButton" type="TextureButton" parent="VBoxContainer"]
 custom_minimum_size = Vector2i(128, 64)
 layout_mode = 2
 offset_right = 308.0
@@ -56,3 +60,5 @@ offset_bottom = 129.0
 texture_normal = ExtResource("2_63154")
 texture_pressed = ExtResource("3_bh26d")
 stretch_mode = 3
+
+[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
