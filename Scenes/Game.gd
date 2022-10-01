@@ -34,7 +34,7 @@ func do_tick(tick):
 	
 	# Activate Towers / Towers Fire
 	print(tick_registration[tick])
-	
+	$GUI/TimelineGUI.set_highlight_for_tick(tick)
 	# Deal base damage and kill enemies
 	
 	# Apply 1U of element to enemies

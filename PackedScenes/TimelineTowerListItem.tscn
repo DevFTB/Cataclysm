@@ -2,50 +2,70 @@
 
 [ext_resource type="Script" path="res://Scenes/TimelineTowerListItem.gd" id="1_d8hgj"]
 
-[node name="TimelineTowerListItem" type="HBoxContainer"]
-offset_right = 299.0
-offset_bottom = 66.0
-alignment = 1
+[node name="TimelineTowerListItem" type="Control"]
+custom_minimum_size = Vector2i(300, 66)
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_d8hgj")
 
-[node name="TickLabel" type="Label" parent="."]
-offset_left = 64.0
+[node name="TurnColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.337255, 0.243137, 0.113725, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 66.0
+alignment = 1
+
+[node name="TickLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+offset_left = 65.0
 offset_top = 20.0
-offset_right = 69.0
+offset_right = 70.0
 offset_bottom = 46.0
 text = " "
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
 custom_minimum_size = Vector2i(64, 0)
-offset_left = 73.0
-offset_right = 137.0
+layout_mode = 2
+offset_left = 74.0
+offset_right = 138.0
 offset_bottom = 66.0
 
-[node name="TowerNameLabel" type="Label" parent="."]
-offset_left = 141.0
+[node name="TowerNameLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+offset_left = 142.0
 offset_top = 20.0
-offset_right = 234.0
+offset_right = 235.0
 offset_bottom = 46.0
 text = "Unallocated"
 
-[node name="UpDownButtons" type="VBoxContainer" parent="."]
+[node name="UpDownButtons" type="VBoxContainer" parent="HBoxContainer"]
 visible = false
+layout_mode = 2
 offset_left = 191.0
 offset_right = 291.0
 offset_bottom = 66.0
 
-[node name="UpButton" type="Button" parent="UpDownButtons"]
+[node name="UpButton" type="Button" parent="HBoxContainer/UpDownButtons"]
+layout_mode = 2
 offset_right = 100.0
 offset_bottom = 31.0
 text = "Move Up"
 
-[node name="DownButton" type="Button" parent="UpDownButtons"]
+[node name="DownButton" type="Button" parent="HBoxContainer/UpDownButtons"]
+layout_mode = 2
 offset_top = 35.0
 offset_right = 100.0
 offset_bottom = 66.0
 text = "Move Down"
 
-[connection signal="mouse_entered" from="." to="." method="_on_timeline_tower_list_item_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_timeline_tower_list_item_mouse_exited"]
-[connection signal="pressed" from="UpDownButtons/UpButton" to="." method="_on_up_button_pressed"]
-[connection signal="pressed" from="UpDownButtons/DownButton" to="." method="_on_down_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/UpDownButtons/UpButton" to="." method="_on_up_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/UpDownButtons/DownButton" to="." method="_on_down_button_pressed"]

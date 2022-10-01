@@ -1,4 +1,4 @@
-extends HBoxContainer
+extends Control
 
 var tick = -1
 var tower
@@ -6,33 +6,35 @@ var tower
 func _ready():
 	pass # Replace with function body.
 
-
+func set_highlight(value):
+	$TurnColorRect.visible = value
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 	
 func init_empty():
-	$TextureRect.texture = null
-	$TickLabel.text = " "
 	
-	$UpDownButtons.visible = false
+	$HBoxContainer/TextureRect.texture = null
+	$HBoxContainer/TickLabel.text = " "
+	
+	$HBoxContainer/UpDownButtons.visible = false
 
 func set_details(tower, tick):
 	self.tower = tower
-	$TowerNameLabel.text = tower.tower_name
+	$HBoxContainer/TowerNameLabel.text = tower.tower_name
 	
-	$TextureRect.texture = tower.ui_image
+	$HBoxContainer/TextureRect.texture = tower.ui_image
 	
 	self.tick = tick
-	$TickLabel.text = str(tick + 1)
+	$HBoxContainer/TickLabel.text = str(tick + 1)
 	
-	$UpDownButtons.visible = true
+	$HBoxContainer/UpDownButtons.visible = true
 	
 	if tick == 0:
-		$UpDownButtons/UpButton.disabled = true
+		$HBoxContainer/UpDownButtons/UpButton.disabled = true
 		
 	if tick == 9:
-		$UpDownButtons/DownButton.disabled = true
+		$HBoxContainer/UpDownButtons/DownButton.disabled = true
 
 
 func _on_up_button_pressed():
