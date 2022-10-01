@@ -20,6 +20,8 @@ func _ready():
 		tick_registration[i] = null
 		
 	$GUI/TimelineGUI.regenerate_list()
+	
+
 	pass # Replace with function body.
 
 
