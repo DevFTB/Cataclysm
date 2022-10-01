@@ -3,6 +3,8 @@ extends Button
 @export var tower: PackedScene
 
 var tower_selector : Control
+var clan : int
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	tower_selector = get_node("/root/Game/GUI/TowerSelectionGUI")

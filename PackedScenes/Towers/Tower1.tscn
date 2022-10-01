@@ -7,6 +7,7 @@
 script = ExtResource("1_a8hxo")
 tower_name = "My Tower 1"
 ui_image = ExtResource("1_28xor")
+clan = 0
 
 [node name="Sprite2d" type="Sprite2D" parent="."]
 texture = ExtResource("1_28xor")
