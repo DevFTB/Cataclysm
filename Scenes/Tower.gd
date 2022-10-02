@@ -110,6 +110,21 @@ func target_first():
 		return null
 
 func target_strong() -> void:
+	var enemy_areas_in_range = $TargetingRangeOverlapArea.get_overlapping_areas()
+	
+	print(enemy_areas_in_range)
+	
+	if enemy_areas_in_range.size() > 0:
+		var strongest_enemy = enemy_areas_in_range[0].get_parent()
+		for enemy_area in enemy_areas_in_range:
+			var enemy = enemy_area.get_parent() as Enemy
+			
+			if enemy.max_health > strongest_enemy.max_health:
+				strongest_enemy = enemy
+	
+		return strongest_enemy.global_position
+	else:
+		return null
 	return null
 	
 func target_spot() -> void:
