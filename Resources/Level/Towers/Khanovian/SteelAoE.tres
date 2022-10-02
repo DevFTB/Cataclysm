@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://bubrsqyk87san"]
+
+[ext_resource type="Script" path="res://Scripts/Tower.gd" id="1_jyxs6"]
+[ext_resource type="PackedScene" uid="uid://bmn2yj1j6lu86" path="res://PackedScenes/aoe.tscn" id="1_rvgrt"]
+[ext_resource type="Resource" uid="uid://cog5qfsmawcvy" path="res://Resources/Elemental/Elements/Steel.tres" id="2_arpv1"]
+[ext_resource type="Texture2D" uid="uid://bocu4bp0gchj" path="res://Resources/Level/Towers/Khanovian/basic_steel.png" id="4_s41wa"]
+
+[resource]
+script = ExtResource("1_jyxs6")
+tower_name = "Steel Area"
+ui_image = ExtResource("4_s41wa")
+clan = 1
+element = ExtResource("2_arpv1")
+aoe = ExtResource("1_rvgrt")
+damage = 80
+attack_duration = 3
+attack_range = 150
+is_aoe = true
+aoe_range = 50

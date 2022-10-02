@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://ElementalTheme.gd" id="1_5n3j2"]
+[ext_resource type="Texture2D" path="res://Resources/Elemental/Icons/water_symbol.png" id="1_7qpxj"]
+[ext_resource type="Texture2D" path="res://Resources/Elemental/Icons/air_symbol.png" id="2_k703i"]
+[ext_resource type="Texture2D" path="res://Resources/Elemental/Icons/earth_symbol.png" id="3_lbsqm"]
+[ext_resource type="Texture2D" path="res://Resources/Elemental/Icons/fire_symbol.png" id="4_bdnjw"]
+[ext_resource type="Texture2D" path="res://Resources/Elemental/Icons/electricity_symbol.png" id="5_v0e46"]
+[ext_resource type="Texture2D" path="res://Resources/Elemental/Icons/steel_symbol.png" id="6_nh8lt"]
+[ext_resource type="Texture2D" path="res://Resources/Elemental/Icons/dark_symbol.png" id="7_d5fre"]
+[ext_resource type="Texture2D" path="res://Resources/Elemental/Icons/light_symbol.png" id="8_frwg4"]
+
+[resource]
+script = ExtResource("1_5n3j2")
+element_names = ["Water", "Air", "Earth", "Fire", "Electricity", "Steel", "Dark", "Light"]
+element_icons = [ExtResource("1_7qpxj"), ExtResource("2_k703i"), ExtResource("3_lbsqm"), ExtResource("4_bdnjw"), ExtResource("5_v0e46"), ExtResource("6_nh8lt"), ExtResource("7_d5fre"), ExtResource("8_frwg4")]
+reactions = null

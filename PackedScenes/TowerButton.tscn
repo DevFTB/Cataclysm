@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://crnhotnw70sfy"]
+[gd_scene load_steps=2 format=3 uid="uid://df0ecihsf08u2"]
 
-[ext_resource type="Texture2D" uid="uid://nydvsnw34eaj" path="res://Resources/Level/Towers/debug_tower.png" id="1_iejfk"]
 [ext_resource type="Script" path="res://Scripts/TowerSelectorButton.gd" id="2_gfiaq"]
 
 [node name="Button" type="Button"]
@@ -10,5 +9,4 @@ scale = Vector2(0.5, 0.5)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Tower 1"
-icon = ExtResource("1_iejfk")
 script = ExtResource("2_gfiaq")

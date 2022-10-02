@@ -43,7 +43,9 @@ var time = 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if not game.game_paused:
-		progress += base_move_speed * delta * move_speed_modifier
+		var increment =  base_move_speed * delta * move_speed_modifier
+		if increment > 0:
+			progress += increment
 	pass
 
 var tick_counter = 0

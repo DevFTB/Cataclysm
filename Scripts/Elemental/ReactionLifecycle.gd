@@ -15,6 +15,6 @@ func tick():
 		queue_free()
 		return
 	
-	reaction.apply_effect(enemy)
+	reaction.apply_tick_effect(enemy)
 	
 	tick_counter += 1

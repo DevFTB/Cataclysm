@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://c016j0m0pf4si"]
+[gd_scene load_steps=40 format=3 uid="uid://c016j0m0pf4si"]
 
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="1_f45j7"]
 [ext_resource type="Texture2D" uid="uid://l6bfomveh046" path="res://Resources/UI/cursor.png" id="2_4rqab"]
@@ -34,6 +34,11 @@
 [ext_resource type="PackedScene" uid="uid://b0f11067p0ja3" path="res://PackedScenes/Towers/Tower.tscn" id="21_dycfl"]
 [ext_resource type="Resource" uid="uid://5mdxhmjgflr0" path="res://Resources/Level/Towers/Grewt/EarthBasic.tres" id="32_5qymv"]
 [ext_resource type="Resource" uid="uid://c70xuurq24sku" path="res://Resources/Level/Towers/Grewt/WaterAoE.tres" id="33_11f3t"]
+[ext_resource type="Resource" uid="uid://r0spys6ynk8m" path="res://Resources/Level/Towers/Khanovian/ElectricityBasic.tres" id="35_hwes0"]
+[ext_resource type="Resource" uid="uid://d38pl5psbbto1" path="res://Resources/Level/Towers/Khanovian/FireBasic.tres" id="36_gm72g"]
+[ext_resource type="Resource" uid="uid://bubrsqyk87san" path="res://Resources/Level/Towers/Khanovian/SteelAoE.tres" id="37_v58xx"]
+[ext_resource type="Resource" uid="uid://dkxig451m5ten" path="res://Resources/Level/Towers/TheOrder/DarkAoE.tres" id="38_0im81"]
+[ext_resource type="Resource" uid="uid://edow1ldidh7r" path="res://Resources/Level/Towers/TheOrder/LightAoE.tres" id="39_rqj2d"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_f45j7")
@@ -297,7 +302,7 @@ mouse_filter = 1
 script = ExtResource("14_jxcnu")
 button_parent = NodePath("VBoxContainer/Control/HSplitContainer/GridContainer")
 button_scene = ExtResource("8_7bdlq")
-towers = [ExtResource("32_5qymv"), ExtResource("33_11f3t")]
+towers = [ExtResource("32_5qymv"), ExtResource("33_11f3t"), ExtResource("35_hwes0"), ExtResource("36_gm72g"), ExtResource("37_v58xx"), ExtResource("38_0im81"), ExtResource("39_rqj2d")]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GUI/TowerSelectionGUI"]
 layout_direction = 2
