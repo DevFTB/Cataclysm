@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c075sftepr8bf"]
+[gd_scene load_steps=8 format=3 uid="uid://c075sftepr8bf"]
 
 [ext_resource type="Script" path="res://Scripts/Tower.gd" id="1_a8hxo"]
 [ext_resource type="Texture2D" uid="uid://y63di8or1h3p" path="res://Resources/Level/Towers/Grewt/earth_basic.png" id="2_mamel"]
 [ext_resource type="Script" path="res://PackedScenes/Towers/HighlightableSprite2d.gd" id="3_338y5"]
 [ext_resource type="PackedScene" uid="uid://dxhrlgv1poj84" path="res://PackedScenes/Projectile.tscn" id="3_ocwv1"]
+[ext_resource type="Resource" uid="uid://c537smfv6044" path="res://Resources/Elemental/Elements/Earth.tres" id="3_wvb53"]
 [ext_resource type="Material" uid="uid://cfl7qmhmphh7l" path="res://Shaders/OutlineShader.tres" id="4_kcd2u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e1rum"]
@@ -14,7 +15,7 @@ script = ExtResource("1_a8hxo")
 tower_name = "Earth Basic"
 ui_image = ExtResource("2_mamel")
 clan = 0
-element = 2
+element = ExtResource("3_wvb53")
 projecticle = ExtResource("3_ocwv1")
 attack_range = 150
 

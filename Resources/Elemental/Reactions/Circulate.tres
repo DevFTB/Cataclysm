@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://cb58ubp7fgl6a"]
+
+[ext_resource type="PackedScene" uid="uid://bmn2yj1j6lu86" path="res://PackedScenes/aoe.tscn" id="1_gi02t"]
+[ext_resource type="Resource" uid="uid://dhn2wf7od8i0k" path="res://Resources/Elemental/Elements/Air.tres" id="1_nc1os"]
+[ext_resource type="Script" path="res://Scripts/Elemental/AoEReaction.gd" id="1_rbplr"]
+[ext_resource type="Resource" uid="uid://dynneobgf0tsx" path="res://Resources/Elemental/Elements/Electricity.tres" id="2_r0agf"]
+
+[resource]
+script = ExtResource("1_rbplr")
+aoe_range = 50
+element = ExtResource("2_r0agf")
+aoe = ExtResource("1_gi02t")
+element1 = ExtResource("1_nc1os")
+element2 = ExtResource("2_r0agf")
+display_name = "Humidify"
+duration = 1
+colour = Color(0.45098, 0.556863, 1, 1)
+resistance_modifier = null
+move_speed_modifier = 1

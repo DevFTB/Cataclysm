@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://byqxho0ts76ni"]
+
+[ext_resource type="Resource" uid="uid://dynneobgf0tsx" path="res://Resources/Elemental/Elements/Electricity.tres" id="1_2rv64"]
+[ext_resource type="PackedScene" uid="uid://bmn2yj1j6lu86" path="res://PackedScenes/aoe.tscn" id="1_no8g1"]
+[ext_resource type="Resource" uid="uid://cog5qfsmawcvy" path="res://Resources/Elemental/Elements/Steel.tres" id="2_yg5f2"]
+[ext_resource type="Script" path="res://Scripts/Elemental/OverclockReaction.gd" id="4_j6dkj"]
+
+[resource]
+script = ExtResource("4_j6dkj")
+aoe_range = 50
+element = ExtResource("1_2rv64")
+aoe = ExtResource("1_no8g1")
+element1 = ExtResource("1_2rv64")
+element2 = ExtResource("2_yg5f2")
+display_name = "Overclock"
+duration = 1
+colour = Color(0.803922, 0.619608, 0.972549, 1)
+resistance_modifier = null
+move_speed_modifier = 1
+attack_modifier = 1

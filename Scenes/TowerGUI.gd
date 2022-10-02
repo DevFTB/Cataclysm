@@ -35,7 +35,7 @@ func set_tower(new_tower) -> void:
 
 func generate_description() -> String:
 	var format_string = "Element: %s\n\nType:%s\nDamage: %s\nAttack Duration: %s"
-	return format_string % [Game.elementToString(tower.element), "AOE" if tower.is_aoe else "Single Target", tower.damage, tower.attack_duration]
+	return format_string % [tower.element.display_name, "AOE" if tower.is_aoe else "Single Target", tower.damage, tower.attack_duration]
 	
 func unset_tower() -> void:
 	tower = null

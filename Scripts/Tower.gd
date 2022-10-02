@@ -8,7 +8,7 @@ enum TargetingCategory {
 @export var tower_name : String
 @export var ui_image : Texture2D
 @export var clan : Game.Clan
-@export var element : Game.Element
+@export var element : Element
 
 @export var projecticle : PackedScene 
 @export var aoe : PackedScene 
@@ -84,16 +84,15 @@ func attack() -> void:
 
 func spawn_aoe(target: Vector2):
 	var new_proj = aoe.instantiate()
-	add_child(new_proj)
-	
-	new_proj.global_position = target
-	
+
 	new_proj.damage  = damage
 	new_proj.element = element
 	new_proj.radius = aoe_range
 	new_proj.lifetime = attack_duration
 	
-
+	add_child(new_proj)
+	
+	new_proj.global_position = target
 	pass
 	
 func spawn_projectile(target: Vector2):

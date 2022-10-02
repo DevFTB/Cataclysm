@@ -1,7 +1,7 @@
 extends Area2D
 
 var target : Vector2
-var element: Game.Element
+var element: Element
 var damage = 0
 var speed = 40
 

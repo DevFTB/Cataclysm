@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://cs051dcxkw600"]
+
+[ext_resource type="Resource" uid="uid://eld45dnueksj" path="res://Resources/Elemental/Elements/Water.tres" id="1_1sdnk"]
+[ext_resource type="Script" path="res://Scripts/Elemental/SelfDamageReaction.gd" id="1_keash"]
+[ext_resource type="Resource" uid="uid://cog5qfsmawcvy" path="res://Resources/Elemental/Elements/Steel.tres" id="2_poyft"]
+
+[resource]
+script = ExtResource("1_keash")
+self_damage = 100
+self_damage_element = ExtResource("2_poyft")
+element1 = ExtResource("1_1sdnk")
+element2 = ExtResource("2_poyft")
+display_name = "Corrosion"
+duration = 1
+colour = Color(0, 0.172549, 0.0784314, 1)
+resistance_modifier = null
+move_speed_modifier = 1
+attack_modifier = 1

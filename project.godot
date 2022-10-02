@@ -9,6 +9,16 @@
 config_version=5
 
 _global_script_classes=[{
+"base": "Reaction",
+"class": &"AoEReaction",
+"language": &"GDScript",
+"path": "res://Scripts/Elemental/AoEReaction.gd"
+}, {
+"base": "Resource",
+"class": &"Element",
+"language": &"GDScript",
+"path": "res://Scripts/Elemental/Element.gd"
+}, {
 "base": "PathFollow2D",
 "class": &"Enemy",
 "language": &"GDScript",
@@ -19,14 +29,34 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://Scripts/Game.gd"
 }, {
+"base": "Resource",
+"class": &"Reaction",
+"language": &"GDScript",
+"path": "res://Scripts/Elemental/Reaction.gd"
+}, {
+"base": "Node",
+"class": &"ReactionLifecycle",
+"language": &"GDScript",
+"path": "res://Scripts/Elemental/ReactionLifecycle.gd"
+}, {
+"base": "Reaction",
+"class": &"SelfDamageReaction",
+"language": &"GDScript",
+"path": "res://Scripts/Elemental/SelfDamageReaction.gd"
+}, {
 "base": "Area2D",
 "class": &"Tower",
 "language": &"GDScript",
 "path": "res://Scripts/Tower.gd"
 }]
 _global_script_class_icons={
+"AoEReaction": "",
+"Element": "",
 "Enemy": "",
 "Game": "",
+"Reaction": "",
+"ReactionLifecycle": "",
+"SelfDamageReaction": "",
 "Tower": ""
 }
 

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://jgxqqiqw4nht"]
+
+[ext_resource type="Texture2D" uid="uid://ct8wet4j7ntb2" path="res://Resources/Elemental/Icons/light_symbol.png" id="1_dlyff"]
+[ext_resource type="Script" path="res://Scripts/Elemental/Element.gd" id="1_g3vlv"]
+
+[resource]
+script = ExtResource("1_g3vlv")
+display_name = "Light"
+icon = ExtResource("1_dlyff")

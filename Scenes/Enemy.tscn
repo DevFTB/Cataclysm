@@ -1,14 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://u0tglfhnl6wc"]
+[gd_scene load_steps=6 format=3 uid="uid://u0tglfhnl6wc"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_qkyk3"]
 [ext_resource type="Texture2D" uid="uid://u3ai5csr2hwn" path="res://Resources/Level/Enemies/debug_enemy.png" id="2_o7kpr"]
 [ext_resource type="PackedScene" uid="uid://0fro8ru7emgc" path="res://Scenes/HPBar.tscn" id="3_xbeyu"]
+[ext_resource type="Script" path="res://Scenes/ElementBar.gd" id="4_jnlal"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ag00i"]
 radius = 13.0
 height = 34.0
 
-[node name="Enemy" type="PathFollow2D"]
+[node name="Enemy" type="PathFollow2D" groups=["enemy"]]
 rotates = false
 loop = false
 script = ExtResource("1_qkyk3")
@@ -32,3 +33,20 @@ offset_left = -16.0
 offset_top = -35.0
 offset_right = 16.0
 offset_bottom = -3.0
+
+[node name="ElementBar" type="HBoxContainer" parent="SpriteBody"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -22.0
+offset_top = -36.0
+offset_right = 22.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+script = ExtResource("4_jnlal")
+
+[node name="Reactions" type="Node2D" parent="."]

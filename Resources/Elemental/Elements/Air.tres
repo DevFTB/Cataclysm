@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dhn2wf7od8i0k"]
+
+[ext_resource type="Texture2D" uid="uid://1hxihdphg1iv" path="res://Resources/Elemental/Icons/air_symbol.png" id="1_7pdlo"]
+[ext_resource type="Script" path="res://Scripts/Elemental/Element.gd" id="1_g3vlv"]
+
+[resource]
+script = ExtResource("1_g3vlv")
+display_name = "Air"
+icon = ExtResource("1_7pdlo")

@@ -2,13 +2,14 @@ extends Node2D
 
 var damage = 0
 var radius = 0
-var element : Game.Element
+var element : Element
 var lifetime = 1
 var count = 0
 
 var enemies_inside = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print("Radius: %s" % radius)
 	var circle = CircleShape2D.new()
 	circle.set_radius(float(radius))
 	$DamageArea/CollisionShape2d.shape = circle

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cog5qfsmawcvy"]
+
+[ext_resource type="Texture2D" uid="uid://dwuql6y7bh3n1" path="res://Resources/Elemental/Icons/steel_symbol.png" id="1_btfsj"]
+[ext_resource type="Script" path="res://Scripts/Elemental/Element.gd" id="1_g3vlv"]
+
+[resource]
+script = ExtResource("1_g3vlv")
+display_name = "Steel"
+icon = ExtResource("1_btfsj")

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://drbd73udcjw5i"]
+
+[ext_resource type="Resource" uid="uid://jgxqqiqw4nht" path="res://Resources/Elemental/Elements/Light.tres" id="1_8rbgy"]
+[ext_resource type="Script" path="res://Scripts/Elemental/Reaction.gd" id="1_qu0qe"]
+[ext_resource type="Resource" uid="uid://dynneobgf0tsx" path="res://Resources/Elemental/Elements/Electricity.tres" id="2_em362"]
+
+[resource]
+script = ExtResource("1_qu0qe")
+element1 = ExtResource("1_8rbgy")
+element2 = ExtResource("2_em362")
+display_name = "Smite"
+duration = 2
+colour = Color(1, 0.988235, 0.705882, 1)
+resistance_modifier = null
+move_speed_modifier = 1
+attack_modifier = 1

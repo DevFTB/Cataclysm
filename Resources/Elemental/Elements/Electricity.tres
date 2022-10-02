@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dynneobgf0tsx"]
+
+[ext_resource type="Texture2D" uid="uid://cxfvdok4o7yqt" path="res://Resources/Elemental/Icons/electricity_symbol.png" id="1_1tsis"]
+[ext_resource type="Script" path="res://Scripts/Elemental/Element.gd" id="1_g3vlv"]
+
+[resource]
+script = ExtResource("1_g3vlv")
+display_name = "Electricity"
+icon = ExtResource("1_1tsis")

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://dus7ahph7jauc"]
+
+[ext_resource type="Script" path="res://Scripts/Elemental/Reaction.gd" id="1_1koix"]
+[ext_resource type="Resource" uid="uid://jgxqqiqw4nht" path="res://Resources/Elemental/Elements/Light.tres" id="1_fvoyo"]
+[ext_resource type="Resource" uid="uid://dix2yac0870ui" path="res://Resources/Elemental/Elements/Dark.tres" id="2_ws7x5"]
+
+[resource]
+script = ExtResource("1_1koix")
+element1 = ExtResource("1_fvoyo")
+element2 = ExtResource("2_ws7x5")
+display_name = "Evaporate"
+duration = 1
+colour = Color(0.356863, 0.356863, 0.356863, 1)
+resistance_modifier = null
+move_speed_modifier = 1
+attack_modifier = 2.0

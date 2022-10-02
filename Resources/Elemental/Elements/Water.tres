@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://eld45dnueksj"]
+
+[ext_resource type="Script" path="res://Scripts/Elemental/Element.gd" id="1_g3vlv"]
+[ext_resource type="Texture2D" uid="uid://bs48yhg7fw5h8" path="res://Resources/Elemental/Icons/water_symbol.png" id="1_gy344"]
+
+[resource]
+script = ExtResource("1_g3vlv")
+display_name = "Water"
+icon = ExtResource("1_gy344")

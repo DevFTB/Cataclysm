@@ -2,37 +2,10 @@ extends Node
 class_name Game
 
 @export var ticks_per_turn = 10
+@export var reactions : Array[Reaction]
 
 enum Clan {
 	GREWT, KHANOVIAN, THE_ORDER
-}
-
-enum Element {
-	WATER, AIR, EARTH, FIRE, ELECTRICITY, STEEL, DARK, LIGHT
-}
-
-static func elementToString(e: Element): 
-	match e:
-		Element.WATER:
-			return "Water"
-		Element.AIR:
-			return "Air"
-		Element.EARTH:
-			return "Earth"
-		Element.FIRE:
-			return "Fire"
-		Element.STEEL:
-			return "Steel"
-		Element.DARK:
-			return "Dark"
-		Element.LIGHT:
-			return "Light"
-		
-	return "."
-
-
-enum Reaction {
-	DIFFUSION, REPLACE, CIRCULATE, EVAPORATE, CORROSION, GLOOM, WEALTH, BARRICADE, POISON, OVERCLOCK, SMITE, REINFORCE, JUDGMENT
 }
 
 @onready var tower_parent  = $Map/Towers
@@ -49,6 +22,8 @@ var current_tick = 0
 var turn = 0
 var time = 0
 var tick_registration : Dictionary = {}
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -95,20 +70,25 @@ func new_turn():
 	
 func do_tick(tick): 
 	print('tick')
-	# Enemy effects
-	
-	# Activate Towers / Towers Fire
+	# 1. Activate towers 
+	var tower_to_activate = tick_registration[tick]
+	if tower_to_activate != null:
+		tower_to_activate.activate()
+		
+	# 2. Fire towers
 	tick_towers(tick)
-	
-	await get_tree().process_frame
-	# Deal base damage and apply elements
 	tick_aoe()
 	
-	# Elemental Reactions happens
+	# 3. Deactivate tower effects
 	
-	# Calculate new health and kill enemies
+	# 4. Apply Elements to Enemy => Generate Reactions <-- POST-TOWER PHASE
+	# 5. Deal modified damaged  (dmg * resistances * reaction_multipliers)
+	# 6. Check dead and do post-dead reactions <-- POST-DEAD PHASE
+	var enemies = get_tree().get_nodes_in_group("enemy")
 	
-	# Deactivate tower effects
+	for enemy in enemies:
+		enemy.tick()
+	
 	pass
 
 func tick_aoe():
@@ -120,10 +100,6 @@ func tick_aoe():
 func tick_towers(tick) -> void:
 	$GUI/TimelineGUI.set_highlight_for_tick(tick)
 	
-	var tower_to_activate = tick_registration[tick]
-	if tower_to_activate != null:
-		tower_to_activate.activate()
-
 	for tower in tick_registration.values():
 		if tower != null:
 			tower.tick()
@@ -145,6 +121,18 @@ func swap_tower_to(src_tick, dest_tick):
 func register_tower(tick, tower):
 	tick_registration[tick] = tower
 	$GUI/TimelineGUI.regenerate_list()
+	
+func get_reaction(elements: Array[Element]):
+	if elements.size() >  2:
+		return reactions[0]
+	else:
+		var e1 = elements[0]
+		var e2 = elements[1]
+		for r in reactions:
+			if r.match_elements(e1, e2):
+				return r
+	
+	return reactions[0]
 
 
 func _on_pause_play_button_pressed():
