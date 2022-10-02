@@ -13,7 +13,7 @@ height = 34.0
 rotates = false
 loop = false
 script = ExtResource("1_qkyk3")
-max_health = 200
+max_health = 1000
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
@@ -48,5 +48,9 @@ grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
 script = ExtResource("4_jnlal")
+
+[node name="FadeAwayTextSource" type="Node2D" parent="SpriteBody"]
+position = Vector2(0, -21)
+scale = Vector2(0.5, 0.5)
 
 [node name="Reactions" type="Node2D" parent="."]

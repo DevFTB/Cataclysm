@@ -8,7 +8,7 @@
 script = ExtResource("1_1koix")
 element1 = ExtResource("1_fvoyo")
 element2 = ExtResource("2_ws7x5")
-display_name = "Evaporate"
+display_name = "Judgment"
 duration = 1
 colour = Color(0.356863, 0.356863, 0.356863, 1)
 resistance_modifier = null

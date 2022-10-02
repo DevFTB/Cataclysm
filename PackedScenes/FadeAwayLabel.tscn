@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4f3bbcwhvv5h"]
+
+[ext_resource type="Script" path="res://FadeAwayLabel.gd" id="1_ju0oi"]
+
+[node name="Label" type="Label"]
+texture_filter = 1
+offset_left = 62.0
+offset_top = 33.0
+offset_right = 103.0
+offset_bottom = 59.0
+text = "Test"
+script = ExtResource("1_ju0oi")
+initial_color = Color(1, 0.0431373, 0.0235294, 1)
+burn_away_time = 1.5
+vertical_displacement = 10.0

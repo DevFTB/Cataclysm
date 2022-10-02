@@ -18,6 +18,7 @@ func _init(p_e1 = null, p_e2 = null, p_display_name =""):
 	display_name = p_display_name
 
 func on_start(enemy: Enemy):
+	
 	enemy.apply_move_speed_modifier(move_speed_modifier)
 	pass
 

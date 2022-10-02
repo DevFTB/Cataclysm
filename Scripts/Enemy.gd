@@ -112,10 +112,29 @@ func react() -> void:
 		$SpriteBody/ElementBar.show_elements(applied_elements)
 		
 		
+		create_reaction_text(reaction)
+
+
+func create_reaction_text(reaction: Reaction):
+	var label = FadeAwayLabel.new()
+	
+	label.initial_color = reaction.colour
+	label.text = reaction.display_name
+	
+	label.burn_away_time = 2
+	label.vertical_displacement = 10
+	label.global_position = $SpriteBody/FadeAwayTextSource.global_position
+	label.scale = Vector2(0.7, 0.7)
+	get_parent().add_child(label)
+
+
+		
 func apply_reaction_effects():
 	var rls = $Reactions.get_children()
 	for rl in rls:
 		rl.tick()
+		create_reaction_text(rl.reaction)
+
 		pass
 	
 	pass
