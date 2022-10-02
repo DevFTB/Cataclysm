@@ -14,7 +14,12 @@ tower_name = "Water Basic"
 ui_image = ExtResource("2_k1n6k")
 clan = 0
 element = 0
+damage = null
+attack_duration = null
+attack_range = null
+targeting_category = null
 is_aoe = true
+aoe_range = null
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 1)

@@ -40,7 +40,12 @@ func _process(delta):
 	pass
 
 func apply_resistances(damage: int, element: Game.Element) -> int:
-	return floor(damage * resistances[element])
+	var resistance = 0
+	
+	if resistances.has(element):
+		resistance = resistances[element]
+	
+	return floor(damage * (1 - resistance))
 
 func take_damage(damage: int, element: Game.Element) -> void:
 	applied_elements.append(element)
@@ -53,7 +58,7 @@ func modify_health(amount : int):
 	health += amount
 	
 	var value = float(health) / float(max_health) * 100
-	$HPBar.set_value(value)
+	$SpriteBody/HPBar.set_value(value)
 	
 	if health < 0:
 		die()
@@ -68,4 +73,5 @@ func apply_elemental_reactions() -> Game.Reaction:
 func die():
 	is_dead = true
 	print("enemy " + enemy_name + " has died")
+	queue_free()
 	pass

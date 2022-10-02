@@ -35,6 +35,8 @@ enum Reaction {
 	DIFFUSION, REPLACE, CIRCULATE, EVAPORATE, CORROSION, GLOOM, WEALTH, BARRICADE, POISON, OVERCLOCK, SMITE, REINFORCE, JUDGMENT
 }
 
+@onready var tower_parent  = $Map/Towers
+
 signal paused
 signal resumed
 
@@ -47,6 +49,7 @@ var tick = 0
 var turn = 0
 var time = 0
 var tick_registration : Dictionary = {}
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for i in ticks_per_turn:
@@ -95,8 +98,8 @@ func do_tick(tick):
 	# Enemy effects
 	
 	# Activate Towers / Towers Fire
-	print(tick_registration[tick])
-	$GUI/TimelineGUI.set_highlight_for_tick(tick)
+	tick_towers(tick)
+	
 	# Deal base damage and kill enemies
 	
 	# Apply 1U of element to enemies
@@ -107,6 +110,17 @@ func do_tick(tick):
 	
 	# Deactivate tower effects
 	pass
+	
+func tick_towers(tick) -> void:
+	$GUI/TimelineGUI.set_highlight_for_tick(tick)
+	
+	var tower_to_activate = tick_registration[tick]
+	if tower_to_activate != null:
+		tower_to_activate.activate()
+
+	for tower in tick_registration.values():
+		if tower != null:
+			tower.tick()
 	
 func auto_register_tower(tower):
 	for tick in tick_registration.keys():
