@@ -34,7 +34,7 @@ func can_place() -> bool:
 
 func place_tower():
 	var new_tower = tower.instantiate() as Node2D
-	get_node(tower_parent).add_child(new_tower)
+	get_node("/root/Game/Map/Towers").add_child(new_tower)
 
 	new_tower.position = get_viewport().get_mouse_position()
 	new_tower.connect("mouse_entered", on_Tower_mouse_entered)

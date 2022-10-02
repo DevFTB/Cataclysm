@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://df0ecihsf08u2"]
+[gd_scene load_steps=3 format=3 uid="uid://crnhotnw70sfy"]
 
 [ext_resource type="Texture2D" uid="uid://nydvsnw34eaj" path="res://Resources/Level/Towers/debug_tower.png" id="1_iejfk"]
-[ext_resource type="Script" path="res://Scenes/TowerSelectorButton.gd" id="2_gfiaq"]
+[ext_resource type="Script" path="res://Scripts/TowerSelectorButton.gd" id="2_gfiaq"]
 
 [node name="Button" type="Button"]
 offset_right = 136.0
