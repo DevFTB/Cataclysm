@@ -141,8 +141,7 @@ func set_highlight(value) -> void:
 func _draw():
 	if drawing_range_circle:
 		draw_circle(Vector2.ZERO, attack_range, Color(Color.CHARTREUSE, 0.1))
-		
-	if spot != null:
-		print('drawing at offset %s', spot - global_position)
-		draw_circle(spot - global_position, aoe_range, Color(Color.BLUE, 0.2))
+		if spot != null:
+			print('drawing at offset %s', spot - global_position)
+			draw_circle(spot - global_position, aoe_range, Color(Color.BLUE, 0.2))
 		
