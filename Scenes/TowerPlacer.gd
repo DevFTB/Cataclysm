@@ -3,20 +3,23 @@ extends Node2D
 @export var tower : PackedScene
 @export var tower_parent : NodePath
 
+@onready var game = get_node("/root/Game")
+@onready var max_towers = game.ticks_per_turn
+
 var in_placeable_area : bool = false
 var obstructed : bool  = false
 
 var towers_active = 0
 
-
-# Select mode = 0, tower_placement = 1 
+# Select mode = 0, tower_placement = 1 , spot_selection
 var mode = 0
-
-@onready var game = get_node("/root/Game")
-@onready var max_towers = game.ticks_per_turn
 
 var tower_selection : Node2D
 var tower_selection_candidate : Node2D
+
+var should_draw_aoe = false
+var draw_aoe = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	game.get_node("Map/PlaceableArea").connect("can_place_changed", _on_placeable_area_can_place_changed)
@@ -36,7 +39,7 @@ func _input(event):
 				if tower_selection_candidate != null:
 					select_tower()
 					
-				pass
+			pass
 			if event.is_action_pressed("cancel"):
 				deselect_tower()
 
@@ -48,9 +51,30 @@ func _input(event):
 			if event.is_action_pressed("cancel"):
 				if tower != null:
 					unset_tower_placement()
-		
+		if mode == 2:
+			if event.is_action_pressed("select"):
+				end_spot_selection(event.global_position)
+			if event.is_action_pressed("cancel"):
+				end_spot_selection(null)
+				
+func end_spot_selection(spot):
+	if game.get_node("GUI/TowerGUI").confirm_spot(spot):
+		mode = 0
+		should_draw_aoe = false
+		queue_redraw()
+	
+func start_spot_selection(aoe: int):
+	mode = 2
+	should_draw_aoe = true
+	draw_aoe = aoe
+	queue_redraw()
+
+func _draw():
+	if should_draw_aoe:
+		draw_circle(Vector2(0,0), draw_aoe, Color(Color.CHARTREUSE, 0.1))
 
 func select_tower() -> void:
+	deselect_tower()
 	tower_selection = tower_selection_candidate
 	tower_selection.set_highlight(true)
 	print("%s was selected. " % tower_selection)

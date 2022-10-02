@@ -15,7 +15,6 @@ func _process(delta):
 func set_highlight_for_tick(tick):
 	for child in item_parent.get_children():
 		if child.tick == tick:
-			print(str(child.tick) + ", " + str(tick))
 			child.set_highlight(true)
 		else:
 			child.set_highlight(false)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpky6yb0jl87u"]
+[gd_scene load_steps=7 format=3 uid="uid://bpky6yb0jl87u"]
 
 [ext_resource type="Script" path="res://Scenes/Tower.gd" id="1_a8hxo"]
 [ext_resource type="Texture2D" uid="uid://si2of2ojsqj3" path="res://Resources/Level/Towers/Grewt/water_basic.png" id="2_k1n6k"]
 [ext_resource type="Script" path="res://PackedScenes/Towers/HighlightableSprite2d.gd" id="3_338y5"]
+[ext_resource type="PackedScene" uid="uid://dxhrlgv1poj84" path="res://PackedScenes/Projectile.tscn" id="3_wqik1"]
 [ext_resource type="Material" uid="uid://4306q1dvomix" path="res://Shaders/OutlineShader.tres" id="4_kcd2u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e1rum"]
@@ -14,12 +15,16 @@ tower_name = "Water Basic"
 ui_image = ExtResource("2_k1n6k")
 clan = 0
 element = 0
-damage = null
-attack_duration = null
-attack_range = null
-targeting_category = null
+projecticle = ExtResource("3_wqik1")
+damage = 50
+attack_range = 150
 is_aoe = true
-aoe_range = null
+aoe_range = 50
+
+[node name="TargetingRangeOverlapArea" type="Area2D" parent="."]
+position = Vector2(-0.5, 1)
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 1)

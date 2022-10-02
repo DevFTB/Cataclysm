@@ -18,10 +18,7 @@ enum TargetingCategory {
 @export var targeting_category = TargetingCategory.FIRST
 @export var is_aoe = false
 @export var aoe_range = 30
-
-
-var spot : Vector2 = Vector2(0, 0)
-
+var spot = null
 var drawing_range_circle = false
 
 var activated = false
@@ -40,6 +37,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+func set_spot(spot):
+	self.spot = spot
+	print('set spot %s' % self.spot)
+	queue_redraw()
 	
 func activate() -> void:
 	tick_counter = 0
@@ -58,7 +60,6 @@ func tick() -> void:
 		tick_counter+=1
 		
 func attack() -> void:
-	print("%s attempting attack" % name)
 	var target = null
 	match targeting_category:
 		TargetingCategory.FIRST:
@@ -71,7 +72,6 @@ func attack() -> void:
 			target = spot
 			pass
 	
-	print("Target is %s" % target)
 	if target != null:
 		print(target)
 		if is_aoe:
@@ -82,7 +82,6 @@ func attack() -> void:
 
 	
 func spawn_projectile(target: Vector2):
-	print('spawning projectile')
 	var new_proj = projecticle.instantiate()
 	
 	new_proj.damage  = damage
@@ -131,7 +130,7 @@ func target_spot() -> void:
 	if spot == null:
 		target_first()
 	else:
-		return null
+		return spot
 
 
 func set_highlight(value) -> void:
@@ -142,4 +141,8 @@ func set_highlight(value) -> void:
 func _draw():
 	if drawing_range_circle:
 		draw_circle(Vector2.ZERO, attack_range, Color(Color.CHARTREUSE, 0.1))
+		
+	if spot != null:
+		print('drawing at offset %s', spot - global_position)
+		draw_circle(spot - global_position, aoe_range, Color(Color.BLUE, 0.2))
 		

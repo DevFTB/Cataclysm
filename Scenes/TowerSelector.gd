@@ -14,16 +14,13 @@ func _ready():
 		var packed_state = tower.get_state()
 		for node_idx in packed_state.get_node_count():
 			var node_name = packed_state.get_node_name(node_idx)
-			print("node_name=", node_name)
 			if node_name == "Tower":
 				var tower_name = ""
 				var ui_image : Texture2D
 				var clan : Clan
 				for node_prop_idx in packed_state.get_node_property_count(node_idx):
 					var prop_name = packed_state.get_node_property_name(node_idx, node_prop_idx)
-					print ("  node_prop_name=", prop_name)
 					var prop_value = packed_state.get_node_property_value(node_idx, node_prop_idx)
-					print ("  node_value=", prop_value)
 					if prop_name == "tower_name":
 						tower_name = prop_value
 					if prop_name == "ui_image":

@@ -19,7 +19,6 @@ var wave_no = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print($Paths.get_children())
 	paths = $Paths.get_children()
 	time_till_next_wave = 0
 	pass # Replace with function body.

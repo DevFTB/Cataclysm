@@ -12,7 +12,6 @@ func _process(delta):
 	pass
 	
 func set_highlight(value):
-	print("set highlight" + str(value))
 	if value:
 		material = highlight_shader 
 	else:

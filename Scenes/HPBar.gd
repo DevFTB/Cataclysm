@@ -11,5 +11,4 @@ func _process(delta):
 	pass
 
 func set_value(value):
-	print(value)
 	$HPBar.value = value
