@@ -1,23 +1,21 @@
 [gd_scene load_steps=7 format=3 uid="uid://bpky6yb0jl87u"]
 
-[ext_resource type="Script" path="res://Scenes/Tower.gd" id="1_a8hxo"]
+[ext_resource type="Script" path="res://Scripts/Tower.gd" id="1_305o3"]
 [ext_resource type="Texture2D" uid="uid://si2of2ojsqj3" path="res://Resources/Level/Towers/Grewt/water_basic.png" id="2_k1n6k"]
 [ext_resource type="Script" path="res://PackedScenes/Towers/HighlightableSprite2d.gd" id="3_338y5"]
 [ext_resource type="PackedScene" uid="uid://bmn2yj1j6lu86" path="res://PackedScenes/aoe.tscn" id="3_d82ni"]
-[ext_resource type="Material" uid="uid://4306q1dvomix" path="res://Shaders/OutlineShader.tres" id="4_kcd2u"]
+[ext_resource type="Material" uid="uid://cfl7qmhmphh7l" path="res://Shaders/OutlineShader.tres" id="4_kcd2u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e1rum"]
 size = Vector2(61, 52)
 
 [node name="Tower" type="Area2D"]
-script = ExtResource("1_a8hxo")
-tower_name = "Water Basic"
+script = ExtResource("1_305o3")
+tower_name = "Water"
 ui_image = ExtResource("2_k1n6k")
 clan = 0
 element = 0
 aoe = ExtResource("3_d82ni")
-damage = 50
-attack_range = 150
 is_aoe = true
 aoe_range = 50
 

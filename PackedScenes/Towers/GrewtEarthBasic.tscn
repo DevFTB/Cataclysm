@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://y63di8or1h3p" path="res://Resources/Level/Towers/Grewt/earth_basic.png" id="2_mamel"]
 [ext_resource type="Script" path="res://PackedScenes/Towers/HighlightableSprite2d.gd" id="3_338y5"]
 [ext_resource type="PackedScene" uid="uid://dxhrlgv1poj84" path="res://PackedScenes/Projectile.tscn" id="3_ocwv1"]
-[ext_resource type="Material" uid="uid://4306q1dvomix" path="res://Shaders/OutlineShader.tres" id="4_kcd2u"]
+[ext_resource type="Material" uid="uid://cfl7qmhmphh7l" path="res://Shaders/OutlineShader.tres" id="4_kcd2u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e1rum"]
 size = Vector2(61, 52)

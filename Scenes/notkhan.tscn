@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://d0otmx15iojel" path="res://Resources/Level/notkhanmap.png" id="1_a7gao"]
 [ext_resource type="Script" path="res://Scripts/GameMap.gd" id="1_hyp13"]
 [ext_resource type="Script" path="res://Scripts/PlaceableArea.gd" id="2_41fu2"]
-[ext_resource type="PackedScene" uid="uid://b5uwh80h0jpqm" path="res://Scenes/Enemy.tscn" id="2_htvb3"]
+[ext_resource type="PackedScene" uid="uid://u0tglfhnl6wc" path="res://Scenes/Enemy.tscn" id="2_htvb3"]
 
 [sub_resource type="Curve2D" id="Curve2D_gc4f3"]
 _data = {
