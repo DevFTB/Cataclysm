@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cv5uipbpl6ndc"]
+[gd_scene load_steps=7 format=3]
 
-[ext_resource type="Script" path="res://Scenes/Tower.gd" id="1_80n8s"]
+[ext_resource type="Script" path="res://Scripts/Tower.gd" id="1_80n8s"]
 [ext_resource type="Texture2D" uid="uid://bssaw6s7o81s8" path="res://Resources/Level/Towers/debug_tower_2.png" id="1_fvar2"]
 [ext_resource type="Script" path="res://PackedScenes/Towers/HighlightableSprite2d.gd" id="3_6whyf"]
 [ext_resource type="Shader" path="res://Shaders/OutlineShader.gdshader" id="4_oypkh"]

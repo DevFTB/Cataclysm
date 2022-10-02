@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://c075sftepr8bf"]
 
-[ext_resource type="Script" path="res://Scenes/Tower.gd" id="1_a8hxo"]
+[ext_resource type="Script" path="res://Scripts/Tower.gd" id="1_a8hxo"]
 [ext_resource type="Texture2D" uid="uid://y63di8or1h3p" path="res://Resources/Level/Towers/Grewt/earth_basic.png" id="2_mamel"]
 [ext_resource type="Script" path="res://PackedScenes/Towers/HighlightableSprite2d.gd" id="3_338y5"]
 [ext_resource type="PackedScene" uid="uid://dxhrlgv1poj84" path="res://PackedScenes/Projectile.tscn" id="3_ocwv1"]

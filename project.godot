@@ -12,17 +12,17 @@ _global_script_classes=[{
 "base": "PathFollow2D",
 "class": &"Enemy",
 "language": &"GDScript",
-"path": "res://Scenes/Enemy.gd"
+"path": "res://Scripts/Enemy.gd"
 }, {
 "base": "Node",
 "class": &"Game",
 "language": &"GDScript",
-"path": "res://Scenes/Game.gd"
+"path": "res://Scripts/Game.gd"
 }, {
 "base": "Area2D",
 "class": &"Tower",
 "language": &"GDScript",
-"path": "res://Scenes/Tower.gd"
+"path": "res://Scripts/Tower.gd"
 }]
 _global_script_class_icons={
 "Enemy": "",

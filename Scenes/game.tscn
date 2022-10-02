@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://c016j0m0pf4si"]
 
-[ext_resource type="Script" path="res://Scenes/Game.gd" id="1_f45j7"]
+[ext_resource type="Script" path="res://Scripts/Game.gd" id="1_f45j7"]
 [ext_resource type="Texture2D" uid="uid://l6bfomveh046" path="res://Resources/UI/cursor.png" id="2_4rqab"]
 [ext_resource type="PackedScene" uid="uid://byiwj8mxqy7th" path="res://Scenes/notkhan.tscn" id="2_bt2wp"]
 [ext_resource type="Script" path="res://Scenes/TowerPlacer.gd" id="2_yjuhy"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cr43u6w65rs3d"
-path="res://.godot/imported/cataclysm_play_pressed.png-61fdbba334fd0cccbf1483b5fcb3de91.ctex"
+uid="uid://blsb7jl7eq8cf"
+path="res://.godot/imported/cataclysm_title.png-96fade0178797bf8852dc24576ec7376.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/UI/Menus/cataclysm_play_pressed.png"
-dest_files=["res://.godot/imported/cataclysm_play_pressed.png-61fdbba334fd0cccbf1483b5fcb3de91.ctex"]
+source_file="res://Resources/UI/Menus/cataclysm_title.png"
+dest_files=["res://.godot/imported/cataclysm_title.png-96fade0178797bf8852dc24576ec7376.ctex"]
 
 [params]
 
