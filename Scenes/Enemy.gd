@@ -11,7 +11,7 @@ const reactions : Array[Array] = [[1,2,0,3,0,4,0,0],[2,1,0,2,2,0,5,0],[0,0,1,6,0
 @export var enemy_name : String = "Enemy"
 @export var resistances : Dictionary
 
-@export var max_rand_offset : float = 25
+@export var max_rand_offset : float = 0
 
 @onready var health = max_health
 
@@ -60,7 +60,7 @@ func modify_health(amount : int):
 	var value = float(health) / float(max_health) * 100
 	$SpriteBody/HPBar.set_value(value)
 	
-	if health < 0:
+	if health <= 0:
 		die()
 	
 func apply_elemental_reactions() -> Game.Reaction:

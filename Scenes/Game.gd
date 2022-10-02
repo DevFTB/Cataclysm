@@ -62,7 +62,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	time += delta
 	
 	if time > 1:
@@ -100,9 +100,9 @@ func do_tick(tick):
 	# Activate Towers / Towers Fire
 	tick_towers(tick)
 	
-	# Deal base damage and kill enemies
-	
-	# Apply 1U of element to enemies
+	await get_tree().process_frame
+	# Deal base damage and apply elements
+	tick_aoe()
 	
 	# Elemental Reactions happens
 	
@@ -110,7 +110,13 @@ func do_tick(tick):
 	
 	# Deactivate tower effects
 	pass
+
+func tick_aoe():
+	var aoes = get_tree().get_nodes_in_group("aoe")
 	
+	for aoe in aoes:
+		aoe.tick()
+
 func tick_towers(tick) -> void:
 	$GUI/TimelineGUI.set_highlight_for_tick(tick)
 	

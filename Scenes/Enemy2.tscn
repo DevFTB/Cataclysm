@@ -1,17 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5uwh80h0jpqm"]
+[gd_scene load_steps=5 format=3 uid="uid://dky52otjrqk5o"]
 
 [ext_resource type="Script" path="res://Scenes/Enemy.gd" id="1_vbl1w"]
 [ext_resource type="Texture2D" uid="uid://u3ai5csr2hwn" path="res://Resources/Level/Enemies/debug_enemy.png" id="2_o7kpr"]
 [ext_resource type="PackedScene" uid="uid://0fro8ru7emgc" path="res://Scenes/HPBar.tscn" id="3_xbeyu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ag00i"]
-radius = 21.0
-height = 48.0
+radius = 13.0
+height = 34.0
 
 [node name="Enemy" type="PathFollow2D"]
 rotates = false
 loop = false
 script = ExtResource("1_vbl1w")
+max_health = 100
 base_move_speed = 20
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -19,15 +20,15 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -7)
+position = Vector2(0, -14)
 shape = SubResource("CapsuleShape2D_ag00i")
 
 [node name="SpriteBody" type="Node2D" parent="."]
-position = Vector2(0, 16)
 
 [node name="Sprite2d" type="Sprite2D" parent="SpriteBody"]
+modulate = Color(0, 0.701961, 0.65098, 1)
 position = Vector2(0, -19)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_o7kpr")
 
 [node name="HPBar" parent="SpriteBody" instance=ExtResource("3_xbeyu")]

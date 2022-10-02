@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmn2yj1j6lu86"]
+
+[ext_resource type="Script" path="res://PackedScenes/AoE.gd" id="1_nffge"]
+
+[node name="aoe" type="Node2D" groups=["aoe"]]
+script = ExtResource("1_nffge")
+
+[node name="DamageArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="DamageArea"]

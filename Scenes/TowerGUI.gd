@@ -64,6 +64,7 @@ func confirm_spot(spot):
 
 func _on_targeting_option_button_item_selected(index):
 	details_parent.get_node("TowerSetSpotButton").visible = tower.is_aoe and index == 2
+	tower.targeting_category = index
 	pass # Replace with function body.
 
 func _on_tower_set_spot_button_pressed():

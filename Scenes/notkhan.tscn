@@ -48,7 +48,7 @@ script = ExtResource("2_41fu2")
 
 [node name="CollisionShape2d" type="CollisionPolygon2D" parent="PlaceableArea/BottomLeftArea"]
 position = Vector2(650, 5)
-polygon = PackedVector2Array(449, 33, 452, 138, 422, 157, 150, 170, 118, 230, 123, 323, 106, 364, 127, 433, 363, 441, 371, 383, 347, 347, 244, 330, 209, 309, 198, 247, 211, 177, 488, 174, 493, 0, 26, 1, -429, 2, -426, 17)
+polygon = PackedVector2Array(449, 33, 452, 138, 422, 157, 150, 170, 122, 232, 123, 323, 106, 364, 127, 433, 363, 441, 371, 383, 347, 347, 244, 330, 209, 309, 198, 247, 211, 177, 488, 174, 493, 0, 26, 1, -429, 2, -426, 17)
 
 [node name="BottomRightArea" type="Area2D" parent="PlaceableArea"]
 
@@ -72,19 +72,19 @@ polygon = PackedVector2Array(-25, 170, 17, 155, 15, 128, 21, 89, 67, 67, 115, 59
 
 [node name="CollisionShape2d" type="CollisionPolygon2D" parent="PlaceableArea/BottomRightArea3"]
 position = Vector2(205, 551)
-polygon = PackedVector2Array(-27, 79, 120, 78, 118, 22, -21, 24)
+polygon = PackedVector2Array(-25, 78, 120, 78, 108, 26, 43, 17, -18, 26)
 
 [node name="TopLeftArea" type="Area2D" parent="PlaceableArea"]
 
 [node name="CollisionShape2d" type="CollisionPolygon2D" parent="PlaceableArea/TopLeftArea"]
-position = Vector2(-17, -13)
-polygon = PackedVector2Array(7, 278, 226, 279, 228, 408, 309, 410, 318, 174, 350, 143, 568, 151, 611, 194, 625, 240, 684, 245, 690, 179, 712, 110, 997, 108, 1001, 92, 162, 84, 145, 18, 12, 18)
+position = Vector2(-9, -13)
+polygon = PackedVector2Array(20, 288, 240, 295, 252, 406, 322, 410, 318, 174, 350, 143, 568, 151, 611, 194, 625, 240, 695, 277, 698, 177, 716, 125, 999, 124, 1002, 104, 172, 94, 145, 18, 21, 19)
 
 [node name="TopRightArea" type="Area2D" parent="PlaceableArea"]
 
 [node name="CollisionShape2d" type="CollisionPolygon2D" parent="PlaceableArea/TopRightArea"]
 position = Vector2(4, 459)
-polygon = PackedVector2Array(2, -101, 5, 181, 101, 181, 111, 92, 164, 57, 383, 62, 391, 122, 732, 138, 724, 100, 408, 78, 384, 73, 383, 59, 383, 20, 150, 20, 135, -8, 139, -98)
+polygon = PackedVector2Array(2, -101, 5, 181, 87, 174, 106, 93, 164, 57, 246, 50, 365, 53, 391, 122, 732, 138, 724, 100, 408, 78, 398, 71, 391, 55, 383, 18, 265, 29, 150, 20, 127, -8, 139, -98)
 
 [node name="Towers" type="Node2D" parent="."]
 

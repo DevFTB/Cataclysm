@@ -11,6 +11,8 @@ enum TargetingCategory {
 @export var element : Game.Element
 
 @export var projecticle : PackedScene 
+@export var aoe : PackedScene 
+
 @export var damage = 100
 @export var attack_duration = 3
 @export var attack_range = 400
@@ -52,13 +54,16 @@ func deactivate() -> void:
 	activated = false
 	
 func tick() -> void:
-	if tick_counter >= attack_duration and activated:
-		deactivate()
-		
-	if activated and tick_counter < attack_duration:
+	if not is_aoe and activated:
+		if activated and tick_counter < attack_duration:
+			attack()
+			tick_counter+=1
+		if tick_counter >= attack_duration:
+			deactivate()
+	elif is_aoe and activated:
 		attack()
-		tick_counter+=1
-		
+		deactivate()
+			
 func attack() -> void:
 	var target = null
 	match targeting_category:
@@ -75,11 +80,25 @@ func attack() -> void:
 	if target != null:
 		print(target)
 		if is_aoe:
+			spawn_aoe(target)
 			pass
 		else:
 			spawn_projectile(target)
 		pass
 
+func spawn_aoe(target: Vector2):
+	var new_proj = aoe.instantiate()
+	add_child(new_proj)
+	
+	new_proj.global_position = target
+	
+	new_proj.damage  = damage
+	new_proj.element = element
+	new_proj.radius = aoe_range
+	new_proj.lifetime = attack_duration
+	
+
+	pass
 	
 func spawn_projectile(target: Vector2):
 	var new_proj = projecticle.instantiate()
@@ -121,6 +140,7 @@ func target_strong() -> void:
 			if enemy.max_health > strongest_enemy.max_health:
 				strongest_enemy = enemy
 	
+		print("targeting %s" % strongest_enemy.name)
 		return strongest_enemy.global_position
 	else:
 		return null
