@@ -36,13 +36,9 @@ func _ready():
 	$TargetingRangeOverlapArea.add_child(collision_shape)
 	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-func set_spot(spot):
-	self.spot = spot
-	print('set spot %s' % self.spot)
+func set_spot(new_spot):
+	spot = new_spot
+	print('set spot %s' % spot)
 	queue_redraw()
 	
 func activate() -> void:
@@ -127,7 +123,7 @@ func target_first():
 	else:
 		return null
 
-func target_strong() -> void:
+func target_strong():
 	var enemy_areas_in_range = $TargetingRangeOverlapArea.get_overlapping_areas()
 	
 	print(enemy_areas_in_range)
@@ -144,7 +140,7 @@ func target_strong() -> void:
 		return strongest_enemy.global_position
 	else:
 		return null
-	return null
+	
 	
 func target_spot() -> void:
 	if spot == null:

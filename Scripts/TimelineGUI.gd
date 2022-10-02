@@ -3,14 +3,6 @@ extends Control
 @export var timeline_list_item : PackedScene
 @export var item_parent_path : NodePath
 @onready var item_parent = get_node(item_parent_path)
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 func set_highlight_for_tick(tick):
 	for child in item_parent.get_children():

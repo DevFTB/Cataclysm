@@ -17,6 +17,3 @@ func on_Child_mouse_entered():
 func on_Child_mouse_exited():
 	emit_signal("can_place_changed", false)
 	pass
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

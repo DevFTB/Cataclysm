@@ -31,7 +31,7 @@ func _process(delta):
 	
 	if time > time_till_next_wave:
 		spawn_wave(wave_no)
-		time_till_next_wave = rng.randf_range(max_time_till_next_wave * 2 / 3, max_time_till_next_wave)
+		time_till_next_wave = rng.randf_range(float(max_time_till_next_wave) * 2 / 3, max_time_till_next_wave)
 		wave_no+=1
 		time = 0 
 	pass

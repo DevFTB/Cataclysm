@@ -17,7 +17,3 @@ func _on_pressed():
 func set_toggle(toggle):
 	_toggled = toggle
 	text = toggled_text if _toggled else not_toggled_text
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

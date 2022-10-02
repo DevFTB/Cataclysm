@@ -51,7 +51,7 @@ func take_damage(damage: int, element: Game.Element) -> void:
 	applied_elements.append(element)
 	var true_damage = apply_resistances(damage, element)
 	
-	modify_health(-1 * damage)
+	modify_health(-1 * true_damage)
 	pass
 
 func modify_health(amount : int):
@@ -68,7 +68,6 @@ func apply_elemental_reactions() -> Game.Reaction:
 		return Game.Reaction.DIFFUSION
 	else:
 		return reactions[applied_elements[0]][applied_elements[1]]
-	pass
 	
 func die():
 	is_dead = true

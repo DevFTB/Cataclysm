@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var tower : PackedScene
+@export var selected_tower : PackedScene
 @export var tower_parent : NodePath
 
 @onready var game = get_node("/root/Game")
@@ -27,7 +27,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	position = get_viewport().get_mouse_position()
 	pass
 
@@ -49,7 +49,7 @@ func _input(event):
 				if can_place():
 					place_tower()
 			if event.is_action_pressed("cancel"):
-				if tower != null:
+				if selected_tower != null:
 					unset_tower_placement()
 		if mode == 2:
 			if event.is_action_pressed("select"):
@@ -92,12 +92,12 @@ func deselect_tower() -> void:
 
 func can_place() -> bool:
 	var location_good = in_placeable_area and not obstructed
-	var tower_good = tower != null and towers_active < max_towers
+	var tower_good = selected_tower != null and towers_active < max_towers
 	
 	return location_good and tower_good and game.game_paused
 
 func place_tower():
-	var new_tower = tower.instantiate() as Node2D
+	var new_tower = selected_tower.instantiate() as Node2D
 	game.get_node("Map/Towers").add_child(new_tower)
 
 	new_tower.position = get_viewport().get_mouse_position()
@@ -110,27 +110,27 @@ func place_tower():
 	towers_active += 1
 
 func set_tower_placement(tower: PackedScene, icon: Texture2D) -> void:
-	self.tower = tower
+	selected_tower = tower
 	$GhostIcon.texture = icon
 	$GhostIcon.visible = true
 	
 	mode = 1
 	
 func unset_tower_placement():
-	self.tower = null
+	selected_tower = null
 	$GhostIcon.visible = false
 	
 	mode = 0
 
-func _on_placeable_area_can_place_changed(can_place):
-	self.in_placeable_area = can_place
+func _on_placeable_area_can_place_changed(placeable):
+	in_placeable_area = placeable
 	pass # Replace with function body.
 
 func on_Tower_mouse_entered(src):
-	self.obstructed = true
-	self.tower_selection_candidate = src
+	obstructed = true
+	tower_selection_candidate = src
 	pass
-func on_Tower_mouse_exited(src):
-	self.obstructed = false
-	self.tower_selection_candidate = null
+func on_Tower_mouse_exited(_src):
+	obstructed = false
+	tower_selection_candidate = null
 	pass

@@ -8,10 +8,5 @@ func _ready():
 	_on_toggled(button_pressed)
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-func _on_toggled(button_pressed):
-	text = toggled_text if button_pressed else not_toggled_text
+func _on_toggled(_button_pressed):
+	text = toggled_text if _button_pressed else not_toggled_text

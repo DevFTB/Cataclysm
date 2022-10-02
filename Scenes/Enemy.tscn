@@ -12,6 +12,7 @@ height = 34.0
 rotates = false
 loop = false
 script = ExtResource("1_qkyk3")
+max_health = 200
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2

@@ -7,30 +7,20 @@ var tower : Tower = null
 @onready var spot_selector = get_node(spot_selector_path)
 @onready var details_parent = $VSplitContainer/Control/TowerDetails
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	unset_tower()
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
-
+ 
 func _on_minimise_button_toggled(button_pressed):
 	$VSplitContainer/Control.visible = button_pressed
-	pass # Replace with function body.
 
-func set_tower(tower) -> void:
-	self.tower = tower
+func set_tower(new_tower) -> void:
+	tower = new_tower
 	details_parent.visible = true
 	
 	details_parent.get_node("TowerTitle").text = tower.tower_name
 	details_parent.get_node("TowerImage").texture = tower.ui_image
 	
-	details_parent.get_node("TowerDescription").text  = generate_description(tower)
+	details_parent.get_node("TowerDescription").text  = generate_description()
 	var op_button = details_parent.get_node("TargetingOptionButton") as OptionButton
 	
 	if tower.is_aoe:
@@ -43,13 +33,12 @@ func set_tower(tower) -> void:
 	details_parent.get_node("TowerSetSpotButton").visible = tower.is_aoe and op_button.selected == 2
 	pass
 
-func generate_description(tower: Tower) -> String:
+func generate_description() -> String:
 	var format_string = "Element: %s\n\nType:%s\nDamage: %s\nAttack Duration: %s"
 	return format_string % [Game.elementToString(tower.element), "AOE" if tower.is_aoe else "Single Target", tower.damage, tower.attack_duration]
-	pass
 	
 func unset_tower() -> void:
-	self.tower = null
+	tower = null
 	details_parent.visible = false
 	pass
 

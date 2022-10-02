@@ -45,7 +45,7 @@ var autoplay = false
 
 var game_paused = true
 
-var tick = 0
+var current_tick = 0
 var turn = 0
 var time = 0
 var tick_registration : Dictionary = {}
@@ -68,11 +68,11 @@ func _physics_process(delta):
 	if time > 1:
 		time = 0
 		
-		if not game_paused and (tick >= 0 and tick < ticks_per_turn):
-			do_tick(tick)
-			tick += 1
+		if not game_paused and (current_tick >= 0 and current_tick < ticks_per_turn):
+			do_tick(current_tick)
+			current_tick += 1
 				
-		if not game_paused and tick >= ticks_per_turn:
+		if not game_paused and current_tick >= ticks_per_turn:
 			if autoplay:
 				new_turn()
 			else:
@@ -85,7 +85,7 @@ func _physics_process(delta):
 	pass
 	
 func new_turn():
-	tick = 0
+	current_tick = 0
 	turn += 1
 	
 	game_paused = false

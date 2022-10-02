@@ -31,8 +31,3 @@ func tick():
 func _draw():
 	draw_circle(Vector2.ZERO, radius, Color(Color.RED, 0.3))
 	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-

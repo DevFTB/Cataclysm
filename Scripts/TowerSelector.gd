@@ -46,9 +46,6 @@ func instance_button(tower, tower_name, ui_image, clan):
 	get_node(button_parent).queue_sort()
 
 	pass
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 	
 func select_tower(tower: PackedScene, ui_image: Texture2D):
 	get_node("/root/Game/TowerPlacer").set_tower_placement(tower,  ui_image)
