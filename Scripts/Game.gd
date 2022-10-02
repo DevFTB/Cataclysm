@@ -32,9 +32,15 @@ func _ready():
 		
 	$GUI/TimelineGUI.regenerate_list()
 	
+	get_node("Map").connect("cores_dead", _on_cores_dead)
 
 	pass # Replace with function body.
 
+func _on_cores_dead():
+	set_game_over()
+
+func set_game_over():
+	game_over = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):

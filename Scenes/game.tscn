@@ -390,6 +390,12 @@ script = ExtResource("13_6n20p")
 toggled_text = "Hide Shop"
 not_toggled_text = "Show Shop"
 
+[node name="Game Over" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [connection signal="paused" from="." to="GUI/TimelineGUI/VSplitContainer/Control/HSplitContainer/VBoxContainer/PlayButton" method="_on_game_paused"]
 [connection signal="resumed" from="." to="GUI/TimelineGUI/VSplitContainer/Control/HSplitContainer/VBoxContainer/PlayButton" method="_on_game_resumed"]
 [connection signal="toggled" from="GUI/TimelineGUI/VSplitContainer/MinimiseButton" to="GUI/TimelineGUI" method="_on_minimise_button_toggled"]

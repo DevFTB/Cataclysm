@@ -14,6 +14,7 @@ rotates = false
 loop = false
 script = ExtResource("1_qkyk3")
 max_health = 1000
+base_move_speed = 200
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
