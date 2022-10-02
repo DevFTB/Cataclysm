@@ -19,6 +19,11 @@ tower_name = "My Tower 2"
 ui_image = ExtResource("1_fvar2")
 clan = 1
 
+[node name="TargetingRangeOverlapArea" type="Area2D" parent="."]
+position = Vector2(-0.5, 1)
+collision_layer = 0
+collision_mask = 2
+
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_k8n8h")

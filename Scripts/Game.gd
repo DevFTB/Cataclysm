@@ -1,6 +1,41 @@
 extends Node
+class_name Game
 
 @export var ticks_per_turn = 10
+
+enum Clan {
+	GREWT, KHANOVIAN, THE_ORDER
+}
+
+enum Element {
+	WATER, AIR, EARTH, FIRE, ELECTRICITY, STEEL, DARK, LIGHT
+}
+
+static func elementToString(e: Element): 
+	match e:
+		Element.WATER:
+			return "Water"
+		Element.AIR:
+			return "Air"
+		Element.EARTH:
+			return "Earth"
+		Element.FIRE:
+			return "Fire"
+		Element.STEEL:
+			return "Steel"
+		Element.DARK:
+			return "Dark"
+		Element.LIGHT:
+			return "Light"
+		
+	return "."
+
+
+enum Reaction {
+	DIFFUSION, REPLACE, CIRCULATE, EVAPORATE, CORROSION, GLOOM, WEALTH, BARRICADE, POISON, OVERCLOCK, SMITE, REINFORCE, JUDGMENT
+}
+
+@onready var tower_parent  = $Map/Towers
 
 signal paused
 signal resumed
@@ -10,10 +45,11 @@ var autoplay = false
 
 var game_paused = true
 
-var tick = 0
+var current_tick = 0
 var turn = 0
 var time = 0
 var tick_registration : Dictionary = {}
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for i in ticks_per_turn:
@@ -26,17 +62,17 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	time += delta
 	
 	if time > 1:
 		time = 0
 		
-		if not game_paused and (tick >= 0 and tick < ticks_per_turn):
-			do_tick(tick)
-			tick += 1
+		if not game_paused and (current_tick >= 0 and current_tick < ticks_per_turn):
+			do_tick(current_tick)
+			current_tick += 1
 				
-		if not game_paused and tick >= ticks_per_turn:
+		if not game_paused and current_tick >= ticks_per_turn:
 			if autoplay:
 				new_turn()
 			else:
@@ -49,7 +85,7 @@ func _process(delta):
 	pass
 	
 func new_turn():
-	tick = 0
+	current_tick = 0
 	turn += 1
 	
 	game_paused = false
@@ -62,11 +98,11 @@ func do_tick(tick):
 	# Enemy effects
 	
 	# Activate Towers / Towers Fire
-	print(tick_registration[tick])
-	$GUI/TimelineGUI.set_highlight_for_tick(tick)
-	# Deal base damage and kill enemies
+	tick_towers(tick)
 	
-	# Apply 1U of element to enemies
+	await get_tree().process_frame
+	# Deal base damage and apply elements
+	tick_aoe()
 	
 	# Elemental Reactions happens
 	
@@ -74,6 +110,23 @@ func do_tick(tick):
 	
 	# Deactivate tower effects
 	pass
+
+func tick_aoe():
+	var aoes = get_tree().get_nodes_in_group("aoe")
+	
+	for aoe in aoes:
+		aoe.tick()
+
+func tick_towers(tick) -> void:
+	$GUI/TimelineGUI.set_highlight_for_tick(tick)
+	
+	var tower_to_activate = tick_registration[tick]
+	if tower_to_activate != null:
+		tower_to_activate.activate()
+
+	for tower in tick_registration.values():
+		if tower != null:
+			tower.tick()
 	
 func auto_register_tower(tower):
 	for tick in tick_registration.keys():

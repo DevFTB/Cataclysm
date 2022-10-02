@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cr43u6w65rs3d"
-path="res://.godot/imported/cataclysm_play_pressed.png-61fdbba334fd0cccbf1483b5fcb3de91.ctex"
+uid="uid://si2of2ojsqj3"
+path="res://.godot/imported/water_basic.png-5edf57c21fcdefe8a90e4df352b98ad3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/UI/Menus/cataclysm_play_pressed.png"
-dest_files=["res://.godot/imported/cataclysm_play_pressed.png-61fdbba334fd0cccbf1483b5fcb3de91.ctex"]
+source_file="res://Resources/Level/Towers/Grewt/water_basic.png"
+dest_files=["res://.godot/imported/water_basic.png-5edf57c21fcdefe8a90e4df352b98ad3.ctex"]
 
 [params]
 

@@ -1,21 +1,12 @@
 extends Control
 
 @export var timeline_list_item : PackedScene
-@onready var item_parent = $HSplitContainer/ScrollContainer/ListItemParent
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+@export var item_parent_path : NodePath
+@onready var item_parent = get_node(item_parent_path)
 
 func set_highlight_for_tick(tick):
 	for child in item_parent.get_children():
 		if child.tick == tick:
-			print(str(child.tick) + ", " + str(tick))
 			child.set_highlight(true)
 		else:
 			child.set_highlight(false)
@@ -37,3 +28,9 @@ func regenerate_list():
 		else:
 			item.init_empty()
 		item_parent.add_child(item)
+
+
+func _on_minimise_button_toggled(button_pressed):
+	$VSplitContainer/Control.visible = button_pressed
+
+	pass # Replace with function body.

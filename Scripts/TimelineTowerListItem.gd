@@ -8,10 +8,7 @@ func _ready():
 
 func set_highlight(value):
 	$TurnColorRect.visible = value
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-	
+
 func init_empty():
 	
 	$HBoxContainer/TextureRect.texture = null
@@ -19,13 +16,13 @@ func init_empty():
 	
 	$HBoxContainer/UpDownButtons.visible = false
 
-func set_details(tower, tick):
-	self.tower = tower
+func set_details(new_tower, new_tick):
+	tower = new_tower
+	tick = new_tick
 	$HBoxContainer/TowerNameLabel.text = tower.tower_name
 	
 	$HBoxContainer/TextureRect.texture = tower.ui_image
-	
-	self.tick = tick
+
 	$HBoxContainer/TickLabel.text = str(tick + 1)
 	
 	$HBoxContainer/UpDownButtons.visible = true

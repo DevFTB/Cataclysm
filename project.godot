@@ -13,15 +13,27 @@ _global_script_classes=[{
 "class": &"Enemy",
 "language": &"GDScript",
 "path": "res://Scripts/Enemy.gd"
+}, {
+"base": "Node",
+"class": &"Game",
+"language": &"GDScript",
+"path": "res://Scripts/Game.gd"
+}, {
+"base": "Area2D",
+"class": &"Tower",
+"language": &"GDScript",
+"path": "res://Scripts/Tower.gd"
 }]
 _global_script_class_icons={
-"Enemy": ""
+"Enemy": "",
+"Game": "",
+"Tower": ""
 }
 
 [application]
 
 config/name="Cataclysm"
-run/main_scene="res://Scenes/game.tscn"
+run/main_scene="res://Scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -32,8 +44,18 @@ window/stretch/mode="viewport"
 
 [input]
 
-target={
+select={
 "deadzone": 0.5,
-"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":2,"position":Vector2(220, 204),"global_position":Vector2(220, 204),"factor":1.0,"button_index":2,"pressed":true,"double_click":false,"script":null)
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"pressed":false,"double_click":false,"script":null)
 ]
 }
+cancel={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":2,"pressed":false,"double_click":false,"script":null)
+]
+}
+
+[layer_names]
+
+2d_physics/layer_1="Tower"
+2d_physics/layer_2="Enemy"

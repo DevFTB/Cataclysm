@@ -14,16 +14,13 @@ func _ready():
 		var packed_state = tower.get_state()
 		for node_idx in packed_state.get_node_count():
 			var node_name = packed_state.get_node_name(node_idx)
-			print("node_name=", node_name)
 			if node_name == "Tower":
 				var tower_name = ""
 				var ui_image : Texture2D
 				var clan : Clan
 				for node_prop_idx in packed_state.get_node_property_count(node_idx):
 					var prop_name = packed_state.get_node_property_name(node_idx, node_prop_idx)
-					print ("  node_prop_name=", prop_name)
 					var prop_value = packed_state.get_node_property_value(node_idx, node_prop_idx)
-					print ("  node_value=", prop_value)
 					if prop_name == "tower_name":
 						tower_name = prop_value
 					if prop_name == "ui_image":
@@ -49,12 +46,9 @@ func instance_button(tower, tower_name, ui_image, clan):
 	get_node(button_parent).queue_sort()
 
 	pass
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 	
-func select_tower(tower: PackedScene):
-	get_node("/root/Game/TowerPlacer").tower = tower
+func select_tower(tower: PackedScene, ui_image: Texture2D):
+	get_node("/root/Game/TowerPlacer").set_tower_placement(tower,  ui_image)
 	pass
 
 func switch_clan_view(clan):
@@ -73,4 +67,9 @@ func _on_khanovian_tower_button_pressed():
 
 func _on_the_order_tower_button_pressed():
 	switch_clan_view(Clan.THE_ORDER)
+	pass # Replace with function body.
+
+
+func _on_minimise_button_toggled(button_pressed):
+	$VBoxContainer/Control.visible = button_pressed
 	pass # Replace with function body.

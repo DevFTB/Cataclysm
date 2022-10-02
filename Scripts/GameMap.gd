@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var enemies : Array[PackedScene]
-@export var spawn_register = [[{0 : 5}, {0 : 2}, {0 : 1}, {0 : 4}],[{},{},{},{}],[{},{},{},{}],[{},{},{},{}]]
+@export var spawn_register = [[{0 : 3, 1 : 1}, {0 : 2}, {0 : 1}, {0 : 4}],[{},{},{},{}],[{},{},{},{}],[{},{},{},{}]]
 @export var spawn_delay = 0.5
 @export var max_time_till_next_wave = 5
 
@@ -19,7 +19,6 @@ var wave_no = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print($Paths.get_children())
 	paths = $Paths.get_children()
 	time_till_next_wave = 0
 	pass # Replace with function body.
@@ -32,7 +31,7 @@ func _process(delta):
 	
 	if time > time_till_next_wave:
 		spawn_wave(wave_no)
-		time_till_next_wave = rng.randf_range(max_time_till_next_wave * 2 / 3, max_time_till_next_wave)
+		time_till_next_wave = rng.randf_range(float(max_time_till_next_wave) * 2 / 3, max_time_till_next_wave)
 		wave_no+=1
 		time = 0 
 	pass

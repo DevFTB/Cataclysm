@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=7 format=3 uid="uid://0ylinvw05wvc"]
 
 [ext_resource type="Texture2D" uid="uid://nydvsnw34eaj" path="res://Resources/Level/Towers/debug_tower.png" id="1_28xor"]
 [ext_resource type="Script" path="res://Scripts/Tower.gd" id="1_a8hxo"]
@@ -18,6 +18,11 @@ script = ExtResource("1_a8hxo")
 tower_name = "My Tower 1"
 ui_image = ExtResource("1_28xor")
 clan = 0
+
+[node name="TargetingRangeOverlapArea" type="Area2D" parent="."]
+position = Vector2(-0.5, 1)
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 1)
