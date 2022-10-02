@@ -1,11 +1,12 @@
 extends Node2D
 
-@export var selected_tower : PackedScene
-@export var tower_parent : NodePath
+@export var tower_scene : PackedScene
 
 @onready var game = get_node("/root/Game")
 @onready var max_towers = game.ticks_per_turn
 
+var tower_parent : NodePath
+var placement_tower : Tower
 var in_placeable_area : bool = false
 var obstructed : bool  = false
 
@@ -49,7 +50,7 @@ func _input(event):
 				if can_place():
 					place_tower()
 			if event.is_action_pressed("cancel"):
-				if selected_tower != null:
+				if placement_tower != null:
 					unset_tower_placement()
 		if mode == 2:
 			if event.is_action_pressed("select"):
@@ -79,7 +80,7 @@ func select_tower() -> void:
 	tower_selection.set_highlight(true)
 	print("%s was selected. " % tower_selection)
 	
-	game.get_node("GUI/TowerGUI").set_tower(tower_selection)
+	game.get_node("GUI/TowerGUI").set_tower(tower_selection.tower)
 	pass
 	
 func deselect_tower() -> void:
@@ -92,12 +93,13 @@ func deselect_tower() -> void:
 
 func can_place() -> bool:
 	var location_good = in_placeable_area and not obstructed
-	var tower_good = selected_tower != null and towers_active < max_towers
+	var tower_good = placement_tower != null and towers_active < max_towers
 	
 	return location_good and tower_good and game.game_paused
 
 func place_tower():
-	var new_tower = selected_tower.instantiate() as Node2D
+	var new_tower = tower_scene.instantiate()
+	new_tower.tower = placement_tower
 	game.get_node("Map/Towers").add_child(new_tower)
 
 	new_tower.position = get_viewport().get_mouse_position()
@@ -109,15 +111,15 @@ func place_tower():
 	$AudioStreamPlayer.play()
 	towers_active += 1
 
-func set_tower_placement(tower: PackedScene, icon: Texture2D) -> void:
-	selected_tower = tower
+func set_tower_placement(tower: Tower, icon: Texture2D) -> void:
+	placement_tower = tower
 	$GhostIcon.texture = icon
 	$GhostIcon.visible = true
 	
 	mode = 1
 	
 func unset_tower_placement():
-	selected_tower = null
+	placement_tower = null
 	$GhostIcon.visible = false
 	
 	mode = 0

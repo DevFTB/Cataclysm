@@ -44,10 +44,15 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://Scripts/Elemental/SelfDamageReaction.gd"
 }, {
-"base": "Area2D",
+"base": "Resource",
 "class": &"Tower",
 "language": &"GDScript",
 "path": "res://Scripts/Tower.gd"
+}, {
+"base": "Area2D",
+"class": &"TowerLifecycle",
+"language": &"GDScript",
+"path": "res://Scripts/TowerLifecycle.gd"
 }]
 _global_script_class_icons={
 "AoEReaction": "",
@@ -57,7 +62,8 @@ _global_script_class_icons={
 "Reaction": "",
 "ReactionLifecycle": "",
 "SelfDamageReaction": "",
-"Tower": ""
+"Tower": "",
+"TowerLifecycle": ""
 }
 
 [application]

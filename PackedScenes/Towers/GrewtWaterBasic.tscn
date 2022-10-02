@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://bpky6yb0jl87u"]
+[gd_scene load_steps=8 format=3]
 
-[ext_resource type="Script" path="res://Scripts/Tower.gd" id="1_305o3"]
+[ext_resource type="Script" path="res://Scripts/TowerLifecycle.gd" id="1_305o3"]
 [ext_resource type="Texture2D" uid="uid://si2of2ojsqj3" path="res://Resources/Level/Towers/Grewt/water_basic.png" id="2_k1n6k"]
 [ext_resource type="Script" path="res://PackedScenes/Towers/HighlightableSprite2d.gd" id="3_338y5"]
 [ext_resource type="PackedScene" uid="uid://bmn2yj1j6lu86" path="res://PackedScenes/aoe.tscn" id="3_d82ni"]

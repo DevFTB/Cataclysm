@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://5mdxhmjgflr0"]
+
+[ext_resource type="Resource" uid="uid://c537smfv6044" path="res://Resources/Elemental/Elements/Earth.tres" id="1_55cpf"]
+[ext_resource type="Script" path="res://Scripts/Tower.gd" id="1_jyxs6"]
+[ext_resource type="PackedScene" uid="uid://dxhrlgv1poj84" path="res://PackedScenes/Projectile.tscn" id="2_76wl7"]
+[ext_resource type="Texture2D" uid="uid://y63di8or1h3p" path="res://Resources/Level/Towers/Grewt/earth_basic.png" id="4_3grpa"]
+
+[resource]
+script = ExtResource("1_jyxs6")
+tower_name = "Earth Basic"
+ui_image = ExtResource("4_3grpa")
+clan = 0
+element = ExtResource("1_55cpf")
+projecticle = ExtResource("2_76wl7")
+damage = 100
+attack_duration = 3
+attack_range = 150
+is_aoe = false
+aoe_range = 30

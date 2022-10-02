@@ -1,6 +1,6 @@
 extends Button
 
-@export var tower: PackedScene
+@export var tower: Tower
 
 var tower_selector : Control
 var clan : int

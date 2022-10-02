@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://c70xuurq24sku"]
+
+[ext_resource type="Script" path="res://Scripts/Tower.gd" id="1_jyxs6"]
+[ext_resource type="PackedScene" uid="uid://bmn2yj1j6lu86" path="res://PackedScenes/aoe.tscn" id="1_rvgrt"]
+[ext_resource type="Resource" uid="uid://eld45dnueksj" path="res://Resources/Elemental/Elements/Water.tres" id="2_16ftg"]
+[ext_resource type="Texture2D" uid="uid://si2of2ojsqj3" path="res://Resources/Level/Towers/Grewt/water_basic.png" id="4_xe5nx"]
+
+[resource]
+script = ExtResource("1_jyxs6")
+tower_name = "Water Area"
+ui_image = ExtResource("4_xe5nx")
+clan = 0
+element = ExtResource("2_16ftg")
+aoe = ExtResource("1_rvgrt")
+damage = 100
+attack_duration = 3
+attack_range = 150
+is_aoe = true
+aoe_range = 50
