@@ -23,3 +23,5 @@ shape = SubResource("RectangleShape2D_e1rum")
 texture_filter = 1
 script = ExtResource("3_r7e7k")
 highlight_shader = ExtResource("4_pr0y4")
+
+[node name="AudioStreamPlayer2d" type="AudioStreamPlayer2D" parent="."]

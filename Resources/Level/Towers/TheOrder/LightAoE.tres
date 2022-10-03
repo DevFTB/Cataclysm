@@ -1,8 +1,9 @@
-[gd_resource type="Resource" load_steps=5 format=3 uid="uid://edow1ldidh7r"]
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://edow1ldidh7r"]
 
 [ext_resource type="Script" path="res://Scripts/Tower.gd" id="1_jyxs6"]
 [ext_resource type="PackedScene" uid="uid://bmn2yj1j6lu86" path="res://PackedScenes/aoe.tscn" id="1_rvgrt"]
 [ext_resource type="Resource" uid="uid://jgxqqiqw4nht" path="res://Resources/Elemental/Elements/Light.tres" id="2_1iwoi"]
+[ext_resource type="AudioStream" uid="uid://ctp8ngddil67d" path="res://Resources/Sounds/light_element.wav" id="2_ieikl"]
 [ext_resource type="Texture2D" uid="uid://chorkh2daqkx6" path="res://Resources/Level/Towers/TheOrder/light_basic.png" id="4_h2e1e"]
 
 [resource]
@@ -11,6 +12,7 @@ tower_name = "Light Area"
 ui_image = ExtResource("4_h2e1e")
 clan = 2
 element = ExtResource("2_1iwoi")
+attack_sound = ExtResource("2_ieikl")
 currency_cost = 50
 aoe = ExtResource("1_rvgrt")
 damage = 200

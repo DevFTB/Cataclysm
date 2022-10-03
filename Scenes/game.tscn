@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://b3n6dywciugoy"]
+[gd_scene load_steps=46 format=3 uid="uid://b3n6dywciugoy"]
 
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="1_f45j7"]
 [ext_resource type="Texture2D" uid="uid://l6bfomveh046" path="res://Resources/UI/cursor.png" id="2_4rqab"]
@@ -44,6 +44,7 @@
 [ext_resource type="Texture2D" uid="uid://50gpslbstunf" path="res://Resources/UI/Menus/GameOver.png" id="41_edrjh"]
 [ext_resource type="Texture2D" uid="uid://crhnp1xb53y3u" path="res://Resources/UI/Menus/cataclysm_play.png" id="42_g24qe"]
 [ext_resource type="Texture2D" uid="uid://cr43u6w65rs3d" path="res://Resources/UI/Menus/cataclysm_play_pressed.png" id="43_vyfl2"]
+[ext_resource type="AudioStream" uid="uid://y6rp67ij82iy" path="res://Resources/Sounds/cataclysm.wav" id="45_jycqq"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_f45j7")
@@ -456,6 +457,9 @@ grow_vertical = 0
 texture_normal = ExtResource("42_g24qe")
 texture_pressed = ExtResource("43_vyfl2")
 stretch_mode = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("45_jycqq")
 
 [connection signal="paused" from="." to="GUI/TimelineGUI/VSplitContainer/Control/HSplitContainer/VBoxContainer/PlayButton" method="_on_game_paused"]
 [connection signal="resumed" from="." to="GUI/TimelineGUI/VSplitContainer/Control/HSplitContainer/VBoxContainer/PlayButton" method="_on_game_resumed"]
