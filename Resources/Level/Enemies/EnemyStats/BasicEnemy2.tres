@@ -21,4 +21,5 @@ max_health = 500
 base_move_speed = 20
 resistances = SubResource("Resource_dd2uv")
 currency_on_death = 1
+self_apply_period = 2
 max_rand_offset = 0
