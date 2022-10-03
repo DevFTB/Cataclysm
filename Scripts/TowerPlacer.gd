@@ -94,10 +94,13 @@ func deselect_tower() -> void:
 func can_place() -> bool:
 	var location_good = in_placeable_area and not obstructed
 	var tower_good = placement_tower != null and towers_active < max_towers
+	var has_moneys = game.can_buy(placement_tower)
 	
-	return location_good and tower_good and game.game_paused
+	return location_good and tower_good and game.game_paused and has_moneys
 
 func place_tower():
+	game.spend_currency(placement_tower.currency_cost)
+	
 	var new_tower = tower_scene.instantiate()
 	new_tower.tower = placement_tower
 	game.get_node("Map/Towers").add_child(new_tower)
