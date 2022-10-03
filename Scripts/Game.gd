@@ -3,7 +3,7 @@ class_name Game
 
 @export var ticks_per_turn = 10
 @export var reactions : Array[Reaction]
-
+@export var starting_currency = 5
 enum Clan {
 	GREWT, KHANOVIAN, THE_ORDER
 }
@@ -12,6 +12,8 @@ enum Clan {
 
 signal paused
 signal resumed
+
+signal currency_changed(new_value: int)
 
 var game_over = false
 var autoplay = false
@@ -23,6 +25,9 @@ var turn = 0
 var time = 0
 var tick_registration : Dictionary = {}
 
+
+var currency = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for i in ticks_per_turn:
@@ -30,30 +35,41 @@ func _ready():
 		
 	$GUI/TimelineGUI.regenerate_list()
 	
+	get_node("Map").connect("cores_dead", _on_cores_dead)
+	
+	add_to_currency(starting_currency)
 
 	pass # Replace with function body.
 
+func _on_cores_dead():
+	set_game_over()
+
+func set_game_over():
+	game_over = true
+	$GUI.visible = false
+	$GameOver.visible = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	time += delta
-	
-	if time > 1:
-		time = 0
+	if not game_over:
+		time += delta
 		
-		if not game_paused and (current_tick >= 0 and current_tick < ticks_per_turn):
-			do_tick(current_tick)
-			current_tick += 1
-				
-		if not game_paused and current_tick >= ticks_per_turn:
-			if autoplay:
-				new_turn()
-			else:
-				emit_signal("paused")
-				game_paused = true
-		
-	if game_paused:
-		pass
+		if time > 1:
+			time = 0
+			
+			if not game_paused and (current_tick >= 0 and current_tick < ticks_per_turn):
+				do_tick(current_tick)
+				current_tick += 1
+					
+			if not game_paused and current_tick >= ticks_per_turn:
+				if autoplay:
+					new_turn()
+				else:
+					emit_signal("paused")
+					game_paused = true
+			
+		if game_paused:
+			pass
 
 	pass
 	
@@ -132,6 +148,16 @@ func get_reaction(elements: Array[Element]):
 	
 	return reactions[0]
 
+func can_buy(tower: Tower) -> bool:
+	return tower.currency_cost <= currency 
+
+func spend_currency(amount: int) -> void:
+	currency -= amount
+	emit_signal("currency_changed", currency)
+
+func add_to_currency(amount: int) -> void:
+	currency += amount
+	emit_signal("currency_changed", currency)
 
 func _on_pause_play_button_pressed():
 	if game_paused:
@@ -141,4 +167,9 @@ func _on_pause_play_button_pressed():
 
 func _on_autoplay_button_toggled(button_pressed):
 	autoplay = button_pressed
+	pass # Replace with function body.
+
+
+func _on_play_button_pressed():
+	get_tree().reload_current_scene()
 	pass # Replace with function body.

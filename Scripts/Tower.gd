@@ -10,13 +10,14 @@ enum TargetingCategory {
 @export var clan : Game.Clan
 @export var element : Element
 
+@export var currency_cost : int = 1
+
 @export var projecticle : PackedScene 
 @export var aoe : PackedScene 
 
 @export var damage = 100
 @export var attack_duration = 3
 @export var attack_range = 400
-
 
 @export var is_aoe = false
 @export var aoe_range = 30

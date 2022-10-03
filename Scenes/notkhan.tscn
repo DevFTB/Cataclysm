@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://clh7wxy6scu0p"]
+[gd_scene load_steps=20 format=3 uid="uid://clh7wxy6scu0p"]
 
 [ext_resource type="Texture2D" uid="uid://d0otmx15iojel" path="res://Resources/Level/notkhanmap.png" id="1_a7gao"]
 [ext_resource type="Script" path="res://Scripts/GameMap.gd" id="1_hyp13"]
@@ -12,6 +12,8 @@
 [ext_resource type="Resource" uid="uid://dr3eqsbla8ec7" path="res://Resources/Level/Enemies/EnemyStats/LightElemental.tres" id="8_37vid"]
 [ext_resource type="Resource" uid="uid://cjun01lkoegjb" path="res://Resources/Level/Enemies/EnemyStats/SteelElemental.tres" id="9_rb38k"]
 [ext_resource type="Resource" uid="uid://c1dithye81xi0" path="res://Resources/Level/Enemies/EnemyStats/WaterElemental.tres" id="10_38d7i"]
+[ext_resource type="Script" path="res://Scenes/Core.gd" id="13_6pkge"]
+[ext_resource type="PackedScene" path="res://Scenes/HPBar.tscn" id="14_ay4oe"]
 
 [sub_resource type="Curve2D" id="Curve2D_gc4f3"]
 _data = {
@@ -110,8 +112,15 @@ curve = SubResource("Curve2D_7mwlv")
 [node name="SouthPath" type="Path2D" parent="Paths"]
 curve = SubResource("Curve2D_oc53c")
 
-[node name="Core" type="Area2D" parent="."]
+[node name="Cores" type="Node2D" parent="."]
 
-[node name="CollisionShape2d" type="CollisionShape2D" parent="Core"]
+[node name="Core" type="Area2D" parent="Cores"]
+script = ExtResource("13_6pkge")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Cores/Core"]
 position = Vector2(585, 349)
 shape = SubResource("CircleShape2D_n137f")
+
+[node name="CoreHPBar" parent="Cores/Core" instance=ExtResource("14_ay4oe")]
+
+[connection signal="area_entered" from="Cores/Core" to="Cores/Core" method="_on_core_area_entered"]

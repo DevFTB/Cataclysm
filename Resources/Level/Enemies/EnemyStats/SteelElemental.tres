@@ -18,4 +18,5 @@ enemy_body_type = ExtResource("1_j0djt")
 max_health = 2000
 base_move_speed = 20
 resistances = SubResource("Resource_ettjm")
+currency_on_death = 1
 max_rand_offset = 0

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://df0ecihsf08u2"]
+[gd_scene load_steps=3 format=3 uid="uid://df0ecihsf08u2"]
 
 [ext_resource type="Script" path="res://Scripts/TowerSelectorButton.gd" id="2_gfiaq"]
+[ext_resource type="Texture2D" uid="uid://cq0o8i2h83j44" path="res://Resources/UI/coin.png" id="2_pbryn"]
 
 [node name="Button" type="Button"]
 offset_right = 136.0
@@ -10,3 +11,30 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Tower 1"
 script = ExtResource("2_gfiaq")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2i(60, 0)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -48.0
+offset_bottom = 26.0
+grow_horizontal = 0
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2i(16, 16)
+offset_left = 1.0
+offset_top = 5.0
+offset_right = 17.0
+offset_bottom = 21.0
+size_flags_vertical = 4
+texture = ExtResource("2_pbryn")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+offset_left = 21.0
+offset_right = 58.0
+offset_bottom = 26.0
+text = "1000"
