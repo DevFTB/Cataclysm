@@ -18,6 +18,7 @@ script = ExtResource("1_7lcni")
 game_scene = ExtResource("2_sri2x")
 
 [node name="ColorRect" type="TextureRect" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -28,6 +29,7 @@ stretch_mode = 6
 
 [node name="Title" type="TextureRect" parent="."]
 texture_filter = 1
+layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -39,6 +41,7 @@ grow_horizontal = 2
 texture = ExtResource("1_vuw4o")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -53,6 +56,7 @@ grow_vertical = 0
 
 [node name="PlayButton" type="TextureButton" parent="VBoxContainer"]
 custom_minimum_size = Vector2i(128, 64)
+layout_mode = 2
 offset_right = 308.0
 offset_bottom = 129.0
 texture_normal = ExtResource("2_63154")
