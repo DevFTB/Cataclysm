@@ -4,7 +4,7 @@ class_name ResistanceSet
 @export var resistances : Dictionary
 @export var default_value : float = 1
 
-func _init(p_resistances: Dictionary, p_default_value : float):
+func _init(p_resistances: Dictionary = {}, p_default_value : float = 1.0):
 	resistances = p_resistances
 	default_value = p_default_value
 
@@ -15,7 +15,7 @@ func get_resistance(element: Element):
 	else:
 		return default_value
 
-static func combine_resistances(rs_list: Array[ResistanceSet]):
+static func combine_resistances(rs_list: Array):
 	var keys = []
 	var combined = {}
 	var combined_default = 1

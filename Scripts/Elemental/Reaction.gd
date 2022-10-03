@@ -24,8 +24,7 @@ func on_start(enemy: Enemy):
 
 func apply_tick_effect(enemy: Enemy):
 	if resistance_modifier != null:
-		if resistance_modifier.size() > 0:
-			enemy.apply_resistance_modifier(resistance_modifier)
+		enemy.apply_resistance_modifier(resistance_modifier)
 	
 	pass
 

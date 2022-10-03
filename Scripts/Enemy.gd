@@ -76,7 +76,10 @@ func tick():
 func calculate_and_deal_damage():
 	var total_damage = 0
 	
-	var modified_resistances = ResistanceSet.combine_resistances(resistance_cache)
+	var list = []
+	list.append_array(resistance_cache)
+	list.append(stats.resistances)
+	var modified_resistances = ResistanceSet.combine_resistances(list)
 	
 	for dmg_instance in damage_cache:
 		total_damage += apply_resistances(dmg_instance.damage, dmg_instance.element, modified_resistances)
@@ -90,8 +93,9 @@ func calculate_and_deal_damage():
 func apply_resistances(damage: int, element: Element, resistance_set: ResistanceSet) -> int:
 	var resistance = 1
 
-	if resistance_set.resistances.has(element):
-		resistance *= resistance_set.resistances[element]
+	resistance *= resistance_set.get_resistance(element)
+	
+	print('applying resistances %s to element %s on %s' % [ resistance, element.display_name, stats.enemy_name])
 	
 	return floor(damage *  resistance)
 
@@ -110,6 +114,10 @@ func modify_health(amount : int):
 	$SpriteBody/HPBar.set_value(value)
 	
 func react() -> void:
+	var rls = $Reactions.get_children()
+	for rl in rls:
+		rl.try_free()
+	
 	print('has %s' % applied_elements.map(func (v): return v.display_name))
 	if applied_elements.size() > 1:
 		print('reacting %s' % applied_elements.map(func (v): return v.display_name))
@@ -143,7 +151,6 @@ func apply_reaction_effects():
 	var rls = $Reactions.get_children()
 	for rl in rls:
 		rl.tick()
-		create_reaction_text(rl.reaction)
 
 		pass
 	
