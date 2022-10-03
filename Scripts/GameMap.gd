@@ -5,6 +5,7 @@ extends Node2D
 @export var spawn_delay = 0.5
 @export var max_time_till_next_wave = 5
 
+signal cores_dead
 
 @onready var game = get_node("/root/Game")
 
@@ -17,11 +18,23 @@ var time_till_next_wave = 0
 
 var wave_no = 0
 
+var cores : Array = []
+var amount_of_cores_destroyed = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	cores = $Cores.get_children()
+	
+	for core in cores:
+		core.connect("core_destroyed", _on_core_destroyed)
+	
 	paths = $Paths.get_children()
 	time_till_next_wave = 0
 	pass # Replace with function body.
+
+func _on_core_destroyed():
+	amount_of_cores_destroyed += 1
+	if amount_of_cores_destroyed >= cores.size():
+		emit_signal("cores_dead")
 
 var time = 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.

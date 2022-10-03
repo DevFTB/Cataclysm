@@ -1,8 +1,8 @@
-[gd_scene load_steps=41 format=3 uid="uid://dvmgf6bqapjop"]
+[gd_scene load_steps=44 format=3 uid="uid://b3n6dywciugoy"]
 
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="1_f45j7"]
 [ext_resource type="Texture2D" uid="uid://l6bfomveh046" path="res://Resources/UI/cursor.png" id="2_4rqab"]
-[ext_resource type="PackedScene" uid="uid://clh7wxy6scu0p" path="res://Scenes/notkhan.tscn" id="2_bt2wp"]
+[ext_resource type="PackedScene" uid="uid://byiwj8mxqy7th" path="res://Scenes/notkhan.tscn" id="2_bt2wp"]
 [ext_resource type="Resource" uid="uid://cdp3mh4jqaife" path="res://Resources/Elemental/Reactions/Diffusion.tres" id="2_msaa4"]
 [ext_resource type="Resource" uid="uid://cm8bjc11o8l4e" path="res://Resources/Elemental/Reactions/Barricade.tres" id="2_u5gpo"]
 [ext_resource type="Resource" uid="uid://xd7twdxlbxi0" path="res://Resources/Elemental/Reactions/Blind.tres" id="3_r65h1"]
@@ -40,6 +40,9 @@
 [ext_resource type="Resource" uid="uid://dkxig451m5ten" path="res://Resources/Level/Towers/TheOrder/DarkAoE.tres" id="38_0im81"]
 [ext_resource type="Resource" uid="uid://edow1ldidh7r" path="res://Resources/Level/Towers/TheOrder/LightAoE.tres" id="39_rqj2d"]
 [ext_resource type="Resource" uid="uid://cjau4u8w0f6yu" path="res://Resources/Level/Towers/Grewt/AirAoE.tres" id="40_dk0xl"]
+[ext_resource type="Texture2D" uid="uid://50gpslbstunf" path="res://Resources/UI/Menus/GameOver.png" id="41_edrjh"]
+[ext_resource type="Texture2D" uid="uid://crhnp1xb53y3u" path="res://Resources/UI/Menus/cataclysm_play.png" id="42_g24qe"]
+[ext_resource type="Texture2D" uid="uid://cr43u6w65rs3d" path="res://Resources/UI/Menus/cataclysm_play_pressed.png" id="43_vyfl2"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_f45j7")
@@ -75,7 +78,7 @@ mouse_filter = 2
 
 [node name="TimelineGUI" type="Control" parent="GUI"]
 custom_minimum_size = Vector2i(100, 100)
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 0
 offset_left = 9.0
 offset_top = 7.0
@@ -87,6 +90,7 @@ timeline_list_item = ExtResource("13_ra0qq")
 item_parent_path = NodePath("VSplitContainer/Control/HSplitContainer/ScrollContainer/ListItemParent")
 
 [node name="VSplitContainer" type="VBoxContainer" parent="GUI/TimelineGUI"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -94,6 +98,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MinimiseButton" type="Button" parent="GUI/TimelineGUI/VSplitContainer"]
+layout_mode = 2
 offset_right = 83.0
 offset_bottom = 31.0
 size_flags_horizontal = 0
@@ -105,7 +110,7 @@ toggled_text = "Hide Timeline"
 not_toggled_text = "Show Timeline"
 
 [node name="Control" type="Control" parent="GUI/TimelineGUI/VSplitContainer"]
-layout_mode = 3
+layout_mode = 2
 anchors_preset = 0
 offset_top = 35.0
 offset_right = 308.0
@@ -113,6 +118,7 @@ offset_bottom = 377.0
 size_flags_vertical = 3
 
 [node name="Panel" type="Panel" parent="GUI/TimelineGUI/VSplitContainer/Control"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -121,6 +127,7 @@ grow_vertical = 2
 
 [node name="HSplitContainer" type="HSplitContainer" parent="GUI/TimelineGUI/VSplitContainer/Control"]
 custom_minimum_size = Vector2i(300, 0)
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -129,12 +136,14 @@ grow_vertical = 2
 split_offset = 300
 
 [node name="ScrollContainer" type="ScrollContainer" parent="GUI/TimelineGUI/VSplitContainer/Control/HSplitContainer"]
+layout_mode = 2
 offset_right = 214.0
 offset_bottom = 342.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ListItemParent" type="VBoxContainer" parent="GUI/TimelineGUI/VSplitContainer/Control/HSplitContainer/ScrollContainer"]
+layout_mode = 2
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -142,11 +151,13 @@ size_flags_vertical = 4
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GUI/TimelineGUI/VSplitContainer/Control/HSplitContainer"]
+layout_mode = 2
 offset_left = 226.0
 offset_right = 308.0
 offset_bottom = 342.0
 
 [node name="AutoplayButton" type="Button" parent="GUI/TimelineGUI/VSplitContainer/Control/HSplitContainer/VBoxContainer"]
+layout_mode = 2
 offset_right = 82.0
 offset_bottom = 31.0
 toggle_mode = true
@@ -154,6 +165,7 @@ text = "Auto Play"
 script = ExtResource("11_5h5wx")
 
 [node name="PlayButton" type="Button" parent="GUI/TimelineGUI/VSplitContainer/Control/HSplitContainer/VBoxContainer"]
+layout_mode = 2
 offset_top = 35.0
 offset_right = 82.0
 offset_bottom = 66.0
@@ -162,7 +174,7 @@ script = ExtResource("12_876qo")
 
 [node name="TowerGUI" type="Control" parent="GUI"]
 custom_minimum_size = Vector2i(100, 100)
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -176,6 +188,7 @@ script = ExtResource("11_mnlrn")
 spot_selector_path = NodePath("../../TowerPlacer")
 
 [node name="VSplitContainer" type="VBoxContainer" parent="GUI/TowerGUI"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -183,6 +196,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MinimiseButton" type="Button" parent="GUI/TowerGUI/VSplitContainer"]
+layout_mode = 2
 offset_left = 225.0
 offset_right = 308.0
 offset_bottom = 31.0
@@ -195,7 +209,7 @@ toggled_text = "Hide Details"
 not_toggled_text = "Show Details"
 
 [node name="Control" type="Control" parent="GUI/TowerGUI/VSplitContainer"]
-layout_mode = 3
+layout_mode = 2
 anchors_preset = 0
 offset_top = 35.0
 offset_right = 308.0
@@ -203,6 +217,7 @@ offset_bottom = 377.0
 size_flags_vertical = 3
 
 [node name="Panel" type="Panel" parent="GUI/TowerGUI/VSplitContainer/Control"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -210,6 +225,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TowerDetails" type="VBoxContainer" parent="GUI/TowerGUI/VSplitContainer/Control"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -223,6 +239,7 @@ scale = Vector2(0.96, 0.96)
 alignment = 1
 
 [node name="TowerTitle" type="Label" parent="GUI/TowerGUI/VSplitContainer/Control/TowerDetails"]
+layout_mode = 2
 offset_top = 11.0
 offset_right = 308.0
 offset_bottom = 37.0
@@ -232,6 +249,7 @@ horizontal_alignment = 1
 [node name="TowerImage" type="TextureRect" parent="GUI/TowerGUI/VSplitContainer/Control/TowerDetails"]
 texture_filter = 1
 custom_minimum_size = Vector2i(96, 96)
+layout_mode = 2
 offset_left = 106.0
 offset_top = 41.0
 offset_right = 202.0
@@ -239,6 +257,7 @@ offset_bottom = 137.0
 size_flags_horizontal = 4
 
 [node name="TargetingOptionButton" type="OptionButton" parent="GUI/TowerGUI/VSplitContainer/Control/TowerDetails"]
+layout_mode = 2
 offset_top = 141.0
 offset_right = 308.0
 offset_bottom = 172.0
@@ -252,6 +271,7 @@ popup/item_2/text = "Spot"
 popup/item_2/id = 2
 
 [node name="TowerSetSpotButton" type="Button" parent="GUI/TowerGUI/VSplitContainer/Control/TowerDetails"]
+layout_mode = 2
 offset_top = 176.0
 offset_right = 308.0
 offset_bottom = 207.0
@@ -262,6 +282,7 @@ not_toggled_text = "Select Spot"
 
 [node name="TowerDescription" type="RichTextLabel" parent="GUI/TowerGUI/VSplitContainer/Control/TowerDetails"]
 custom_minimum_size = Vector2i(0, 120)
+layout_mode = 2
 offset_top = 211.0
 offset_right = 308.0
 offset_bottom = 331.0
@@ -274,7 +295,7 @@ Attack Duration: 3 seconds
 "
 
 [node name="TowerSelectionGUI" type="Control" parent="GUI"]
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -291,6 +312,7 @@ towers = [ExtResource("32_5qymv"), ExtResource("34_4w7ov"), ExtResource("35_hwes
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GUI/TowerSelectionGUI"]
 layout_direction = 2
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -300,12 +322,13 @@ alignment = 2
 
 [node name="Control" type="Control" parent="GUI/TowerSelectionGUI/VBoxContainer"]
 custom_minimum_size = Vector2i(400, 100)
-layout_mode = 3
+layout_mode = 2
 anchors_preset = 0
 offset_right = 459.0
 offset_bottom = 100.0
 
 [node name="Panel" type="Panel" parent="GUI/TowerSelectionGUI/VBoxContainer/Control"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -313,6 +336,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="HSplitContainer" type="HSplitContainer" parent="GUI/TowerSelectionGUI/VBoxContainer/Control"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -320,6 +344,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GUI/TowerSelectionGUI/VBoxContainer/Control/HSplitContainer"]
+layout_mode = 2
 offset_right = 91.0
 offset_bottom = 101.0
 grow_vertical = 2
@@ -327,17 +352,20 @@ size_flags_horizontal = 4
 alignment = 1
 
 [node name="GrewtTowerButton" type="Button" parent="GUI/TowerSelectionGUI/VBoxContainer/Control/HSplitContainer/VBoxContainer"]
+layout_mode = 2
 offset_right = 91.0
 offset_bottom = 31.0
 text = "Grewt"
 
 [node name="KhanovianTowerButton" type="Button" parent="GUI/TowerSelectionGUI/VBoxContainer/Control/HSplitContainer/VBoxContainer"]
+layout_mode = 2
 offset_top = 35.0
 offset_right = 91.0
 offset_bottom = 66.0
 text = "Kahnovian"
 
 [node name="TheOrderTowerButton" type="Button" parent="GUI/TowerSelectionGUI/VBoxContainer/Control/HSplitContainer/VBoxContainer"]
+layout_mode = 2
 offset_top = 70.0
 offset_right = 91.0
 offset_bottom = 101.0
@@ -345,6 +373,7 @@ text = "The Order"
 
 [node name="GridContainer" type="GridContainer" parent="GUI/TowerSelectionGUI/VBoxContainer/Control/HSplitContainer"]
 clip_contents = true
+layout_mode = 2
 offset_left = 281.0
 offset_top = 50.0
 offset_right = 281.0
@@ -354,6 +383,7 @@ size_flags_vertical = 4
 columns = 2
 
 [node name="MinimiseButton" type="Button" parent="GUI/TowerSelectionGUI/VBoxContainer"]
+layout_mode = 2
 offset_top = 104.0
 offset_right = 83.0
 offset_bottom = 135.0
@@ -365,6 +395,69 @@ text = "Minimise "
 script = ExtResource("13_6n20p")
 toggled_text = "Hide Shop"
 not_toggled_text = "Show Shop"
+
+[node name="GameOver" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="GameOver"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.47451, 0.25098, 0.439216, 0.584314)
+
+[node name="Control" type="Control" parent="GameOver"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -276.0
+offset_top = -239.0
+offset_right = 276.0
+offset_bottom = 239.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="GameOver/Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -276.0
+offset_right = -20.0
+offset_bottom = 128.0
+grow_horizontal = 2
+scale = Vector2(2, 2)
+texture = ExtResource("41_edrjh")
+
+[node name="PlayButton" type="TextureButton" parent="GameOver/Control"]
+custom_minimum_size = Vector2i(128, 64)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -154.0
+offset_top = -213.0
+offset_right = 154.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("42_g24qe")
+texture_pressed = ExtResource("43_vyfl2")
+stretch_mode = 3
 
 [connection signal="paused" from="." to="GUI/TimelineGUI/VSplitContainer/Control/HSplitContainer/VBoxContainer/PlayButton" method="_on_game_paused"]
 [connection signal="resumed" from="." to="GUI/TimelineGUI/VSplitContainer/Control/HSplitContainer/VBoxContainer/PlayButton" method="_on_game_resumed"]
@@ -379,3 +472,4 @@ not_toggled_text = "Show Shop"
 [connection signal="pressed" from="GUI/TowerSelectionGUI/VBoxContainer/Control/HSplitContainer/VBoxContainer/KhanovianTowerButton" to="GUI/TowerSelectionGUI" method="_on_khanovian_tower_button_pressed"]
 [connection signal="pressed" from="GUI/TowerSelectionGUI/VBoxContainer/Control/HSplitContainer/VBoxContainer/TheOrderTowerButton" to="GUI/TowerSelectionGUI" method="_on_the_order_tower_button_pressed"]
 [connection signal="toggled" from="GUI/TowerSelectionGUI/VBoxContainer/MinimiseButton" to="GUI/TowerSelectionGUI" method="_on_minimise_button_toggled"]
+[connection signal="pressed" from="GameOver/Control/PlayButton" to="." method="_on_play_button_pressed"]

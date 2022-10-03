@@ -30,30 +30,39 @@ func _ready():
 		
 	$GUI/TimelineGUI.regenerate_list()
 	
+	get_node("Map").connect("cores_dead", _on_cores_dead)
 
 	pass # Replace with function body.
 
+func _on_cores_dead():
+	set_game_over()
+
+func set_game_over():
+	game_over = true
+	$GUI.visible = false
+	$GameOver.visible = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	time += delta
-	
-	if time > 1:
-		time = 0
+	if not game_over:
+		time += delta
 		
-		if not game_paused and (current_tick >= 0 and current_tick < ticks_per_turn):
-			do_tick(current_tick)
-			current_tick += 1
-				
-		if not game_paused and current_tick >= ticks_per_turn:
-			if autoplay:
-				new_turn()
-			else:
-				emit_signal("paused")
-				game_paused = true
-		
-	if game_paused:
-		pass
+		if time > 1:
+			time = 0
+			
+			if not game_paused and (current_tick >= 0 and current_tick < ticks_per_turn):
+				do_tick(current_tick)
+				current_tick += 1
+					
+			if not game_paused and current_tick >= ticks_per_turn:
+				if autoplay:
+					new_turn()
+				else:
+					emit_signal("paused")
+					game_paused = true
+			
+		if game_paused:
+			pass
 
 	pass
 	
@@ -141,4 +150,9 @@ func _on_pause_play_button_pressed():
 
 func _on_autoplay_button_toggled(button_pressed):
 	autoplay = button_pressed
+	pass # Replace with function body.
+
+
+func _on_play_button_pressed():
+	get_tree().reload_current_scene()
 	pass # Replace with function body.
