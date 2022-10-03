@@ -11,6 +11,5 @@ element2 = ExtResource("2_no04k")
 display_name = "Evaporate"
 duration = 1
 colour = Color(1, 1, 1, 1)
-resistance_modifier = null
 move_speed_modifier = 1
-attack_modifier = 2.0
+attack_modifier = 3.0

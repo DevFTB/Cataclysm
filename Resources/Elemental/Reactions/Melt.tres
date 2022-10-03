@@ -12,4 +12,4 @@ display_name = "Melt"
 duration = 0
 colour = Color(0.972549, 0.776471, 0.772549, 1)
 move_speed_modifier = 1
-attack_modifier = 1.5
+attack_modifier = 2.0

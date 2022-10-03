@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bac6yc4pq71ep" path="res://Resources/Level/Enemies/EnemyTextures/Slendroid.png" id="2_j4iht"]
 [ext_resource type="Script" path="res://Scripts/ResistanceSet.gd" id="3_40kv3"]
 
-[sub_resource type="Resource" id="Resource_op65q"]
+[sub_resource type="Resource" id="Resource_6an6s"]
 script = ExtResource("3_40kv3")
 resistances = null
 default_value = 0.9
@@ -17,6 +17,7 @@ enemy_texture = ExtResource("2_j4iht")
 enemy_body_type = ExtResource("1_j0djt")
 max_health = 100
 base_move_speed = 50
-resistances = SubResource("Resource_op65q")
+resistances = SubResource("Resource_6an6s")
 currency_on_death = 2
+self_apply_period = 2
 max_rand_offset = 0

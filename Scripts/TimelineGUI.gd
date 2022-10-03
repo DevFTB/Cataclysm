@@ -23,6 +23,8 @@ func regenerate_list():
 		
 		var item_at_tick = tick_registration[tick]
 		
+
+		
 		if item_at_tick != null:
 			item.set_details(item_at_tick, tick)
 		else:

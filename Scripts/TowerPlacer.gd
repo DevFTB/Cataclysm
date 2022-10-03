@@ -35,6 +35,7 @@ func _process(_delta):
 func _input(event):
 	if event is InputEventMouseButton:
 		print("mode is %s" % mode)
+		print(event.global_position)
 		if mode == 0:
 			if event.is_action_pressed("select"):
 				if tower_selection_candidate != null:
@@ -54,7 +55,8 @@ func _input(event):
 					unset_tower_placement()
 		if mode == 2:
 			if event.is_action_pressed("select"):
-				end_spot_selection(event.global_position)
+
+				end_spot_selection(get_viewport().get_mouse_position())
 			if event.is_action_pressed("cancel"):
 				end_spot_selection(null)
 				
@@ -71,6 +73,8 @@ func start_spot_selection(aoe: int):
 	queue_redraw()
 
 func _draw():
+	if mode == 1:
+		draw_circle(Vector2(0,0), placement_tower.attack_range, Color(Color.CHARTREUSE, 0.1))
 	if should_draw_aoe:
 		draw_circle(Vector2(0,0), draw_aoe, Color(Color.CHARTREUSE, 0.1))
 
@@ -80,7 +84,7 @@ func select_tower() -> void:
 	tower_selection.set_highlight(true)
 	print("%s was selected. " % tower_selection)
 	
-	game.get_node("GUI/TowerGUI").set_tower(tower_selection.tower)
+	game.get_node("GUI/TowerGUI").set_tower(tower_selection)
 	pass
 	
 func deselect_tower() -> void:
@@ -120,12 +124,14 @@ func set_tower_placement(tower: Tower, icon: Texture2D) -> void:
 	$GhostIcon.visible = true
 	
 	mode = 1
+	queue_redraw()
 	
 func unset_tower_placement():
 	placement_tower = null
 	$GhostIcon.visible = false
 	
 	mode = 0
+	queue_redraw()
 
 func _on_placeable_area_can_place_changed(placeable):
 	in_placeable_area = placeable

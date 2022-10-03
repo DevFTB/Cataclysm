@@ -59,8 +59,16 @@ func _process(delta):
 
 var tick_counter = 0
 func tick():
+	if stats.self_apply_element != null:
+		if tick_counter % stats.self_apply_period == 0:
+			take_damage(0, stats.self_apply_element)
+			
+		
 	# 4. Apply Elements to Enemy => Generate Reactions <-- POST-TOWER PHASE
 	react()
+	
+
+	
 	apply_reaction_effects()
 	
 	# 5. Deal modified damaged  (dmg * resistances * reaction_multipliers)

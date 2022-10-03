@@ -57,7 +57,8 @@ func spawn_wave (wave: int) -> void:
 	for i in range(paths.size()):
 		var path_data = wave_data[i]
 		for enemy_type in path_data.keys():
-			for j in range(path_data[enemy_type]):
+			# scales enemy by amount of wave loops
+			for j in range(path_data[enemy_type] * (1 + floor(wave / spawn_register.size()))):
 				spawned_enemies.append(spawn_enemy(enemies[enemy_type], i))
 				await get_tree().create_timer(spawn_delay).timeout
 		

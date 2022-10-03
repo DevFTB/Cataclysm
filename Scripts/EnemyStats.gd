@@ -12,4 +12,7 @@ class_name EnemyStats
 
 @export var currency_on_death : int = 1
 
+@export var self_apply_element : Element
+@export var self_apply_period : int = 2
+
 @export var max_rand_offset : float = 0
