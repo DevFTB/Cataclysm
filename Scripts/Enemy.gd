@@ -22,7 +22,7 @@ var is_paused
 var resistance_cache : Array[ResistanceSet]
 var damage_cache : Array[Damage] = []
 
-var move_speed_modifier = 1
+var move_speed_modifiers = []
 var attack_modifier = 1
 
 var body
@@ -48,7 +48,10 @@ var time = 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if not game.game_paused:
-		var increment =  stats.base_move_speed * delta * move_speed_modifier
+		var total_move_speed_modifier = 1
+		for m in move_speed_modifiers:
+			total_move_speed_modifier *= m
+		var increment =  stats.base_move_speed * delta * total_move_speed_modifier
 		if increment > 0:
 			progress += increment
 	pass
@@ -164,11 +167,11 @@ func apply_resistance_modifier(modifier : ResistanceSet):
 	pass
 	
 func apply_move_speed_modifier(modifier: float):
-	move_speed_modifier *= modifier
+	move_speed_modifiers.append(modifier)
 	pass
 	
 func remove_move_speed_modifier(modifier: float):
-	move_speed_modifier /= modifier
+	move_speed_modifiers.erase(modifier)
 	pass
 	
 func apply_attack_modifier(modifier: float):
