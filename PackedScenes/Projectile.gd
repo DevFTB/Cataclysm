@@ -1,9 +1,9 @@
 extends Area2D
 
 var target : Vector2
-var element: Game.Element
+var element: Element
 var damage = 0
-var speed = 40
+@export var speed = 150
 
 @onready var game = get_node("/root/Game")
 
@@ -22,7 +22,7 @@ func _process(delta):
 	pass
 	
 func _on_area_entered(area: Area2D) -> void:
-	var enemy = area.get_parent() as Enemy
+	var enemy = area.get_enemy() as Enemy
 	
 	enemy.take_damage(damage, element)
 	queue_free()

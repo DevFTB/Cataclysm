@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bssaw6s7o81s8"
-path="res://.godot/imported/debug_tower_2.png-fb47fbb4c921bbc856c197b2ff259f4b.ctex"
+uid="uid://gn00d0pmt0qx"
+path="res://.godot/imported/electricity_basic.png-76186f02dc39844b9224b2e4da575c80.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Level/Towers/debug_tower_2.png"
-dest_files=["res://.godot/imported/debug_tower_2.png-fb47fbb4c921bbc856c197b2ff259f4b.ctex"]
+source_file="res://Resources/Level/Towers/Khanovian/electricity_basic.png"
+dest_files=["res://.godot/imported/electricity_basic.png-76186f02dc39844b9224b2e4da575c80.ctex"]
 
 [params]
 

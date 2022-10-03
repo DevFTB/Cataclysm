@@ -9,25 +9,79 @@
 config_version=5
 
 _global_script_classes=[{
+"base": "Reaction",
+"class": &"AoEReaction",
+"language": &"GDScript",
+"path": "res://Scripts/Elemental/AoEReaction.gd"
+}, {
+"base": "Resource",
+"class": &"Element",
+"language": &"GDScript",
+"path": "res://Scripts/Elemental/Element.gd"
+}, {
 "base": "PathFollow2D",
 "class": &"Enemy",
 "language": &"GDScript",
 "path": "res://Scripts/Enemy.gd"
+}, {
+"base": "Resource",
+"class": &"EnemyStats",
+"language": &"GDScript",
+"path": "res://Scripts/EnemyStats.gd"
+}, {
+"base": "Label",
+"class": &"FadeAwayLabel",
+"language": &"GDScript",
+"path": "res://Scripts/FadeAwayLabel.gd"
 }, {
 "base": "Node",
 "class": &"Game",
 "language": &"GDScript",
 "path": "res://Scripts/Game.gd"
 }, {
-"base": "Area2D",
+"base": "Resource",
+"class": &"Reaction",
+"language": &"GDScript",
+"path": "res://Scripts/Elemental/Reaction.gd"
+}, {
+"base": "Node",
+"class": &"ReactionLifecycle",
+"language": &"GDScript",
+"path": "res://Scripts/Elemental/ReactionLifecycle.gd"
+}, {
+"base": "Resource",
+"class": &"ResistanceSet",
+"language": &"GDScript",
+"path": "res://Scripts/ResistanceSet.gd"
+}, {
+"base": "Reaction",
+"class": &"SelfDamageReaction",
+"language": &"GDScript",
+"path": "res://Scripts/Elemental/SelfDamageReaction.gd"
+}, {
+"base": "Resource",
 "class": &"Tower",
 "language": &"GDScript",
 "path": "res://Scripts/Tower.gd"
+}, {
+"base": "Area2D",
+"class": &"TowerLifecycle",
+"language": &"GDScript",
+"path": "res://Scripts/TowerLifecycle.gd"
 }]
 _global_script_class_icons={
+"AoEReaction": "",
+"Element": "",
 "Enemy": "",
+"EnemyStats": "",
+"FadeAwayLabel": "",
 "Game": "",
-"Tower": ""
+"Reaction": "",
+"ReactionLifecycle": "",
+"ResistanceSet": "",
+"SelfDamageReaction": "",
+"Tower": "",
+"TowerLifecycle": ""
 }
 
 [application]

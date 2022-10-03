@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://dw87nv0d5ibvy"]
+
+[ext_resource type="Resource" uid="uid://eld45dnueksj" path="res://Resources/Elemental/Elements/Water.tres" id="1_1sdnk"]
+[ext_resource type="Script" path="res://Scripts/Elemental/SelfDamageReaction.gd" id="1_keash"]
+[ext_resource type="Resource" uid="uid://dynneobgf0tsx" path="res://Resources/Elemental/Elements/Electricity.tres" id="2_lgh74"]
+
+[resource]
+script = ExtResource("1_keash")
+self_damage = 100
+self_damage_element = ExtResource("2_lgh74")
+element1 = ExtResource("1_1sdnk")
+element2 = ExtResource("2_lgh74")
+display_name = "Electrolysis"
+duration = 1
+colour = Color(1, 0.85098, 0.247059, 1)
+resistance_modifier = null
+move_speed_modifier = 1
+attack_modifier = 1

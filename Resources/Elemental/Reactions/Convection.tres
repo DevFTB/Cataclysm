@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://dllr8878rs0ic"]
+
+[ext_resource type="PackedScene" uid="uid://bmn2yj1j6lu86" path="res://PackedScenes/aoe.tscn" id="1_77427"]
+[ext_resource type="Resource" uid="uid://dhn2wf7od8i0k" path="res://Resources/Elemental/Elements/Air.tres" id="1_nc1os"]
+[ext_resource type="Script" path="res://Scripts/Elemental/AoEReaction.gd" id="1_rbplr"]
+[ext_resource type="Resource" uid="uid://b0pxq5mvfvjij" path="res://Resources/Elemental/Elements/Fire.tres" id="2_75sed"]
+
+[resource]
+script = ExtResource("1_rbplr")
+aoe_range = 50
+element = ExtResource("2_75sed")
+aoe = ExtResource("1_77427")
+element1 = ExtResource("1_nc1os")
+element2 = ExtResource("2_75sed")
+display_name = "Convection"
+duration = 1
+colour = Color(0.894118, 0.72549, 0.47451, 1)
+resistance_modifier = null
+move_speed_modifier = 1

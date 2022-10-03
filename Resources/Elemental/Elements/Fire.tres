@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b0pxq5mvfvjij"]
+
+[ext_resource type="Texture2D" uid="uid://caqbnpq7r1knb" path="res://Resources/Elemental/Icons/fire_symbol.png" id="1_ejc6u"]
+[ext_resource type="Script" path="res://Scripts/Elemental/Element.gd" id="1_g3vlv"]
+
+[resource]
+script = ExtResource("1_g3vlv")
+display_name = "Fire"
+icon = ExtResource("1_ejc6u")
+colour = Color(0.898039, 0.356863, 0.0470588, 1)

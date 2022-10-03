@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://c8acxhargwupt"]
+
+[ext_resource type="Script" path="res://Scripts/Elemental/Reaction.gd" id="1_1koix"]
+[ext_resource type="Resource" uid="uid://cog5qfsmawcvy" path="res://Resources/Elemental/Elements/Steel.tres" id="1_gn1kl"]
+[ext_resource type="Resource" uid="uid://b0pxq5mvfvjij" path="res://Resources/Elemental/Elements/Fire.tres" id="2_no04k"]
+
+[resource]
+script = ExtResource("1_1koix")
+element1 = ExtResource("1_gn1kl")
+element2 = ExtResource("2_no04k")
+display_name = "Melt"
+duration = 0
+colour = Color(0.972549, 0.776471, 0.772549, 1)
+move_speed_modifier = 1
+attack_modifier = 1.5

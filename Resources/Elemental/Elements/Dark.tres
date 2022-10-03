@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dix2yac0870ui"]
+
+[ext_resource type="Texture2D" uid="uid://c3lbf1i6wexds" path="res://Resources/Elemental/Icons/dark_symbol.png" id="1_3a5m6"]
+[ext_resource type="Script" path="res://Scripts/Elemental/Element.gd" id="1_g3vlv"]
+
+[resource]
+script = ExtResource("1_g3vlv")
+display_name = "Dark"
+icon = ExtResource("1_3a5m6")
+colour = Color(0.243137, 0, 0.682353, 1)

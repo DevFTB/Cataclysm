@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nydvsnw34eaj"
-path="res://.godot/imported/debug_tower.png-ad9f46a1522c126984e6a36137cbf40d.ctex"
+uid="uid://bocu4bp0gchj"
+path="res://.godot/imported/basic_steel.png-89a9c897cd1288aefe8be7205b98b987.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Level/Towers/debug_tower.png"
-dest_files=["res://.godot/imported/debug_tower.png-ad9f46a1522c126984e6a36137cbf40d.ctex"]
+source_file="res://Resources/Level/Towers/Khanovian/basic_steel.png"
+dest_files=["res://.godot/imported/basic_steel.png-89a9c897cd1288aefe8be7205b98b987.ctex"]
 
 [params]
 
