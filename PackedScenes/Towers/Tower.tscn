@@ -28,7 +28,6 @@ highlight_shader = ExtResource("4_pr0y4")
 
 [node name="Node2d" type="Node2D" parent="."]
 position = Vector2(0, -28)
-z_index = 1
 
 [node name="Label" type="Label" parent="Node2d"]
 texture_filter = 1
