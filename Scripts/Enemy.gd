@@ -93,7 +93,7 @@ func apply_resistances(damage: int, element: Element, resistance_set: Resistance
 	if resistance_set.resistances.has(element):
 		resistance *= resistance_set.resistances[element]
 	
-	return floor(damage *  resistance)
+	return floor(damage *  clamp(1-resistance,0, 1))
 
 func take_damage(damage: int, element: Element) -> void:
 	if not applied_elements.has(element):
@@ -110,6 +110,10 @@ func modify_health(amount : int):
 	$SpriteBody/HPBar.set_value(value)
 	
 func react() -> void:
+	var rls = $Reactions.get_children()
+	for rl in rls:
+		rl.try_free()
+	
 	print('has %s' % applied_elements.map(func (v): return v.display_name))
 	if applied_elements.size() > 1:
 		print('reacting %s' % applied_elements.map(func (v): return v.display_name))
@@ -143,7 +147,6 @@ func apply_reaction_effects():
 	var rls = $Reactions.get_children()
 	for rl in rls:
 		rl.tick()
-		create_reaction_text(rl.reaction)
 
 		pass
 	

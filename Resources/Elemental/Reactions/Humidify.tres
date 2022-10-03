@@ -10,6 +10,7 @@ script = ExtResource("1_rbplr")
 aoe_range = 50
 element = ExtResource("2_tv6xm")
 aoe = ExtResource("1_juvdk")
+aoe_damage = 100
 element1 = ExtResource("1_nc1os")
 element2 = ExtResource("2_tv6xm")
 display_name = "Humidify"
