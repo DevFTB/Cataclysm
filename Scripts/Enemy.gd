@@ -24,7 +24,7 @@ var damage_cache : Array[Damage] = []
 
 var move_speed_modifiers = []
 var attack_modifier = 1
-var currency_multiplier = 0
+var currency_multiplier = 1
 
 var body
 
@@ -163,7 +163,7 @@ func die():
 	apply_post_death_reactions()
 	
 	print('on death adding currency of %s' % (stats.currency_on_death * currency_multiplier))
-	game.add_to_currency(stats.currency_on_death * currency_multiplier)
+	game.add_to_currency(stats.currency_on_death *  currency_multiplier)
 	
 	queue_free()
 	pass

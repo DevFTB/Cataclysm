@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("3_r822e")
-currency_multiplier = 2
+currency_multiplier = 1.0
 element1 = ExtResource("1_c2vm5")
 element2 = ExtResource("2_k1r43")
 display_name = "Wealth"
