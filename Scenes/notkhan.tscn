@@ -110,6 +110,7 @@ curve = SubResource("Curve2D_oc53c")
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("5_7hao5")
+max_health = 1
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="Cores/Core"]
 position = Vector2(585, 349)
