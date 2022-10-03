@@ -12,6 +12,7 @@ func _ready():
 	game.connect("currency_changed", _on_currency_changed)
 	disabled =	not game.can_buy(tower)
 	connect("pressed", _on_Pressed)
+	$HBoxContainer/Label.text = str(tower.currency_cost)
 	
 	pass # Replace with function body.
 
