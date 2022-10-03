@@ -22,7 +22,7 @@ func _process(delta):
 	pass
 	
 func _on_area_entered(area: Area2D) -> void:
-	var enemy = area.get_parent() as Enemy
+	var enemy = area.get_parent().get_parent() as Enemy
 	
 	enemy.take_damage(damage, element)
 	queue_free()

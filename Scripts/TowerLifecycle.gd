@@ -95,9 +95,9 @@ func target_first():
 	print(enemy_areas_in_range)
 	
 	if enemy_areas_in_range.size() > 0:
-		var furthest_enemy = enemy_areas_in_range[0].get_parent()
+		var furthest_enemy = enemy_areas_in_range[0].get_parent().get_parent()
 		for enemy_area in enemy_areas_in_range:
-			var enemy = enemy_area.get_parent() as Enemy
+			var enemy = enemy_area.get_parent().get_parent() as Enemy
 			
 			if enemy.progress_ratio > furthest_enemy.progress_ratio:
 				furthest_enemy = enemy
@@ -114,7 +114,7 @@ func target_strong():
 	if enemy_areas_in_range.size() > 0:
 		var strongest_enemy = enemy_areas_in_range[0].get_parent()
 		for enemy_area in enemy_areas_in_range:
-			var enemy = enemy_area.get_parent() as Enemy
+			var enemy = enemy_area.get_parent().get_parent() as Enemy
 			
 			if enemy.max_health > strongest_enemy.max_health:
 				strongest_enemy = enemy

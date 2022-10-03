@@ -19,6 +19,7 @@ func _init(p_e1 = null, p_e2 = null, p_display_name =""):
 
 func on_start(enemy: Enemy):
 	enemy.apply_move_speed_modifier(move_speed_modifier)
+	enemy.apply_attack_modifier(attack_modifier)
 	pass
 
 func apply_tick_effect(enemy: Enemy):
@@ -29,6 +30,7 @@ func apply_tick_effect(enemy: Enemy):
 
 func on_end(enemy: Enemy):
 	enemy.remove_move_speed_modifier(move_speed_modifier)
+	enemy.remove_attack_modifier(attack_modifier)
 	pass
 	
 func apply_death_effect(_enemy: Enemy):
