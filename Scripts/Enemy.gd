@@ -47,7 +47,7 @@ func _ready():
 var time = 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if not game.game_paused:
+	if not game.game_paused and not game.game_over:
 		var total_move_speed_modifier = 1
 		for m in move_speed_modifiers:
 			total_move_speed_modifier *= m
