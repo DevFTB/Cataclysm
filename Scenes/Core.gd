@@ -18,7 +18,7 @@ func _process(delta):
 
 func _on_core_area_entered(area):
 	take_damage(1)
-	area.get_parent().die()
+	area.get_enemy().die()
 	pass # Replace with function body.
 
 func take_damage(damage: int):

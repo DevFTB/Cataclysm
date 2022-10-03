@@ -11,6 +11,5 @@ element2 = ExtResource("2_ohbin")
 display_name = "Barricade"
 duration = 1
 colour = Color(0.356863, 0.25098, 0.168627, 1)
-resistance_modifier = null
 move_speed_modifier = 0.0
 attack_modifier = 1

@@ -9,16 +9,9 @@ class Damage:
 		damage = p_damage
 		element = p_element
 
-@export var max_health = 50
-@export var base_move_speed = 5
+@export var stats : EnemyStats
 
-@export var enemy_name : String = "Enemy"
-@export var resistances : Dictionary
-
-@export var max_rand_offset : float = 0
-
-@onready var health = max_health
-
+@onready var health = stats.max_health
 @onready var game = get_node("/root/Game")
 
 var rng = RandomNumberGenerator.new()
@@ -26,24 +19,39 @@ var applied_elements : Array[Element] = []
 var is_dead = false
 var is_paused
 
-var resistance_cache : Dictionary = {}
+var resistance_cache : Array[ResistanceSet]
 var damage_cache : Array[Damage] = []
 
-var move_speed_modifier = 1
+var move_speed_modifiers = []
 var attack_modifier = 1
+
+var body
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	rng.randomize()
 	
-	$SpriteBody.position += Vector2(0, rng.randf_range(-max_rand_offset, max_rand_offset))
+	add_to_group("enemy")
+	
+	body = stats.enemy_body_type.instantiate()
+	add_child(body)
+	
+	var reactions_node = Node2D.new()
+	reactions_node.name  = "Reactions"
+	add_child(reactions_node)
+	
+	body.get_node("Sprite2d").texture = stats.enemy_texture
+	body.position += Vector2(0, rng.randf_range(-stats.max_rand_offset, stats.max_rand_offset))
 	pass # Replace with function body.
 
 var time = 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if not game.game_paused:
-		var increment =  base_move_speed * delta * move_speed_modifier
+		var total_move_speed_modifier = 1
+		for m in move_speed_modifiers:
+			total_move_speed_modifier *= m
+		var increment =  stats.base_move_speed * delta * total_move_speed_modifier
 		if increment > 0:
 			progress += increment
 	pass
@@ -67,21 +75,23 @@ func tick():
 	
 func calculate_and_deal_damage():
 	var total_damage = 0
+	
+	var modified_resistances = ResistanceSet.combine_resistances(resistance_cache)
+	
 	for dmg_instance in damage_cache:
-		total_damage += apply_resistances(dmg_instance.damage, dmg_instance.element)
+		total_damage += apply_resistances(dmg_instance.damage, dmg_instance.element, modified_resistances)
+	print("-1 * %s * %s" % [total_damage, attack_modifier])
 	modify_health(-1 * total_damage * attack_modifier)
 	damage_cache.clear()
 	resistance_cache.clear()
 	attack_modifier = 1
 	pass
 	
-func apply_resistances(damage: int, element: Element) -> int:
+func apply_resistances(damage: int, element: Element, resistance_set: ResistanceSet) -> int:
 	var resistance = 1
-	
-	if resistances.has(element):
-		resistance *= resistances[element]
-	if resistance_cache.has(element):
-		resistance *= resistance_cache[element]
+
+	if resistance_set.resistances.has(element):
+		resistance *= resistance_set.resistances[element]
 	
 	return floor(damage *  resistance)
 
@@ -96,10 +106,11 @@ func take_damage(damage: int, element: Element) -> void:
 func modify_health(amount : int):
 	health += amount
 	
-	var value = float(health) / float(max_health) * 100
+	var value = float(health) / float(stats.max_health) * 100
 	$SpriteBody/HPBar.set_value(value)
 	
 func react() -> void:
+	print('has %s' % applied_elements.map(func (v): return v.display_name))
 	if applied_elements.size() > 1:
 		print('reacting %s' % applied_elements.map(func (v): return v.display_name))
 		var reaction = game.get_reaction(applied_elements)
@@ -110,8 +121,7 @@ func react() -> void:
 		applied_elements.clear()
 		$Reactions.add_child(new_rl)
 		$SpriteBody/ElementBar.show_elements(applied_elements)
-		
-		
+	
 		create_reaction_text(reaction)
 
 
@@ -141,7 +151,7 @@ func apply_reaction_effects():
 	
 func die():
 	is_dead = true
-	print("enemy " + enemy_name + " has died")
+	print("enemy " + stats.enemy_name + " has died")
 	
 	apply_post_death_reactions()
 	
@@ -149,21 +159,21 @@ func die():
 	pass
 	
 func apply_post_death_reactions():
+	for rl in $Reactions.get_children():
+		rl.apply_death_effects()
 	pass
 	
 	
-func apply_resistance_modifier(modifier : Dictionary):
-	for element in modifier.keys():
-		if resistance_cache.has(element):
-			resistance_cache[element] = resistance_cache[element] * modifier[element]
+func apply_resistance_modifier(modifier : ResistanceSet):
+	resistance_cache.append(modifier)
 	pass
 	
 func apply_move_speed_modifier(modifier: float):
-	move_speed_modifier *= modifier
+	move_speed_modifiers.append(modifier)
 	pass
 	
 func remove_move_speed_modifier(modifier: float):
-	move_speed_modifier /= modifier
+	move_speed_modifiers.erase(modifier)
 	pass
 	
 func apply_attack_modifier(modifier: float):

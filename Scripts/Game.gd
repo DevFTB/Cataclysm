@@ -23,8 +23,6 @@ var turn = 0
 var time = 0
 var tick_registration : Dictionary = {}
 
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for i in ticks_per_turn:

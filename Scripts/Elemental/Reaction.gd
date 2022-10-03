@@ -8,7 +8,7 @@ class_name Reaction
 @export var duration : int  = 1
 @export_color_no_alpha var colour : Color = Color.WHITE
 
-@export var resistance_modifier : Dictionary = {}
+@export var resistance_modifier : ResistanceSet
 @export var move_speed_modifier : float = 1
 @export var attack_modifier : float = 1
 
@@ -18,22 +18,23 @@ func _init(p_e1 = null, p_e2 = null, p_display_name =""):
 	display_name = p_display_name
 
 func on_start(enemy: Enemy):
-	
 	enemy.apply_move_speed_modifier(move_speed_modifier)
+	enemy.apply_attack_modifier(attack_modifier)
 	pass
 
 func apply_tick_effect(enemy: Enemy):
-	if resistance_modifier.size() > 0:
-		enemy.apply_resistance_modifier(resistance_modifier)
-		
+	if resistance_modifier != null:
+		if resistance_modifier.size() > 0:
+			enemy.apply_resistance_modifier(resistance_modifier)
 	
 	pass
 
 func on_end(enemy: Enemy):
 	enemy.remove_move_speed_modifier(move_speed_modifier)
+	enemy.remove_attack_modifier(attack_modifier)
 	pass
 	
-func apply_death_effect(enemy: Enemy):
+func apply_death_effect(_enemy: Enemy):
 	pass
 
 func match_elements(e1: Element, e2: Element) -> bool:

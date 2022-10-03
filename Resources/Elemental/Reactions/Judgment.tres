@@ -11,6 +11,5 @@ element2 = ExtResource("2_ws7x5")
 display_name = "Judgment"
 duration = 1
 colour = Color(0.356863, 0.356863, 0.356863, 1)
-resistance_modifier = null
 move_speed_modifier = 1
-attack_modifier = 2.0
+attack_modifier = 10.0

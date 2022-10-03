@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=5 format=3 uid="uid://dao8kd2f61v5t"]
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://bwu3dluvhamps"]
 
 [ext_resource type="PackedScene" uid="uid://bmn2yj1j6lu86" path="res://PackedScenes/aoe.tscn" id="1_juvdk"]
 [ext_resource type="Resource" uid="uid://dhn2wf7od8i0k" path="res://Resources/Elemental/Elements/Air.tres" id="1_nc1os"]
@@ -10,11 +10,11 @@ script = ExtResource("1_rbplr")
 aoe_range = 50
 element = ExtResource("2_tv6xm")
 aoe = ExtResource("1_juvdk")
+aoe_damage = 100
 element1 = ExtResource("1_nc1os")
 element2 = ExtResource("2_tv6xm")
 display_name = "Humidify"
 duration = 1
 colour = Color(0.45098, 0.8, 1, 1)
-resistance_modifier = null
 move_speed_modifier = 1
 attack_modifier = 1

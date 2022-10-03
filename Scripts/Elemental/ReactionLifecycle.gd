@@ -12,9 +12,14 @@ func _ready():
 func tick():
 	reaction.apply_tick_effect(enemy)
 	
-	tick_counter += 1
+
 	if tick_counter >= reaction.duration:
 		reaction.on_end(enemy)
 		queue_free()
 		return
+	
+	tick_counter += 1
+
+func apply_death_effects():
+	reaction.apply_death_effect(enemy)
 	
