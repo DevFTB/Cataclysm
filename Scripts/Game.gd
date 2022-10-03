@@ -3,7 +3,7 @@ class_name Game
 
 @export var ticks_per_turn = 10
 @export var reactions : Array[Reaction]
-
+@export var starting_currency = 5
 enum Clan {
 	GREWT, KHANOVIAN, THE_ORDER
 }
@@ -12,6 +12,8 @@ enum Clan {
 
 signal paused
 signal resumed
+
+signal currency_changed(new_value: int)
 
 var game_over = false
 var autoplay = false
@@ -23,6 +25,9 @@ var turn = 0
 var time = 0
 var tick_registration : Dictionary = {}
 
+
+var currency = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for i in ticks_per_turn:
@@ -31,6 +36,8 @@ func _ready():
 	$GUI/TimelineGUI.regenerate_list()
 	
 	get_node("Map").connect("cores_dead", _on_cores_dead)
+	
+	add_to_currency(starting_currency)
 
 	pass # Replace with function body.
 
@@ -141,6 +148,16 @@ func get_reaction(elements: Array[Element]):
 	
 	return reactions[0]
 
+func can_buy(tower: Tower) -> bool:
+	return tower.currency_cost <= currency 
+
+func spend_currency(amount: int) -> void:
+	currency -= amount
+	emit_signal("currency_changed", currency)
+
+func add_to_currency(amount: int) -> void:
+	currency += amount
+	emit_signal("currency_changed", currency)
 
 func _on_pause_play_button_pressed():
 	if game_paused:

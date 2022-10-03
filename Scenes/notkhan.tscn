@@ -1,11 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://byiwj8mxqy7th"]
+[gd_scene load_steps=11 format=3 uid="uid://byiwj8mxqy7th"]
 
 [ext_resource type="Texture2D" uid="uid://d0otmx15iojel" path="res://Resources/Level/notkhanmap.png" id="1_a7gao"]
 [ext_resource type="Script" path="res://Scripts/GameMap.gd" id="1_hyp13"]
 [ext_resource type="Script" path="res://Scripts/PlaceableArea.gd" id="2_41fu2"]
 [ext_resource type="PackedScene" uid="uid://u0tglfhnl6wc" path="res://PackedScenes/EnemyBodys/EnemySmallBody.tscn" id="2_htvb3"]
 [ext_resource type="Script" path="res://Scenes/Core.gd" id="5_7hao5"]
-[ext_resource type="PackedScene" uid="uid://0fro8ru7emgc" path="res://Scenes/HPBar.tscn" id="6_ta2u1"]
+[ext_resource type="PackedScene" path="res://Scenes/HPBar.tscn" id="6_ta2u1"]
 
 [sub_resource type="Curve2D" id="Curve2D_u88vn"]
 _data = {
@@ -22,12 +22,6 @@ point_count = 8
 [sub_resource type="Curve2D" id="Curve2D_oc53c"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 132, 647, 0, 0, 0, 0, 157, 552, 0, 0, 0, 0, 349, 543, 0, 0, 0, 0, 369, 606, 0, 0, 0, 0, 768, 614, 0, 0, 0, 0, 767, 526, 0, 0, 0, 0, 427, 500, 0, 0, 0, 0, 439, 382, 0, 0, 0, 0, 521, 380)
-}
-point_count = 9
-
-[sub_resource type="Curve2D" id="Curve2D_gc4f3"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 322, 0, 0, 0, 0, 191, 323, 0, 0, 0, 0, 185, 434, 0, 0, 0, 0, 342, 446, 0, 0, 0, 0, 362, 179, 0, 0, 0, 0, 467, 167, 0, 0, 0, 0, 561, 182, 0, 0, 0, 0, 600, 288, 0, 0, 0, 0, 600, 288)
 }
 point_count = 9
 
