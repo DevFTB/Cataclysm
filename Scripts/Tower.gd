@@ -23,5 +23,13 @@ enum TargetingCategory {
 @export var is_aoe = false
 @export var aoe_range = 30
 
+const upgrade_cost_multipliers = [0.75, 1.25, 2.0, 5.0, 10.0, 100.0]
+
+func get_upgrade_cost(upgrade_index: int):
+	if upgrade_index >= upgrade_cost_multipliers.size():
+		return null
+	else:
+		return floori(upgrade_cost_multipliers[upgrade_index] * currency_cost)
+
 func get_refund_price() -> int:
 	return roundi(float(currency_cost) / 2)

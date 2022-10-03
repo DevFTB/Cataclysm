@@ -8,6 +8,8 @@ var tower_instance = null
 @onready var spot_selector = get_node(spot_selector_path)
 @onready var details_parent = $VSplitContainer/Control/TowerDetails
 
+@onready var game = get_node("/root/Game")
+
 func _ready():
 	unset_tower()
  
@@ -34,11 +36,23 @@ func set_tower(new_tower_instance) -> void:
 			
 	details_parent.get_node("TowerSetSpotButton").visible = tower.is_aoe and op_button.selected == 2
 	details_parent.get_node("TowerSellButton/TowerSellCostContainer/Label").text = str(tower.get_refund_price())
+	
+	var cost = tower.get_upgrade_cost(tower_instance.range_upgrade + tower_instance.duration_upgrade)
+	
+	if cost == null:
+		details_parent.get_node("UpgradeContainer/Label").text = "Upgrade Cost: Maxed"
+		details_parent.get_node("UpgradeContainer/HBoxContainer").visible = false
+	else:
+		details_parent.get_node("UpgradeContainer/HBoxContainer").visible = true
+		details_parent.get_node("UpgradeContainer/Label").text = "Upgrade Cost: " + str(tower.get_upgrade_cost(tower_instance.range_upgrade + tower_instance.duration_upgrade)) + "\t(" + str(tower_instance.range_upgrade + tower_instance.duration_upgrade) + " out of " + str(tower.upgrade_cost_multipliers.size()) + ")"
+		if not game.can_buyi(cost):
+			details_parent.get_node("UpgradeContainer/HBoxContainer/RangeUpgradeButton").disabled = true
+			details_parent.get_node("UpgradeContainer/HBoxContainer/DurationUpgradeButton").disabled = true
 	pass
 
 func generate_description() -> String:
 	var format_string = "Element: %s\n\nType:%s\nDamage: %s\nAttack Duration: %s"
-	return format_string % [tower.element.display_name, "AOE" if tower.is_aoe else "Single Target", tower.damage, tower.attack_duration]
+	return format_string % [tower.element.display_name, "AOE" if tower.is_aoe else "Single Target", tower.damage, tower_instance.get_duration()]
 	
 func unset_tower() -> void:
 	tower = null
@@ -47,7 +61,7 @@ func unset_tower() -> void:
 	pass
 
 func confirm_spot(spot):
-	if (spot == null) or (spot != null and (spot - tower_instance.global_position).length() < tower.attack_range):
+	if (spot == null) or (spot != null and (spot - tower_instance.global_position).length() < tower_instance.get_range()):
 		tower_instance.set_spot(spot)
 		details_parent.get_node("TowerSetSpotButton").set_toggle(false)
 		print("Spot %s was selected" % spot)	
@@ -73,4 +87,20 @@ func _on_tower_set_spot_button_pressed():
 func _on_tower_sell_button_pressed():
 	tower_instance.refund()
 	unset_tower()
+	pass # Replace with function body.
+
+
+func _on_duration_upgrade_button_pressed():
+	tower_instance.apply_upgrade(1,0)
+	pass # Replace with function body.
+
+
+func _on_range_upgrade_button_pressed():
+	tower_instance.apply_upgrade(0,1)
+	pass # Replace with function body.
+
+
+func _on_game_currency_changed(new_value):
+	if tower_instance != null:
+		set_tower(tower_instance)
 	pass # Replace with function body.

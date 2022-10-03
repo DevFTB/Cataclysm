@@ -8,18 +8,36 @@ var drawing_range_circle = false
 var activated = false
 var tick_counter = 0
 var targeting_category = Tower.TargetingCategory.FIRST
+
+var range_upgrade = 0
+var duration_upgrade = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Sprite2d.texture = tower.ui_image
 	$AudioStreamPlayer2d.stream = tower.attack_sound
+	regenerate_collision_shape(tower.attack_range)
 	
+	pass # Replace with function body.
+func regenerate_collision_shape(range):
 	var collision_shape = CollisionShape2D.new()
 	var circle = CircleShape2D.new()
-	circle.set_radius(float(tower.attack_range))
+	circle.set_radius(float(range))
 	collision_shape.shape = circle
 	
 	$TargetingRangeOverlapArea.add_child(collision_shape)
-	pass # Replace with function body.
+
+func apply_upgrade(duration_up, range_up):
+	var game = get_node("/root/Game")
+	var cost  =tower.get_upgrade_cost(duration_upgrade + range_upgrade)
+	
+	if game.can_buyi(cost):
+		if duration_upgrade + range_upgrade + 1 <= tower.upgrade_cost_multipliers.size():
+			duration_upgrade += duration_up
+			range_upgrade += range_up
+			if range_up > 0:
+				regenerate_collision_shape(get_range())
+				queue_redraw()
+			game.spend_currency(cost)
 
 func set_spot(new_spot):
 	spot = new_spot
@@ -33,11 +51,16 @@ func activate() -> void:
 	$AudioStreamPlayer2d.play()
 	pass
 	
+func get_range():
+	return tower.attack_range * (1 + 0.3 * range_upgrade)
+	
+func get_duration():
+	return tower.attack_duration + floori(float(duration_upgrade) / 1)
+	
 func deactivate() -> void:
 	activated = false
 	
 func tick() -> void:
-
 	if not tower.is_aoe and activated:
 		if tick_counter > 0:
 				$Node2d/Label.modulate = Color.WHITE
@@ -46,33 +69,36 @@ func tick() -> void:
 				$Node2d/Label.modulate = Color.YELLOW
 			attack()
 			tick_counter+=1
-		if tick_counter >= tower.attack_duration:
+		if tick_counter >= get_duration():
 			deactivate()
 	elif tower.is_aoe and activated:
 		attack()
 		deactivate()
 			
 func attack() -> void:
-	var target = null
 	match targeting_category:
 		Tower.TargetingCategory.FIRST:
-			target = target_first()
+			attack_entity(target_first())
 			pass
 		Tower.TargetingCategory.STRONG:
-			target = target_strong()
+			attack_entity(target_strong())
 			pass
 		Tower.TargetingCategory.SPOT:
-			target = spot
+			attack_spot(target_spot())
 			pass
+
+func attack_entity(entity):
+	if entity != null:
+		if not tower.is_aoe:
+			spawn_projectile(entity)
+		else:
+			spawn_aoe(entity.global_position)
+		pass
 	
+func attack_spot(target):
 	if target != null:
-		print(target)
 		if tower.is_aoe:
 			spawn_aoe(target)
-			pass
-		else:
-			spawn_projectile(target)
-		pass
 
 func spawn_aoe(target: Vector2):
 	var new_proj = tower.aoe.instantiate()
@@ -80,7 +106,7 @@ func spawn_aoe(target: Vector2):
 	new_proj.damage  = tower.damage
 	new_proj.element = tower.element
 	new_proj.radius = tower.aoe_range
-	new_proj.lifetime = tower.attack_duration
+	new_proj.lifetime = tower.get_duration()
 	new_proj.colour_override = tower.element.colour
 	
 	add_child(new_proj)
@@ -88,12 +114,12 @@ func spawn_aoe(target: Vector2):
 	new_proj.global_position = target
 	pass
 	
-func spawn_projectile(target: Vector2):
+func spawn_projectile(entity: Node2D):
 	var new_proj = tower.projecticle.instantiate()
 	
 	new_proj.damage  = tower.damage
 	new_proj.element = tower.element
-	new_proj.target  = target
+	new_proj.target_entity  = entity
 	
 	
 	add_child(new_proj)
@@ -112,7 +138,7 @@ func target_first():
 			if enemy.progress_ratio > furthest_enemy.progress_ratio:
 				furthest_enemy = enemy
 	
-		return furthest_enemy.global_position
+		return furthest_enemy
 	else:
 		return null
 
@@ -130,14 +156,14 @@ func target_strong():
 				strongest_enemy = enemy
 	
 		print("targeting %s" % strongest_enemy.name)
-		return strongest_enemy.global_position
+		return strongest_enemy
 	else:
 		return null
 	
 	
 func target_spot() -> void:
 	if spot == null:
-		target_first()
+		return target_first().global_position
 	else:
 		return spot
 
@@ -149,7 +175,7 @@ func set_highlight(value) -> void:
 		
 func _draw():
 	if drawing_range_circle:
-		draw_circle(Vector2.ZERO, tower.attack_range, Color(Color.CHARTREUSE, 0.1))
+		draw_circle(Vector2.ZERO, get_range(), Color(Color.CHARTREUSE, 0.1))
 		if spot != null:
 			print('drawing at offset %s', spot - global_position)
 			draw_circle(spot - global_position, tower.aoe_range, Color(Color.BLUE, 0.2))

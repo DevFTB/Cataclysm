@@ -50,7 +50,7 @@
 [node name="Game" type="Node"]
 script = ExtResource("1_f45j7")
 reactions = [ExtResource("2_msaa4"), ExtResource("2_u5gpo"), ExtResource("3_r65h1"), ExtResource("4_1snww"), ExtResource("5_skyup"), ExtResource("6_7s24y"), ExtResource("7_dxxxv"), ExtResource("8_int4x"), ExtResource("9_l087j"), ExtResource("10_ygbiw"), ExtResource("11_aec58"), ExtResource("12_bwm75"), ExtResource("13_s7dtk"), ExtResource("14_mp1ry"), ExtResource("15_klnqr"), ExtResource("17_v5e2r")]
-starting_currency = 10
+starting_currency = 1000
 
 [node name="Map" parent="." instance=ExtResource("2_bt2wp")]
 spawn_delay = 1.0
@@ -174,7 +174,7 @@ anchor_right = 1.0
 offset_left = -323.0
 offset_top = 6.0
 offset_right = -15.0
-offset_bottom = 383.0
+offset_bottom = 449.0
 grow_horizontal = 0
 mouse_filter = 1
 script = ExtResource("11_mnlrn")
@@ -204,7 +204,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_top = 35.0
 offset_right = 308.0
-offset_bottom = 377.0
+offset_bottom = 443.0
 size_flags_vertical = 3
 
 [node name="Panel" type="Panel" parent="GUI/TowerGUI/VSplitContainer/Control"]
@@ -218,17 +218,16 @@ grow_vertical = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 5.0
-offset_top = 7.0
-offset_right = 5.0
-offset_bottom = 7.0
+offset_left = 7.0
+offset_top = -6.0
+offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.96, 0.96)
 alignment = 1
 
 [node name="TowerTitle" type="Label" parent="GUI/TowerGUI/VSplitContainer/Control/TowerDetails"]
-offset_right = 308.0
+offset_right = 301.0
 offset_bottom = 26.0
 text = "Tower Name"
 horizontal_alignment = 1
@@ -236,15 +235,15 @@ horizontal_alignment = 1
 [node name="TowerImage" type="TextureRect" parent="GUI/TowerGUI/VSplitContainer/Control/TowerDetails"]
 texture_filter = 1
 custom_minimum_size = Vector2i(96, 96)
-offset_left = 106.0
+offset_left = 102.0
 offset_top = 30.0
-offset_right = 202.0
+offset_right = 198.0
 offset_bottom = 126.0
 size_flags_horizontal = 4
 
 [node name="TargetingOptionButton" type="OptionButton" parent="GUI/TowerGUI/VSplitContainer/Control/TowerDetails"]
 offset_top = 130.0
-offset_right = 308.0
+offset_right = 301.0
 offset_bottom = 161.0
 item_count = 3
 selected = 0
@@ -257,7 +256,7 @@ popup/item_2/id = 2
 
 [node name="TowerSetSpotButton" type="Button" parent="GUI/TowerGUI/VSplitContainer/Control/TowerDetails"]
 offset_top = 165.0
-offset_right = 308.0
+offset_right = 301.0
 offset_bottom = 196.0
 text = "Choose Spot"
 script = ExtResource("12_7qx50")
@@ -267,7 +266,7 @@ not_toggled_text = "Select Spot"
 [node name="TowerDescription" type="RichTextLabel" parent="GUI/TowerGUI/VSplitContainer/Control/TowerDetails"]
 custom_minimum_size = Vector2i(0, 120)
 offset_top = 200.0
-offset_right = 308.0
+offset_right = 301.0
 offset_bottom = 320.0
 size_flags_vertical = 4
 text = "Element: Earth of the Grewt Clan
@@ -277,10 +276,37 @@ Attack Duration: 3 seconds
 
 "
 
-[node name="TowerSellButton" type="Button" parent="GUI/TowerGUI/VSplitContainer/Control/TowerDetails"]
+[node name="UpgradeContainer" type="VBoxContainer" parent="GUI/TowerGUI/VSplitContainer/Control/TowerDetails"]
 offset_top = 324.0
-offset_right = 308.0
-offset_bottom = 355.0
+offset_right = 301.0
+offset_bottom = 385.0
+
+[node name="Label" type="Label" parent="GUI/TowerGUI/VSplitContainer/Control/TowerDetails/UpgradeContainer"]
+offset_right = 301.0
+offset_bottom = 26.0
+text = "Upgrade Cost: "
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/TowerGUI/VSplitContainer/Control/TowerDetails/UpgradeContainer"]
+offset_top = 30.0
+offset_right = 301.0
+offset_bottom = 61.0
+
+[node name="RangeUpgradeButton" type="Button" parent="GUI/TowerGUI/VSplitContainer/Control/TowerDetails/UpgradeContainer/HBoxContainer"]
+offset_right = 56.0
+offset_bottom = 31.0
+text = "Range"
+
+[node name="DurationUpgradeButton" type="Button" parent="GUI/TowerGUI/VSplitContainer/Control/TowerDetails/UpgradeContainer/HBoxContainer"]
+offset_left = 224.0
+offset_right = 301.0
+offset_bottom = 31.0
+size_flags_horizontal = 10
+text = "Duration"
+
+[node name="TowerSellButton" type="Button" parent="GUI/TowerGUI/VSplitContainer/Control/TowerDetails"]
+offset_top = 389.0
+offset_right = 301.0
+offset_bottom = 420.0
 text = "Sell Tower
 "
 
@@ -514,6 +540,7 @@ stream = ExtResource("45_trx3e")
 [node name="ActionMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("45_jycqq")
 
+[connection signal="currency_changed" from="." to="GUI/TowerGUI" method="_on_game_currency_changed"]
 [connection signal="paused" from="." to="GUI/TimelineGUI/VSplitContainer/Control/HSplitContainer/VBoxContainer/PlayButton" method="_on_game_paused"]
 [connection signal="resumed" from="." to="GUI/TimelineGUI/VSplitContainer/Control/HSplitContainer/VBoxContainer/PlayButton" method="_on_game_resumed"]
 [connection signal="toggled" from="GUI/TimelineGUI/VSplitContainer/MinimiseButton" to="GUI/TimelineGUI" method="_on_minimise_button_toggled"]
@@ -523,6 +550,8 @@ stream = ExtResource("45_jycqq")
 [connection signal="toggled" from="GUI/TowerGUI/VSplitContainer/MinimiseButton" to="GUI/TowerGUI" method="_on_minimise_button_toggled"]
 [connection signal="item_selected" from="GUI/TowerGUI/VSplitContainer/Control/TowerDetails/TargetingOptionButton" to="GUI/TowerGUI" method="_on_targeting_option_button_item_selected"]
 [connection signal="pressed" from="GUI/TowerGUI/VSplitContainer/Control/TowerDetails/TowerSetSpotButton" to="GUI/TowerGUI" method="_on_tower_set_spot_button_pressed"]
+[connection signal="pressed" from="GUI/TowerGUI/VSplitContainer/Control/TowerDetails/UpgradeContainer/HBoxContainer/RangeUpgradeButton" to="GUI/TowerGUI" method="_on_range_upgrade_button_pressed"]
+[connection signal="pressed" from="GUI/TowerGUI/VSplitContainer/Control/TowerDetails/UpgradeContainer/HBoxContainer/DurationUpgradeButton" to="GUI/TowerGUI" method="_on_duration_upgrade_button_pressed"]
 [connection signal="pressed" from="GUI/TowerGUI/VSplitContainer/Control/TowerDetails/TowerSellButton" to="GUI/TowerGUI" method="_on_tower_sell_button_pressed"]
 [connection signal="toggled" from="GUI/TowerSelectionGUI/VBoxContainer/HBoxContainer/MinimiseButton" to="GUI/TowerSelectionGUI" method="_on_minimise_button_toggled"]
 [connection signal="pressed" from="GUI/TowerSelectionGUI/VBoxContainer/Control/HSplitContainer/VBoxContainer/GrewtTowerButton" to="GUI/TowerSelectionGUI" method="_on_grewt_tower_button_pressed"]

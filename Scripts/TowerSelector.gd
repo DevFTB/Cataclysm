@@ -56,3 +56,7 @@ func _on_the_order_tower_button_pressed():
 func _on_minimise_button_toggled(button_pressed):
 	$VBoxContainer/Control.visible = button_pressed
 	pass # Replace with function body.
+
+
+func _on_range_upgrade_button_pressed():
+	pass # Replace with function body.
