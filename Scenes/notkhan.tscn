@@ -115,6 +115,8 @@ curve = SubResource("Curve2D_oc53c")
 [node name="Cores" type="Node2D" parent="."]
 
 [node name="Core" type="Area2D" parent="Cores"]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("13_6pkge")
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="Cores/Core"]
@@ -122,5 +124,10 @@ position = Vector2(585, 349)
 shape = SubResource("CircleShape2D_n137f")
 
 [node name="CoreHPBar" parent="Cores/Core" instance=ExtResource("14_ay4oe")]
+offset_left = 524.0
+offset_top = 232.0
+offset_right = 556.0
+offset_bottom = 264.0
+scale = Vector2(4, 4)
 
 [connection signal="area_entered" from="Cores/Core" to="Cores/Core" method="_on_core_area_entered"]
