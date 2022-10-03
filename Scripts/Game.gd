@@ -38,7 +38,8 @@ func _ready():
 	get_node("Map").connect("cores_dead", _on_cores_dead)
 	
 	add_to_currency(starting_currency)
-
+	$AudioStreamPlayer.play()
+	$AudioStreamPlayer.stream_paused = true
 	pass # Replace with function body.
 
 func _on_cores_dead():
@@ -81,11 +82,7 @@ func new_turn():
 	game_paused = false
 	emit_signal("resumed")
 	print("new turn")
-	if not $AudioStreamPlayer.stream_paused:
-		$AudioStreamPlayer.play()
-	else: 
-		$AudioStreamPlayer.stream_paused = false
-	pass
+	$AudioStreamPlayer.stream_paused = false
 	
 func do_tick(tick): 
 	print('tick')

@@ -1,9 +1,10 @@
-[gd_resource type="Resource" load_steps=6 format=3 uid="uid://cjun01lkoegjb"]
+[gd_resource type="Resource" load_steps=7 format=3 uid="uid://cjun01lkoegjb"]
 
 [ext_resource type="Script" path="res://Scripts/EnemyStats.gd" id="1_63vjw"]
 [ext_resource type="PackedScene" uid="uid://u0tglfhnl6wc" path="res://PackedScenes/EnemyBodys/EnemySmallBody.tscn" id="1_j0djt"]
 [ext_resource type="Texture2D" uid="uid://cmui58yxn8b7t" path="res://Resources/Level/Enemies/EnemyTextures/steel elemental.png" id="2_33lpd"]
 [ext_resource type="Script" path="res://Scripts/ResistanceSet.gd" id="3_40kv3"]
+[ext_resource type="Resource" uid="uid://cog5qfsmawcvy" path="res://Resources/Elemental/Elements/Steel.tres" id="5_th6pw"]
 
 [sub_resource type="Resource" id="Resource_ettjm"]
 script = ExtResource("3_40kv3")
@@ -19,4 +20,6 @@ max_health = 2000
 base_move_speed = 10
 resistances = SubResource("Resource_ettjm")
 currency_on_death = 10
+self_apply_element = ExtResource("5_th6pw")
+self_apply_period = 2
 max_rand_offset = 0
