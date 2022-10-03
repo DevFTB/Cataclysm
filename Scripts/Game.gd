@@ -67,6 +67,7 @@ func _physics_process(delta):
 				else:
 					emit_signal("paused")
 					game_paused = true
+					$AudioStreamPlayer.stream_paused = true
 			
 		if game_paused:
 			pass
@@ -80,6 +81,10 @@ func new_turn():
 	game_paused = false
 	emit_signal("resumed")
 	print("new turn")
+	if not $AudioStreamPlayer.stream_paused:
+		$AudioStreamPlayer.play()
+	else: 
+		$AudioStreamPlayer.stream_paused = false
 	pass
 	
 func do_tick(tick): 
