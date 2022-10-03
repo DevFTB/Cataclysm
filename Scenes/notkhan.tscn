@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://clh7wxy6scu0p"]
+[gd_scene load_steps=21 format=3 uid="uid://clh7wxy6scu0p"]
 
 [ext_resource type="Texture2D" uid="uid://d0otmx15iojel" path="res://Resources/Level/notkhanmap.png" id="1_a7gao"]
 [ext_resource type="Script" path="res://Scripts/GameMap.gd" id="1_hyp13"]
@@ -14,6 +14,7 @@
 [ext_resource type="Resource" uid="uid://c1dithye81xi0" path="res://Resources/Level/Enemies/EnemyStats/WaterElemental.tres" id="10_38d7i"]
 [ext_resource type="Script" path="res://Scenes/Core.gd" id="13_6pkge"]
 [ext_resource type="PackedScene" path="res://Scenes/HPBar.tscn" id="14_ay4oe"]
+[ext_resource type="AudioStream" uid="uid://csfil2l4ke1mf" path="res://Resources/Sounds/core_hurt.wav" id="15_i74ki"]
 
 [sub_resource type="Curve2D" id="Curve2D_gc4f3"]
 _data = {
@@ -129,5 +130,8 @@ offset_top = 232.0
 offset_right = 556.0
 offset_bottom = 264.0
 scale = Vector2(4, 4)
+
+[node name="AudioStreamPlayer2d" type="AudioStreamPlayer2D" parent="Cores/Core"]
+stream = ExtResource("15_i74ki")
 
 [connection signal="area_entered" from="Cores/Core" to="Cores/Core" method="_on_core_area_entered"]

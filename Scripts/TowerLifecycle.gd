@@ -11,6 +11,7 @@ var targeting_category = Tower.TargetingCategory.FIRST
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Sprite2d.texture = tower.ui_image
+	$AudioStreamPlayer2d.stream = tower.attack_sound
 	
 	var collision_shape = CollisionShape2D.new()
 	var circle = CircleShape2D.new()
@@ -28,6 +29,8 @@ func set_spot(new_spot):
 func activate() -> void:
 	tick_counter = 0
 	activated = true
+	
+	$AudioStreamPlayer2d.play()
 	pass
 	
 func deactivate() -> void:

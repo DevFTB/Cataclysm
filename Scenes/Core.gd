@@ -18,6 +18,7 @@ func _process(delta):
 
 func _on_core_area_entered(area):
 	take_damage(1)
+	$AudioStreamPlayer2d.play()
 	area.get_enemy().die()
 	pass # Replace with function body.
 

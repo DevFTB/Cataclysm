@@ -1,7 +1,8 @@
-[gd_resource type="Resource" load_steps=5 format=3 uid="uid://5mdxhmjgflr0"]
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://5mdxhmjgflr0"]
 
 [ext_resource type="Resource" uid="uid://c537smfv6044" path="res://Resources/Elemental/Elements/Earth.tres" id="1_55cpf"]
 [ext_resource type="Script" path="res://Scripts/Tower.gd" id="1_jyxs6"]
+[ext_resource type="AudioStream" uid="uid://36csivdmj6bu" path="res://Resources/Sounds/block-warp.wav" id="1_r3nhi"]
 [ext_resource type="PackedScene" uid="uid://dxhrlgv1poj84" path="res://PackedScenes/Projectile.tscn" id="2_76wl7"]
 [ext_resource type="Texture2D" uid="uid://y63di8or1h3p" path="res://Resources/Level/Towers/Grewt/earth_basic.png" id="4_3grpa"]
 
@@ -12,6 +13,7 @@ ui_image = ExtResource("4_3grpa")
 clan = 0
 element = ExtResource("1_55cpf")
 currency_cost = 7
+attack_sound = ExtResource("1_r3nhi")
 projecticle = ExtResource("2_76wl7")
 damage = 100
 attack_duration = 3
