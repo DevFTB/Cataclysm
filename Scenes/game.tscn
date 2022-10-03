@@ -33,7 +33,7 @@
 [ext_resource type="Resource" uid="uid://bkrmgf1r4opo" path="res://Resources/Level/Enemies/EnemyStats/SpeedEnemy.tres" id="19_qj1ac"]
 [ext_resource type="PackedScene" uid="uid://b0f11067p0ja3" path="res://PackedScenes/Towers/Tower.tscn" id="21_dycfl"]
 [ext_resource type="Resource" uid="uid://5mdxhmjgflr0" path="res://Resources/Level/Towers/Grewt/EarthBasic.tres" id="32_5qymv"]
-[ext_resource type="Resource" uid="uid://c70xuurq24sku" path="res://Resources/Level/Towers/Grewt/WaterAoE.tres" id="33_11f3t"]
+[ext_resource type="Resource" uid="uid://c70xuurq24sku" path="res://Resources/Level/Towers/Grewt/WaterBasic.tres" id="34_4w7ov"]
 [ext_resource type="Resource" uid="uid://dhsvpldtuftyh" path="res://Resources/Level/Towers/Khanovian/ElectricityBasic.tres" id="35_hwes0"]
 [ext_resource type="Resource" uid="uid://d38pl5psbbto1" path="res://Resources/Level/Towers/Khanovian/FireBasic.tres" id="36_gm72g"]
 [ext_resource type="Resource" uid="uid://cuu1ro5685cpn" path="res://Resources/Level/Towers/Khanovian/SteelAoE.tres" id="37_v58xx"]
@@ -308,7 +308,7 @@ mouse_filter = 1
 script = ExtResource("14_jxcnu")
 button_parent = NodePath("VBoxContainer/Control/HSplitContainer/GridContainer")
 button_scene = ExtResource("8_7bdlq")
-towers = [ExtResource("32_5qymv"), ExtResource("33_11f3t"), ExtResource("35_hwes0"), ExtResource("36_gm72g"), ExtResource("37_v58xx"), ExtResource("38_0im81"), ExtResource("39_rqj2d"), ExtResource("40_dk0xl")]
+towers = [ExtResource("32_5qymv"), ExtResource("34_4w7ov"), ExtResource("35_hwes0"), ExtResource("36_gm72g"), ExtResource("37_v58xx"), ExtResource("38_0im81"), ExtResource("39_rqj2d"), ExtResource("40_dk0xl")]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GUI/TowerSelectionGUI"]
 layout_direction = 2

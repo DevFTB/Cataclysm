@@ -9,6 +9,7 @@ var damage = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Sprite2d.texture = element.projectile_texture
 	connect("area_entered", _on_area_entered)
 	pass # Replace with function body.
 
