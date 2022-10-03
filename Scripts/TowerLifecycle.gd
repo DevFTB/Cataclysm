@@ -28,7 +28,7 @@ func regenerate_collision_shape(range):
 
 func apply_upgrade(duration_up, range_up):
 	var game = get_node("/root/Game")
-	var cost  =tower.get_upgrade_cost(duration_upgrade + range_upgrade)
+	var cost = tower.get_upgrade_cost(duration_upgrade + range_upgrade)
 	
 	if game.can_buyi(cost):
 		if duration_upgrade + range_upgrade + 1 <= tower.upgrade_cost_multipliers.size():
@@ -64,7 +64,7 @@ func tick() -> void:
 	if not tower.is_aoe and activated:
 		if tick_counter > 0:
 				$Node2d/Label.modulate = Color.WHITE
-		if activated and tick_counter < tower.attack_duration:
+		if activated and tick_counter < get_duration():
 			if tick_counter == 0:
 				$Node2d/Label.modulate = Color.YELLOW
 			attack()

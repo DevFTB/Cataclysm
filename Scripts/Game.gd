@@ -168,6 +168,7 @@ func get_reaction(elements: Array[Element]):
 
 func can_buy(tower: Tower) -> bool:
 	return tower.currency_cost <= currency 
+	
 func can_buyi(amount: int) -> bool:
 	return amount <= currency 
 
