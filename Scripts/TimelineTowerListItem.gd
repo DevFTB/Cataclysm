@@ -4,7 +4,18 @@ var tick = -1
 var tower_lifecycle
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	get_node("/root/Game").connect("paused", _on_paused)
+	get_node("/root/Game").connect("resumed", _on_resumed)
 	pass # Replace with function body.
+
+func _on_paused():
+	$HBoxContainer/UpDownButtons/UpButton.disabled = false if not tick == 0 else true
+	$HBoxContainer/UpDownButtons/DownButton.disabled = false if not tick == 9 else true
+
+
+func _on_resumed():
+	$HBoxContainer/UpDownButtons/UpButton.disabled = true
+	$HBoxContainer/UpDownButtons/DownButton.disabled = true
 
 func set_highlight(value):
 	$TurnColorRect.visible = value
