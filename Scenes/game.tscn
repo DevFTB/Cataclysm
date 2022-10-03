@@ -30,7 +30,7 @@
 [ext_resource type="Resource" uid="uid://cokmxasbe4ngd" path="res://Resources/Elemental/Reactions/Poison.tres" id="14_mp1ry"]
 [ext_resource type="Resource" uid="uid://drbd73udcjw5i" path="res://Resources/Elemental/Reactions/Smite.tres" id="15_klnqr"]
 [ext_resource type="Resource" uid="uid://biotuk7ubekhf" path="res://Resources/Elemental/Reactions/Wealth.tres" id="17_v5e2r"]
-[ext_resource type="PackedScene" uid="uid://b0f11067p0ja3" path="res://PackedScenes/Towers/Tower.tscn" id="21_dycfl"]
+[ext_resource type="PackedScene" uid="uid://c00h1nxrjn6pv" path="res://PackedScenes/Towers/Tower.tscn" id="21_dycfl"]
 [ext_resource type="Resource" uid="uid://5mdxhmjgflr0" path="res://Resources/Level/Towers/Grewt/EarthBasic.tres" id="32_5qymv"]
 [ext_resource type="Resource" uid="uid://c70xuurq24sku" path="res://Resources/Level/Towers/Grewt/WaterBasic.tres" id="34_4w7ov"]
 [ext_resource type="Resource" uid="uid://dhsvpldtuftyh" path="res://Resources/Level/Towers/Khanovian/ElectricityBasic.tres" id="35_hwes0"]
@@ -510,6 +510,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
 script = ExtResource("42_al5nb")
 
 [node name="Control" type="Control" parent="GUI/Instructions"]
@@ -520,6 +522,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="ColorRect" type="ColorRect" parent="GUI/Instructions/Control"]
 layout_mode = 1
@@ -528,6 +531,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
 color = Color(0.176471, 0.176471, 0.176471, 0.729412)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="GUI/Instructions/Control"]
@@ -569,7 +574,7 @@ Wealth                         Earth + Fire = Increased gold on kill
 *Diffusion* = when there are too many elements that do not react with each other, they might diffuse and not react at all.
 "
 
-[node name="MinimiseButton" type="Button" parent="GUI/Instructions"]
+[node name="MinimiseButton" type="Button" parent="GUI"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -688,5 +693,5 @@ stream = ExtResource("45_jycqq")
 [connection signal="pressed" from="GUI/TowerSelectionGUI/VBoxContainer/Control/HSplitContainer/VBoxContainer/GrewtTowerButton" to="GUI/TowerSelectionGUI" method="_on_grewt_tower_button_pressed"]
 [connection signal="pressed" from="GUI/TowerSelectionGUI/VBoxContainer/Control/HSplitContainer/VBoxContainer/KhanovianTowerButton" to="GUI/TowerSelectionGUI" method="_on_khanovian_tower_button_pressed"]
 [connection signal="pressed" from="GUI/TowerSelectionGUI/VBoxContainer/Control/HSplitContainer/VBoxContainer/TheOrderTowerButton" to="GUI/TowerSelectionGUI" method="_on_the_order_tower_button_pressed"]
-[connection signal="toggled" from="GUI/Instructions/MinimiseButton" to="GUI/Instructions" method="_on_minimise_button_toggled"]
+[connection signal="toggled" from="GUI/MinimiseButton" to="GUI/Instructions" method="_on_minimise_button_toggled"]
 [connection signal="pressed" from="GameOver/Control/PlayButton" to="." method="_on_play_button_pressed"]

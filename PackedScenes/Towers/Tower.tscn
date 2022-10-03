@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0f11067p0ja3"]
+[gd_scene load_steps=5 format=3 uid="uid://c00h1nxrjn6pv"]
 
 [ext_resource type="Script" path="res://Scripts/TowerLifecycle.gd" id="1_8tqvp"]
 [ext_resource type="Script" path="res://PackedScenes/Towers/HighlightableSprite2d.gd" id="3_r7e7k"]
