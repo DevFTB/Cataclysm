@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4f3bbcwhvv5h"]
+[gd_scene load_steps=2 format=3 uid="uid://3s0rikxawbvj"]
 
-[ext_resource type="Script" path="res://FadeAwayLabel.gd" id="1_ju0oi"]
+[ext_resource type="Script" path="res://Scripts/FadeAwayLabel.gd" id="1_ju0oi"]
 
 [node name="Label" type="Label"]
 texture_filter = 1

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/TowerLifecycle.gd" id="1_8tqvp"]
 [ext_resource type="Script" path="res://PackedScenes/Towers/HighlightableSprite2d.gd" id="3_r7e7k"]
-[ext_resource type="Material" uid="uid://cfl7qmhmphh7l" path="res://Shaders/OutlineShader.tres" id="4_pr0y4"]
+[ext_resource type="Material" uid="uid://b7vry5ry4w7iu" path="res://Shaders/OutlineShader.tres" id="4_pr0y4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e1rum"]
 size = Vector2(61, 52)

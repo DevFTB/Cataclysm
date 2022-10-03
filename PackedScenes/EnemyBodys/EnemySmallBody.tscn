@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://u0tglfhnl6wc"]
+
+[ext_resource type="PackedScene" uid="uid://0fro8ru7emgc" path="res://Scenes/HPBar.tscn" id="3_xbeyu"]
+[ext_resource type="Script" path="res://Scenes/ElementBar.gd" id="4_jnlal"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ag00i"]
+radius = 13.0
+height = 34.0
+
+[node name="SpriteBody" type="Node2D"]
+
+[node name="Sprite2d" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+
+[node name="HPBar" parent="." instance=ExtResource("3_xbeyu")]
+offset_left = -16.0
+offset_top = -35.0
+offset_right = 16.0
+offset_bottom = -3.0
+
+[node name="ElementBar" type="HBoxContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -22.0
+offset_top = -36.0
+offset_right = 22.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+script = ExtResource("4_jnlal")
+
+[node name="FadeAwayTextSource" type="Node2D" parent="."]
+position = Vector2(0, -21)
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_ag00i")

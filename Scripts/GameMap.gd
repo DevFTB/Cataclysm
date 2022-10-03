@@ -1,7 +1,7 @@
 extends Node2D
 
-@export var enemies : Array[PackedScene]
-@export var spawn_register = [[{0: 1}, {} ,{}, {}]] #[[{0 : 3, 1 : 1}, {0 : 2}, {0 : 1}, {0 : 4}],[{},{},{},{}],[{},{},{},{}],[{},{},{},{}]]
+@export var enemies : Array[EnemyStats]
+@export var spawn_register = [[{0: 1, 1: 5}, {} ,{}, {}]] #[[{0 : 3, 1 : 1}, {0 : 2}, {0 : 1}, {0 : 4}],[{},{},{},{}],[{},{},{},{}],[{},{},{},{}]]
 @export var spawn_delay = 0.5
 @export var max_time_till_next_wave = 5
 
@@ -48,8 +48,10 @@ func spawn_wave (wave: int) -> void:
 				await get_tree().create_timer(spawn_delay).timeout
 		
 
-func spawn_enemy(enemy : PackedScene, path_id: int) -> void:
-	var new_enemy = enemy.instantiate()
+func spawn_enemy(stats : EnemyStats, path_id: int) -> void:
+	var new_enemy = Enemy.new()
+	new_enemy.stats = stats
+	
 	$Paths.get_child(path_id).add_child(new_enemy)
 	
 	return new_enemy

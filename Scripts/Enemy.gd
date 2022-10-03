@@ -9,16 +9,9 @@ class Damage:
 		damage = p_damage
 		element = p_element
 
-@export var max_health = 50
-@export var base_move_speed = 5
+@export var stats : EnemyStats
 
-@export var enemy_name : String = "Enemy"
-@export var resistances : ResistanceSet
-
-@export var max_rand_offset : float = 0
-
-@onready var health = max_health
-
+@onready var health = stats.max_health
 @onready var game = get_node("/root/Game")
 
 var rng = RandomNumberGenerator.new()
@@ -32,18 +25,27 @@ var damage_cache : Array[Damage] = []
 var move_speed_modifier = 1
 var attack_modifier = 1
 
+var body
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	rng.randomize()
 	
-	$SpriteBody.position += Vector2(0, rng.randf_range(-max_rand_offset, max_rand_offset))
+	body = stats.enemy_body_type.instantiate()
+	add_child(body)
+	
+	var reactions_node = Node2D.new()
+	reactions_node.name  = "Reactions"
+	
+	body.get_node("Sprite2d").texture = stats.enemy_texture
+	body.position += Vector2(0, rng.randf_range(-stats.max_rand_offset, stats.max_rand_offset))
 	pass # Replace with function body.
 
 var time = 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if not game.game_paused:
-		var increment =  base_move_speed * delta * move_speed_modifier
+		var increment =  stats.base_move_speed * delta * move_speed_modifier
 		if increment > 0:
 			progress += increment
 	pass
@@ -97,7 +99,7 @@ func take_damage(damage: int, element: Element) -> void:
 func modify_health(amount : int):
 	health += amount
 	
-	var value = float(health) / float(max_health) * 100
+	var value = float(health) / float(stats.max_health) * 100
 	$SpriteBody/HPBar.set_value(value)
 	
 func react() -> void:
@@ -142,7 +144,7 @@ func apply_reaction_effects():
 	
 func die():
 	is_dead = true
-	print("enemy " + enemy_name + " has died")
+	print("enemy " + stats.enemy_name + " has died")
 	
 	apply_post_death_reactions()
 	

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=5 format=3 uid="uid://bubrsqyk87san"]
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://cuu1ro5685cpn"]
 
 [ext_resource type="Script" path="res://Scripts/Tower.gd" id="1_jyxs6"]
 [ext_resource type="PackedScene" uid="uid://bmn2yj1j6lu86" path="res://PackedScenes/aoe.tscn" id="1_rvgrt"]
