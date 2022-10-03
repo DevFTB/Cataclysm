@@ -36,7 +36,7 @@ func set_tower(new_tower_instance) -> void:
 			
 	details_parent.get_node("TowerSetSpotButton").visible = tower.is_aoe and op_button.selected == 2
 	details_parent.get_node("TowerSellButton/TowerSellCostContainer/Label").text = str(tower.get_refund_price())
-	
+	details_parent.get_node("TowerSellButton").disabled = not game.game_paused
 	var cost = tower.get_upgrade_cost(tower_instance.range_upgrade + tower_instance.duration_upgrade)
 	
 	if cost == null:
@@ -45,12 +45,11 @@ func set_tower(new_tower_instance) -> void:
 	else:
 		details_parent.get_node("UpgradeContainer/HBoxContainer").visible = true
 		details_parent.get_node("UpgradeContainer/Label").text = "Upgrade Cost: " + str(tower.get_upgrade_cost(tower_instance.range_upgrade + tower_instance.duration_upgrade)) + "\t(" + str(tower_instance.range_upgrade + tower_instance.duration_upgrade) + " out of " + str(tower.upgrade_cost_multipliers.size()) + ")"
-		if not game.can_buyi(cost):
-			details_parent.get_node("UpgradeContainer/HBoxContainer/RangeUpgradeButton").disabled = true
-			details_parent.get_node("UpgradeContainer/HBoxContainer/DurationUpgradeButton").disabled = true
-		else:
-			details_parent.get_node("UpgradeContainer/HBoxContainer/RangeUpgradeButton").disabled = false
-			details_parent.get_node("UpgradeContainer/HBoxContainer/DurationUpgradeButton").disabled = false
+		
+		var can_upgrade = game.can_buyi(cost) and game.game_paused
+		
+		details_parent.get_node("UpgradeContainer/HBoxContainer/RangeUpgradeButton").disabled = not can_upgrade
+		details_parent.get_node("UpgradeContainer/HBoxContainer/DurationUpgradeButton").disabled = not can_upgrade
 	pass
 
 func generate_description() -> String:
@@ -104,6 +103,18 @@ func _on_range_upgrade_button_pressed():
 
 
 func _on_game_currency_changed(new_value):
+	if tower_instance != null:
+		set_tower(tower_instance)
+	pass # Replace with function body.
+
+
+func _on_game_paused():
+	if tower_instance != null:
+		set_tower(tower_instance)
+	pass # Replace with function body.
+
+
+func _on_game_resumed():
 	if tower_instance != null:
 		set_tower(tower_instance)
 	pass # Replace with function body.

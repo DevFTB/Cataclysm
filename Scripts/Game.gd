@@ -50,6 +50,7 @@ func set_game_over():
 	game_over = true
 	$GUI.visible = false
 	$GameOver.visible = true
+	$GameOver/Control/Score.text = "You lasted %s turns!" % str(turn + 1)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -67,8 +68,9 @@ func _physics_process(delta):
 				if autoplay:
 					new_turn()
 				else:
-					emit_signal("paused")
 					game_paused = true
+					emit_signal("paused")
+
 					$ActionMusic.stream_paused = true
 					$AmbientMusic.stream_paused = false
 		if game_paused:

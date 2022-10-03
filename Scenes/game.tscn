@@ -625,7 +625,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.47451, 0.25098, 0.439216, 0.584314)
 
-[node name="Control" type="Control" parent="GameOver"]
+[node name="Control" type="VBoxContainer" parent="GameOver"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -641,29 +641,27 @@ grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="GameOver/Control"]
 texture_filter = 1
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -276.0
-offset_right = -20.0
-offset_bottom = 128.0
+custom_minimum_size = Vector2i(0, 256)
+layout_mode = 2
+offset_right = 552.0
+offset_bottom = 256.0
 grow_horizontal = 2
-scale = Vector2(2, 2)
 texture = ExtResource("41_edrjh")
+
+[node name="Score" type="Label" parent="GameOver/Control"]
+layout_mode = 2
+offset_top = 260.0
+offset_right = 552.0
+offset_bottom = 286.0
+text = "Your lasted x amount of waves."
+horizontal_alignment = 1
 
 [node name="PlayButton" type="TextureButton" parent="GameOver/Control"]
 custom_minimum_size = Vector2i(128, 64)
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -154.0
-offset_top = -213.0
-offset_right = 154.0
-offset_bottom = -84.0
+layout_mode = 2
+offset_top = 290.0
+offset_right = 552.0
+offset_bottom = 419.0
 grow_horizontal = 2
 grow_vertical = 0
 texture_normal = ExtResource("42_g24qe")
@@ -678,7 +676,9 @@ stream = ExtResource("45_jycqq")
 
 [connection signal="currency_changed" from="." to="GUI/TowerGUI" method="_on_game_currency_changed"]
 [connection signal="paused" from="." to="GUI/TimelineGUI/VSplitContainer/Control/HSplitContainer/VBoxContainer/PlayButton" method="_on_game_paused"]
+[connection signal="paused" from="." to="GUI/TowerGUI" method="_on_game_paused"]
 [connection signal="resumed" from="." to="GUI/TimelineGUI/VSplitContainer/Control/HSplitContainer/VBoxContainer/PlayButton" method="_on_game_resumed"]
+[connection signal="resumed" from="." to="GUI/TowerGUI" method="_on_game_resumed"]
 [connection signal="toggled" from="GUI/TimelineGUI/VSplitContainer/MinimiseButton" to="GUI/TimelineGUI" method="_on_minimise_button_toggled"]
 [connection signal="toggled" from="GUI/TimelineGUI/VSplitContainer/Control/HSplitContainer/VBoxContainer/AutoplayButton" to="." method="_on_autoplay_button_toggled"]
 [connection signal="toggled" from="GUI/TimelineGUI/VSplitContainer/Control/HSplitContainer/VBoxContainer/AutoplayButton" to="GUI/TimelineGUI/VSplitContainer/Control/HSplitContainer/VBoxContainer/AutoplayButton" method="_on_autoplay_button_toggled"]
