@@ -11,6 +11,7 @@ tower_name = "Steel Area"
 ui_image = ExtResource("4_s41wa")
 clan = 1
 element = ExtResource("2_arpv1")
+currency_cost = 40
 aoe = ExtResource("1_rvgrt")
 damage = 200
 attack_duration = 3

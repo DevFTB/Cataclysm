@@ -11,6 +11,7 @@ tower_name = "Water Area"
 ui_image = ExtResource("4_m4c45")
 clan = 0
 element = ExtResource("1_kxjms")
+currency_cost = null
 projecticle = ExtResource("2_q6cqn")
 damage = 0
 attack_duration = 2

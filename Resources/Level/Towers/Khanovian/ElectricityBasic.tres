@@ -11,6 +11,7 @@ tower_name = "Electricity Basic"
 ui_image = ExtResource("4_i5lfp")
 clan = 1
 element = ExtResource("1_x2hms")
+currency_cost = null
 projecticle = ExtResource("2_6me2n")
 damage = 100
 attack_duration = 5

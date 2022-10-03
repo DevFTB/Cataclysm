@@ -10,4 +10,6 @@ class_name EnemyStats
 
 @export var resistances : ResistanceSet
 
+@export var currency_on_death : int = 1
+
 @export var max_rand_offset : float = 0

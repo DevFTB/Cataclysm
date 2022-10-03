@@ -162,6 +162,8 @@ func die():
 	
 	apply_post_death_reactions()
 	
+	game.add_to_currency(stats.currency_on_death)
+	
 	queue_free()
 	pass
 	

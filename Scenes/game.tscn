@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://b3n6dywciugoy"]
+[gd_scene load_steps=46 format=3 uid="uid://b3n6dywciugoy"]
 
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="1_f45j7"]
 [ext_resource type="Texture2D" uid="uid://l6bfomveh046" path="res://Resources/UI/cursor.png" id="2_4rqab"]
@@ -24,7 +24,7 @@
 [ext_resource type="Script" path="res://Scripts/PausePlayButton.gd" id="12_876qo"]
 [ext_resource type="Resource" uid="uid://c8acxhargwupt" path="res://Resources/Elemental/Reactions/Melt.tres" id="12_bwm75"]
 [ext_resource type="Script" path="res://Scenes/ToggleStateButton.gd" id="13_6n20p"]
-[ext_resource type="PackedScene" uid="uid://ce56r78gtlak3" path="res://PackedScenes/TimelineTowerListItem.tscn" id="13_ra0qq"]
+[ext_resource type="PackedScene" path="res://PackedScenes/TimelineTowerListItem.tscn" id="13_ra0qq"]
 [ext_resource type="Resource" uid="uid://byqxho0ts76ni" path="res://Resources/Elemental/Reactions/Overclock.tres" id="13_s7dtk"]
 [ext_resource type="Script" path="res://Scripts/TowerSelector.gd" id="14_jxcnu"]
 [ext_resource type="Resource" uid="uid://cokmxasbe4ngd" path="res://Resources/Elemental/Reactions/Poison.tres" id="14_mp1ry"]
@@ -40,6 +40,8 @@
 [ext_resource type="Resource" uid="uid://dkxig451m5ten" path="res://Resources/Level/Towers/TheOrder/DarkAoE.tres" id="38_0im81"]
 [ext_resource type="Resource" uid="uid://edow1ldidh7r" path="res://Resources/Level/Towers/TheOrder/LightAoE.tres" id="39_rqj2d"]
 [ext_resource type="Resource" uid="uid://cjau4u8w0f6yu" path="res://Resources/Level/Towers/Grewt/AirAoE.tres" id="40_dk0xl"]
+[ext_resource type="Script" path="res://Scenes/CurrencyGUI.gd" id="41_168ls"]
+[ext_resource type="Texture2D" uid="uid://cq0o8i2h83j44" path="res://Resources/UI/coin.png" id="41_c2yvc"]
 [ext_resource type="Texture2D" uid="uid://50gpslbstunf" path="res://Resources/UI/Menus/GameOver.png" id="41_edrjh"]
 [ext_resource type="Texture2D" uid="uid://crhnp1xb53y3u" path="res://Resources/UI/Menus/cataclysm_play.png" id="42_g24qe"]
 [ext_resource type="Texture2D" uid="uid://cr43u6w65rs3d" path="res://Resources/UI/Menus/cataclysm_play_pressed.png" id="43_vyfl2"]
@@ -320,12 +322,36 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 2
 
+[node name="CurrencyGUI" type="HBoxContainer" parent="GUI/TowerSelectionGUI/VBoxContainer"]
+layout_mode = 2
+offset_right = 459.0
+offset_bottom = 64.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("41_168ls")
+
+[node name="TextureRect" type="TextureRect" parent="GUI/TowerSelectionGUI/VBoxContainer/CurrencyGUI"]
+layout_mode = 2
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("41_c2yvc")
+
+[node name="Label" type="Label" parent="GUI/TowerSelectionGUI/VBoxContainer/CurrencyGUI"]
+layout_mode = 2
+offset_left = 68.0
+offset_top = 19.0
+offset_right = 78.0
+offset_bottom = 45.0
+text = "0"
+horizontal_alignment = 1
+
 [node name="Control" type="Control" parent="GUI/TowerSelectionGUI/VBoxContainer"]
 custom_minimum_size = Vector2i(400, 100)
 layout_mode = 2
 anchors_preset = 0
+offset_top = 68.0
 offset_right = 459.0
-offset_bottom = 100.0
+offset_bottom = 168.0
 
 [node name="Panel" type="Panel" parent="GUI/TowerSelectionGUI/VBoxContainer/Control"]
 layout_mode = 1
@@ -384,9 +410,9 @@ columns = 2
 
 [node name="MinimiseButton" type="Button" parent="GUI/TowerSelectionGUI/VBoxContainer"]
 layout_mode = 2
-offset_top = 104.0
+offset_top = 172.0
 offset_right = 83.0
-offset_bottom = 135.0
+offset_bottom = 203.0
 size_flags_horizontal = 0
 size_flags_vertical = 8
 toggle_mode = true
