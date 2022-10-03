@@ -11,6 +11,7 @@ enum TargetingCategory {
 @export var element : Element
 
 @export var currency_cost : int = 1
+@export var attack_sound : AudioStreamWAV
 
 @export var projecticle : PackedScene 
 @export var aoe : PackedScene 

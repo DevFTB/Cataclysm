@@ -1,7 +1,8 @@
-[gd_resource type="Resource" load_steps=5 format=3 uid="uid://cuu1ro5685cpn"]
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://cuu1ro5685cpn"]
 
 [ext_resource type="Script" path="res://Scripts/Tower.gd" id="1_jyxs6"]
 [ext_resource type="PackedScene" uid="uid://bmn2yj1j6lu86" path="res://PackedScenes/aoe.tscn" id="1_rvgrt"]
+[ext_resource type="AudioStream" uid="uid://36csivdmj6bu" path="res://Resources/Sounds/block-warp.wav" id="2_7cl14"]
 [ext_resource type="Resource" uid="uid://cog5qfsmawcvy" path="res://Resources/Elemental/Elements/Steel.tres" id="2_arpv1"]
 [ext_resource type="Texture2D" uid="uid://bocu4bp0gchj" path="res://Resources/Level/Towers/Khanovian/basic_steel.png" id="4_s41wa"]
 
@@ -12,6 +13,7 @@ ui_image = ExtResource("4_s41wa")
 clan = 1
 element = ExtResource("2_arpv1")
 currency_cost = 40
+attack_sound = ExtResource("2_7cl14")
 aoe = ExtResource("1_rvgrt")
 damage = 200
 attack_duration = 3

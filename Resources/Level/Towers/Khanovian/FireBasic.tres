@@ -1,6 +1,7 @@
-[gd_resource type="Resource" load_steps=5 format=3 uid="uid://d38pl5psbbto1"]
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://d38pl5psbbto1"]
 
 [ext_resource type="Script" path="res://Scripts/Tower.gd" id="1_jyxs6"]
+[ext_resource type="AudioStream" uid="uid://uts1ejm7lfuh" path="res://Resources/Sounds/noisy.wav" id="1_vsb8s"]
 [ext_resource type="Resource" uid="uid://b0pxq5mvfvjij" path="res://Resources/Elemental/Elements/Fire.tres" id="2_u2qq0"]
 [ext_resource type="PackedScene" uid="uid://dxhrlgv1poj84" path="res://PackedScenes/Projectile.tscn" id="2_uy0r4"]
 [ext_resource type="Texture2D" uid="uid://djtk0gsb6mwux" path="res://Resources/Level/Towers/Khanovian/fire_basic.png" id="4_lpfd8"]
@@ -12,6 +13,7 @@ ui_image = ExtResource("4_lpfd8")
 clan = 1
 element = ExtResource("2_u2qq0")
 currency_cost = 1
+attack_sound = ExtResource("1_vsb8s")
 projecticle = ExtResource("2_uy0r4")
 damage = 300
 attack_duration = 1

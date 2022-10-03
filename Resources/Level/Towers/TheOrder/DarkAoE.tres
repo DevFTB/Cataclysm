@@ -1,8 +1,9 @@
-[gd_resource type="Resource" load_steps=5 format=3 uid="uid://dkxig451m5ten"]
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://dkxig451m5ten"]
 
 [ext_resource type="Script" path="res://Scripts/Tower.gd" id="1_jyxs6"]
 [ext_resource type="PackedScene" uid="uid://bmn2yj1j6lu86" path="res://PackedScenes/aoe.tscn" id="1_rvgrt"]
 [ext_resource type="Resource" uid="uid://dix2yac0870ui" path="res://Resources/Elemental/Elements/Dark.tres" id="2_7lsjj"]
+[ext_resource type="AudioStream" uid="uid://dkyeowryh1qhr" path="res://Resources/Sounds/dark_element.wav" id="2_yhx7r"]
 [ext_resource type="Texture2D" uid="uid://joh6xxvna7cd" path="res://Resources/Level/Towers/TheOrder/dark_basic.png" id="4_rsts7"]
 
 [resource]
@@ -11,6 +12,8 @@ tower_name = "Dark Area"
 ui_image = ExtResource("4_rsts7")
 clan = 2
 element = ExtResource("2_7lsjj")
+currency_cost = 1
+attack_sound = ExtResource("2_yhx7r")
 aoe = ExtResource("1_rvgrt")
 damage = 60
 attack_duration = 3
