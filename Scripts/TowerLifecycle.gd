@@ -106,7 +106,7 @@ func spawn_aoe(target: Vector2):
 	new_proj.damage  = tower.damage
 	new_proj.element = tower.element
 	new_proj.radius = tower.aoe_range
-	new_proj.lifetime = tower.get_duration()
+	new_proj.lifetime = get_duration()
 	new_proj.colour_override = tower.element.colour
 	
 	add_child(new_proj)
