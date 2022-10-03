@@ -4,6 +4,9 @@ var damage = 0
 var radius = 0
 var element : Element
 var lifetime = 1
+
+var colour_override : Color
+
 var count = 0
 
 var enemies_inside = []
@@ -30,5 +33,5 @@ func tick():
 
 	count += 1
 func _draw():
-	draw_circle(Vector2.ZERO, radius, Color(Color.RED, 0.3))
+	draw_circle(Vector2.ZERO, radius, Color(Color.RED, 0.3) if colour_override == null else Color(colour_override, 0.3))
 	pass

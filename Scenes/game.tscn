@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://b3n6dywciugoy"]
+[gd_scene load_steps=41 format=3 uid="uid://b3n6dywciugoy"]
 
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="1_f45j7"]
 [ext_resource type="Texture2D" uid="uid://l6bfomveh046" path="res://Resources/UI/cursor.png" id="2_4rqab"]
@@ -39,6 +39,7 @@
 [ext_resource type="Resource" uid="uid://cuu1ro5685cpn" path="res://Resources/Level/Towers/Khanovian/SteelAoE.tres" id="37_v58xx"]
 [ext_resource type="Resource" uid="uid://dkxig451m5ten" path="res://Resources/Level/Towers/TheOrder/DarkAoE.tres" id="38_0im81"]
 [ext_resource type="Resource" uid="uid://edow1ldidh7r" path="res://Resources/Level/Towers/TheOrder/LightAoE.tres" id="39_rqj2d"]
+[ext_resource type="Resource" uid="uid://cjau4u8w0f6yu" path="res://Resources/Level/Towers/Grewt/AirAoE.tres" id="40_dk0xl"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_f45j7")
@@ -285,7 +286,7 @@ mouse_filter = 1
 script = ExtResource("14_jxcnu")
 button_parent = NodePath("VBoxContainer/Control/HSplitContainer/GridContainer")
 button_scene = ExtResource("8_7bdlq")
-towers = [ExtResource("32_5qymv"), ExtResource("33_11f3t"), ExtResource("35_hwes0"), ExtResource("36_gm72g"), ExtResource("37_v58xx"), ExtResource("38_0im81"), ExtResource("39_rqj2d")]
+towers = [ExtResource("32_5qymv"), ExtResource("33_11f3t"), ExtResource("35_hwes0"), ExtResource("36_gm72g"), ExtResource("37_v58xx"), ExtResource("38_0im81"), ExtResource("39_rqj2d"), ExtResource("40_dk0xl")]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GUI/TowerSelectionGUI"]
 layout_direction = 2

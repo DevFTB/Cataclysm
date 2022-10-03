@@ -7,3 +7,4 @@
 script = ExtResource("1_g3vlv")
 display_name = "Water"
 icon = ExtResource("1_gy344")
+colour = Color(0.443137, 0.619608, 1, 1)

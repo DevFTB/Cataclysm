@@ -7,3 +7,4 @@
 script = ExtResource("1_g3vlv")
 display_name = "Steel"
 icon = ExtResource("1_btfsj")
+colour = Color(0.74902, 0.74902, 0.74902, 1)

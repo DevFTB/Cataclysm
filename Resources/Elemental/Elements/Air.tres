@@ -7,3 +7,4 @@
 script = ExtResource("1_g3vlv")
 display_name = "Air"
 icon = ExtResource("1_7pdlo")
+colour = Color(0.792157, 0.890196, 0.721569, 1)

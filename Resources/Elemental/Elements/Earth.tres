@@ -7,3 +7,4 @@
 script = ExtResource("1_g3vlv")
 display_name = "Earth"
 icon = ExtResource("1_ioq5v")
+colour = Color(0.627451, 0.517647, 0.227451, 1)
