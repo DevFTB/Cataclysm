@@ -7,14 +7,14 @@
 
 [resource]
 script = ExtResource("4_j6dkj")
-aoe_range = 50
+aoe_range = 90
 element = ExtResource("1_2rv64")
 aoe = ExtResource("1_no8g1")
+aoe_damage = 50
 element1 = ExtResource("1_2rv64")
 element2 = ExtResource("2_yg5f2")
 display_name = "Overclock"
 duration = 1
 colour = Color(0.803922, 0.619608, 0.972549, 1)
-resistance_modifier = null
 move_speed_modifier = 1
 attack_modifier = 1

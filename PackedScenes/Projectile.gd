@@ -3,7 +3,7 @@ extends Area2D
 var target : Vector2
 var element: Element
 var damage = 0
-var speed = 40
+@export var speed = 150
 
 @onready var game = get_node("/root/Game")
 

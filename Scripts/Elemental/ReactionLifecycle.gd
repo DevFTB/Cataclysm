@@ -19,3 +19,7 @@ func tick():
 		return
 	
 	tick_counter += 1
+
+func apply_death_effects():
+	reaction.apply_death_effect(enemy)
+	

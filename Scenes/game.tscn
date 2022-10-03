@@ -47,6 +47,7 @@ reactions = [ExtResource("2_msaa4"), ExtResource("2_u5gpo"), ExtResource("3_r65h
 
 [node name="Map" parent="." instance=ExtResource("2_bt2wp")]
 enemies = [ExtResource("18_be8ej"), ExtResource("19_qj1ac")]
+spawn_delay = 1.0
 max_time_till_next_wave = 10
 
 [node name="TowerPlacer" type="Node2D" parent="."]

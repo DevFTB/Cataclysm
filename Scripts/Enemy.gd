@@ -159,6 +159,8 @@ func die():
 	pass
 	
 func apply_post_death_reactions():
+	for rl in $Reactions.get_children():
+		rl.apply_death_effects()
 	pass
 	
 	
