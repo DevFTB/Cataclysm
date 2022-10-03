@@ -48,6 +48,9 @@ func set_tower(new_tower_instance) -> void:
 		if not game.can_buyi(cost):
 			details_parent.get_node("UpgradeContainer/HBoxContainer/RangeUpgradeButton").disabled = true
 			details_parent.get_node("UpgradeContainer/HBoxContainer/DurationUpgradeButton").disabled = true
+		else:
+			details_parent.get_node("UpgradeContainer/HBoxContainer/RangeUpgradeButton").disabled = false
+			details_parent.get_node("UpgradeContainer/HBoxContainer/DurationUpgradeButton").disabled = false
 	pass
 
 func generate_description() -> String:
