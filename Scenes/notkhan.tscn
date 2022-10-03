@@ -5,12 +5,6 @@
 [ext_resource type="Script" path="res://Scripts/PlaceableArea.gd" id="2_41fu2"]
 [ext_resource type="PackedScene" uid="uid://u0tglfhnl6wc" path="res://PackedScenes/EnemyBodys/EnemySmallBody.tscn" id="2_htvb3"]
 
-[sub_resource type="Curve2D" id="Curve2D_gc4f3"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 322, 0, 0, 0, 0, 191, 323, 0, 0, 0, 0, 185, 434, 0, 0, 0, 0, 342, 446, 0, 0, 0, 0, 362, 179, 0, 0, 0, 0, 467, 167, 0, 0, 0, 0, 561, 182, 0, 0, 0, 0, 600, 288, 0, 0, 0, 0, 600, 288)
-}
-point_count = 9
-
 [sub_resource type="Curve2D" id="Curve2D_u88vn"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 174, 3, 0, 0, 0, 0, 188, 51, 0, 0, 0, 0, 1051, 66, 0, 0, 0, 0, 1051, 123, 0, 0, 0, 0, 747, 142, 0, 0, 0, 0, 719, 330, 0, 0, 0, 0, 638, 338)
@@ -26,6 +20,12 @@ point_count = 8
 [sub_resource type="Curve2D" id="Curve2D_oc53c"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 132, 647, 0, 0, 0, 0, 157, 552, 0, 0, 0, 0, 349, 543, 0, 0, 0, 0, 369, 606, 0, 0, 0, 0, 768, 614, 0, 0, 0, 0, 767, 526, 0, 0, 0, 0, 427, 500, 0, 0, 0, 0, 439, 382, 0, 0, 0, 0, 521, 380)
+}
+point_count = 9
+
+[sub_resource type="Curve2D" id="Curve2D_gc4f3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 322, 0, 0, 0, 0, 191, 323, 0, 0, 0, 0, 185, 434, 0, 0, 0, 0, 342, 446, 0, 0, 0, 0, 362, 179, 0, 0, 0, 0, 467, 167, 0, 0, 0, 0, 561, 182, 0, 0, 0, 0, 600, 288, 0, 0, 0, 0, 600, 288)
 }
 point_count = 9
 
@@ -90,9 +90,6 @@ polygon = PackedVector2Array(2, -101, 5, 181, 87, 174, 106, 93, 164, 57, 246, 50
 
 [node name="Paths" type="Node2D" parent="."]
 
-[node name="WestPath" type="Path2D" parent="Paths"]
-curve = SubResource("Curve2D_gc4f3")
-
 [node name="NorthPath" type="Path2D" parent="Paths"]
 curve = SubResource("Curve2D_u88vn")
 
@@ -101,6 +98,9 @@ curve = SubResource("Curve2D_7mwlv")
 
 [node name="SouthPath" type="Path2D" parent="Paths"]
 curve = SubResource("Curve2D_oc53c")
+
+[node name="WestPath" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_gc4f3")
 
 [node name="Core" type="Area2D" parent="."]
 
