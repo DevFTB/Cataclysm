@@ -1,8 +1,14 @@
-[gd_resource type="Resource" load_steps=4 format=3 uid="uid://drbd73udcjw5i"]
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://drbd73udcjw5i"]
 
 [ext_resource type="Resource" uid="uid://jgxqqiqw4nht" path="res://Resources/Elemental/Elements/Light.tres" id="1_8rbgy"]
 [ext_resource type="Script" path="res://Scripts/Elemental/Reaction.gd" id="1_qu0qe"]
 [ext_resource type="Resource" uid="uid://dynneobgf0tsx" path="res://Resources/Elemental/Elements/Electricity.tres" id="2_em362"]
+[ext_resource type="Script" path="res://Scripts/ResistanceSet.gd" id="3_wew6n"]
+
+[sub_resource type="Resource" id="Resource_cmitq"]
+script = ExtResource("3_wew6n")
+resistances = null
+default_value = 10.0
 
 [resource]
 script = ExtResource("1_qu0qe")
@@ -11,6 +17,6 @@ element2 = ExtResource("2_em362")
 display_name = "Smite"
 duration = 2
 colour = Color(1, 0.988235, 0.705882, 1)
-resistance_modifier = null
+resistance_modifier = SubResource("Resource_cmitq")
 move_speed_modifier = 1
 attack_modifier = 1

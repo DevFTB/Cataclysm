@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dvb562ftij0se"]
+
+[ext_resource type="Script" path="res://Scripts/ResistanceSet.gd" id="1_7s1a1"]
+
+[resource]
+script = ExtResource("1_7s1a1")
+resistances = {}
+default_value = 0.9

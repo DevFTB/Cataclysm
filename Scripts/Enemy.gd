@@ -76,7 +76,10 @@ func tick():
 func calculate_and_deal_damage():
 	var total_damage = 0
 	
-	var modified_resistances = ResistanceSet.combine_resistances(resistance_cache)
+	var list = []
+	list.append_array(resistance_cache)
+	list.append(stats.resistances)
+	var modified_resistances = ResistanceSet.combine_resistances(list)
 	
 	for dmg_instance in damage_cache:
 		total_damage += apply_resistances(dmg_instance.damage, dmg_instance.element, modified_resistances)
@@ -90,10 +93,11 @@ func calculate_and_deal_damage():
 func apply_resistances(damage: int, element: Element, resistance_set: ResistanceSet) -> int:
 	var resistance = 1
 
-	if resistance_set.resistances.has(element):
-		resistance *= resistance_set.resistances[element]
+	resistance *= resistance_set.get_resistance(element)
 	
-	return floor(damage *  clamp(1-resistance,0, 1))
+	print('applying resistances %s to element %s on %s' % [ resistance, element.display_name, stats.enemy_name])
+	
+	return floor(damage *  resistance)
 
 func take_damage(damage: int, element: Element) -> void:
 	if not applied_elements.has(element):
