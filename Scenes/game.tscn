@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://b3n6dywciugoy"]
+[gd_scene load_steps=48 format=3 uid="uid://b3n6dywciugoy"]
 
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="1_f45j7"]
 [ext_resource type="Texture2D" uid="uid://l6bfomveh046" path="res://Resources/UI/cursor.png" id="2_4rqab"]
@@ -42,6 +42,7 @@
 [ext_resource type="Script" path="res://Scenes/CurrencyGUI.gd" id="41_168ls"]
 [ext_resource type="Texture2D" uid="uid://cq0o8i2h83j44" path="res://Resources/UI/coin.png" id="41_c2yvc"]
 [ext_resource type="Texture2D" uid="uid://50gpslbstunf" path="res://Resources/UI/Menus/GameOver.png" id="41_edrjh"]
+[ext_resource type="Script" path="res://Scenes/Instructions.gd" id="42_al5nb"]
 [ext_resource type="Texture2D" uid="uid://crhnp1xb53y3u" path="res://Resources/UI/Menus/cataclysm_play.png" id="42_g24qe"]
 [ext_resource type="Texture2D" uid="uid://cr43u6w65rs3d" path="res://Resources/UI/Menus/cataclysm_play_pressed.png" id="43_vyfl2"]
 [ext_resource type="AudioStream" uid="uid://y6rp67ij82iy" path="res://Resources/Sounds/cataclysm.wav" id="45_jycqq"]
@@ -503,9 +504,90 @@ size_flags_vertical = 4
 columns = 2
 
 [node name="Instructions" type="Control" parent="GUI"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("42_al5nb")
+
+[node name="Control" type="Control" parent="GUI/Instructions"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="GUI/Instructions/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.176471, 0.176471, 0.176471, 0.729412)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="GUI/Instructions/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[b]How to Play[/b]:
+
+Cataclysm is a classic tower defense game that focuses on elemental reactions and synergies between different towers and enemies. It features a timeline based combat system that allows you to determine the order your towers shoot in order to create the reactions you desire.
+
+You can place a maximum of 10 towers, and it is important to constantly reposition both the timeline and towers to face the monsters coming from different lanes.
+
+Some enemies are immune to certain towers, so look out for that.
+There are too many elemental reactions to explain so just find out what they do while playing ehe.
+
+You lose once your health, the health bar in the centre, drops to 0. The longer you survive the higher you score.
+
+Reactions:
+
+Barricade                   Earth + Steel = Stun for 1 tick
+Blind                           Steel + Light = Slow 
+Circulate                    Air + Electricity = AOE electric damage
+Convection                Air + Fire = AOE fire damage
+Corrosion                  Water + Steel = Damage over time
+Electrolysis                Water + Electricity = Damage over time
+Evaporate                  Water + Fire = Increased damage on hit
+Gloom                         Air + Dark = Slow
+Humidify                    Air + Water = AOE water damage
+Judgment                   Light + Dark = Increased damage on hit
+Melt                            Fire + Steel = Increased damage on hit
+Overclock                  Electricity + Steel = Deals large AOE on kill
+Poison                       Earth + Dark = Damage over time
+Smite                         Electricity + Light = Decreased enemy resistances
+Wealth                         Earth + Fire = Increased gold on kill
+*Diffusion* = when there are too many elements that do not react with each other, they might diffuse and not react at all.
+"
+
+[node name="MinimiseButton" type="Button" parent="GUI/Instructions"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -94.0
+offset_top = -41.0
+offset_right = -11.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+toggle_mode = true
+text = "Minimise "
+script = ExtResource("13_6n20p")
+toggled_text = "Hide Info"
+not_toggled_text = "Show Info"
 
 [node name="TickTimer" type="Label" parent="GUI"]
 texture_filter = 2
@@ -606,4 +688,5 @@ stream = ExtResource("45_jycqq")
 [connection signal="pressed" from="GUI/TowerSelectionGUI/VBoxContainer/Control/HSplitContainer/VBoxContainer/GrewtTowerButton" to="GUI/TowerSelectionGUI" method="_on_grewt_tower_button_pressed"]
 [connection signal="pressed" from="GUI/TowerSelectionGUI/VBoxContainer/Control/HSplitContainer/VBoxContainer/KhanovianTowerButton" to="GUI/TowerSelectionGUI" method="_on_khanovian_tower_button_pressed"]
 [connection signal="pressed" from="GUI/TowerSelectionGUI/VBoxContainer/Control/HSplitContainer/VBoxContainer/TheOrderTowerButton" to="GUI/TowerSelectionGUI" method="_on_the_order_tower_button_pressed"]
+[connection signal="toggled" from="GUI/Instructions/MinimiseButton" to="GUI/Instructions" method="_on_minimise_button_toggled"]
 [connection signal="pressed" from="GameOver/Control/PlayButton" to="." method="_on_play_button_pressed"]
