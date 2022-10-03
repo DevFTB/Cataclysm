@@ -7,14 +7,14 @@
 
 [resource]
 script = ExtResource("3_so5gh")
-tower_name = "Water Area"
+tower_name = "Water Basic"
 ui_image = ExtResource("4_m4c45")
 clan = 0
 element = ExtResource("1_kxjms")
-currency_cost = null
+currency_cost = 5
 projecticle = ExtResource("2_q6cqn")
-damage = 0
-attack_duration = 2
+damage = 60
+attack_duration = 4
 attack_range = 150
 is_aoe = false
 aoe_range = 50
