@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://b3n6dywciugoy"]
+[gd_scene load_steps=39 format=3 uid="uid://b3n6dywciugoy"]
 
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="1_f45j7"]
 [ext_resource type="Texture2D" uid="uid://l6bfomveh046" path="res://Resources/UI/cursor.png" id="2_4rqab"]
@@ -24,13 +24,11 @@
 [ext_resource type="Script" path="res://Scripts/PausePlayButton.gd" id="12_876qo"]
 [ext_resource type="Resource" uid="uid://c8acxhargwupt" path="res://Resources/Elemental/Reactions/Melt.tres" id="12_bwm75"]
 [ext_resource type="Script" path="res://Scenes/ToggleStateButton.gd" id="13_6n20p"]
-[ext_resource type="PackedScene" uid="uid://ce56r78gtlak3" path="res://PackedScenes/TimelineTowerListItem.tscn" id="13_ra0qq"]
+[ext_resource type="PackedScene" path="res://PackedScenes/TimelineTowerListItem.tscn" id="13_ra0qq"]
 [ext_resource type="Resource" uid="uid://byqxho0ts76ni" path="res://Resources/Elemental/Reactions/Overclock.tres" id="13_s7dtk"]
 [ext_resource type="Script" path="res://Scripts/TowerSelector.gd" id="14_jxcnu"]
 [ext_resource type="Resource" uid="uid://cokmxasbe4ngd" path="res://Resources/Elemental/Reactions/Poison.tres" id="14_mp1ry"]
 [ext_resource type="Resource" uid="uid://drbd73udcjw5i" path="res://Resources/Elemental/Reactions/Smite.tres" id="15_klnqr"]
-[ext_resource type="Resource" uid="uid://dmog76tujeyu6" path="res://Resources/Level/Enemies/EnemyStats/BasicEnemy.tres" id="18_be8ej"]
-[ext_resource type="Resource" uid="uid://bkrmgf1r4opo" path="res://Resources/Level/Enemies/EnemyStats/SpeedEnemy.tres" id="19_qj1ac"]
 [ext_resource type="PackedScene" uid="uid://b0f11067p0ja3" path="res://PackedScenes/Towers/Tower.tscn" id="21_dycfl"]
 [ext_resource type="Resource" uid="uid://5mdxhmjgflr0" path="res://Resources/Level/Towers/Grewt/EarthBasic.tres" id="32_5qymv"]
 [ext_resource type="Resource" uid="uid://c70xuurq24sku" path="res://Resources/Level/Towers/Grewt/WaterAoE.tres" id="33_11f3t"]
@@ -46,7 +44,6 @@ script = ExtResource("1_f45j7")
 reactions = [ExtResource("2_msaa4"), ExtResource("2_u5gpo"), ExtResource("3_r65h1"), ExtResource("4_1snww"), ExtResource("5_skyup"), ExtResource("6_7s24y"), ExtResource("7_dxxxv"), ExtResource("8_int4x"), ExtResource("9_l087j"), ExtResource("10_ygbiw"), ExtResource("11_aec58"), ExtResource("12_bwm75"), ExtResource("13_s7dtk"), ExtResource("14_mp1ry"), ExtResource("15_klnqr")]
 
 [node name="Map" parent="." instance=ExtResource("2_bt2wp")]
-enemies = [ExtResource("18_be8ej"), ExtResource("19_qj1ac")]
 spawn_delay = 1.0
 max_time_till_next_wave = 10
 

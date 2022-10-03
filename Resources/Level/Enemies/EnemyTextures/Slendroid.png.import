@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xwtg50x217t8"
-path="res://.godot/imported/earth projectile.png-38ed4f6d05c435fd72965d457a7e2260.ctex"
+uid="uid://bac6yc4pq71ep"
+path="res://.godot/imported/Slendroid.png-ac5c0723043cc7ceb62cbac868b342e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Level/Enemies/EnemyTextures/earth projectile.png"
-dest_files=["res://.godot/imported/earth projectile.png-38ed4f6d05c435fd72965d457a7e2260.ctex"]
+source_file="res://Resources/Level/Enemies/EnemyTextures/Slendroid.png"
+dest_files=["res://.godot/imported/Slendroid.png-ac5c0723043cc7ceb62cbac868b342e1.ctex"]
 
 [params]
 

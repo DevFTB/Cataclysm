@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkoe4g5wrn84p"
-path="res://.godot/imported/basic steel.png-e61455701c0b6d55fbe2578154a304ff.ctex"
+uid="uid://q8bpc1rh3n18"
+path="res://.godot/imported/light elemental.png-af68783523bd1548f29c26e1818e2c51.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Level/Enemies/EnemyTextures/basic steel.png"
-dest_files=["res://.godot/imported/basic steel.png-e61455701c0b6d55fbe2578154a304ff.ctex"]
+source_file="res://Resources/Level/Enemies/EnemyTextures/light elemental.png"
+dest_files=["res://.godot/imported/light elemental.png-af68783523bd1548f29c26e1818e2c51.ctex"]
 
 [params]
 

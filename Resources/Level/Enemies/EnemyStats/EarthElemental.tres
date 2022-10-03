@@ -1,0 +1,23 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://bawegehi7xudx"]
+
+[ext_resource type="Script" path="res://Scripts/EnemyStats.gd" id="1_63vjw"]
+[ext_resource type="PackedScene" uid="uid://u0tglfhnl6wc" path="res://PackedScenes/EnemyBodys/EnemySmallBody.tscn" id="1_j0djt"]
+[ext_resource type="Texture2D" uid="uid://bimadao2bpuge" path="res://Resources/Level/Enemies/EnemyTextures/earth elemental.png" id="2_noe0u"]
+[ext_resource type="Script" path="res://Scripts/ResistanceSet.gd" id="3_40kv3"]
+
+[sub_resource type="Resource" id="Resource_qsicr"]
+script = ExtResource("3_40kv3")
+resistances = {
+Resource("res://Resources/Elemental/Elements/Earth.tres"): 0.0
+}
+default_value = 0.9
+
+[resource]
+script = ExtResource("1_63vjw")
+enemy_name = "Enemy"
+enemy_texture = ExtResource("2_noe0u")
+enemy_body_type = ExtResource("1_j0djt")
+max_health = 1200
+base_move_speed = 40
+resistances = SubResource("Resource_qsicr")
+max_rand_offset = 0

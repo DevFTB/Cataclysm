@@ -1,9 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://clh7wxy6scu0p"]
+[gd_scene load_steps=18 format=3 uid="uid://clh7wxy6scu0p"]
 
 [ext_resource type="Texture2D" uid="uid://d0otmx15iojel" path="res://Resources/Level/notkhanmap.png" id="1_a7gao"]
 [ext_resource type="Script" path="res://Scripts/GameMap.gd" id="1_hyp13"]
 [ext_resource type="Script" path="res://Scripts/PlaceableArea.gd" id="2_41fu2"]
-[ext_resource type="PackedScene" uid="uid://u0tglfhnl6wc" path="res://PackedScenes/EnemyBodys/EnemySmallBody.tscn" id="2_htvb3"]
+[ext_resource type="Resource" uid="uid://c5lbbvaqxhctr" path="res://Resources/Level/Enemies/EnemyStats/Slendroid.tres" id="2_51uii"]
+[ext_resource type="Resource" uid="uid://bchjbvc3xajv2" path="res://Resources/Level/Enemies/EnemyStats/AirElemental.tres" id="3_rvtxp"]
+[ext_resource type="Resource" uid="uid://bf3qccsvmi31y" path="res://Resources/Level/Enemies/EnemyStats/DarkElemental.tres" id="4_0ket5"]
+[ext_resource type="Resource" uid="uid://bawegehi7xudx" path="res://Resources/Level/Enemies/EnemyStats/EarthElemental.tres" id="5_8kk5y"]
+[ext_resource type="Resource" uid="uid://8aypbaaih436" path="res://Resources/Level/Enemies/EnemyStats/ElectricElemental.tres" id="6_02spu"]
+[ext_resource type="Resource" uid="uid://ms8gn6tk21e5" path="res://Resources/Level/Enemies/EnemyStats/FireElemental.tres" id="7_tycaq"]
+[ext_resource type="Resource" uid="uid://dr3eqsbla8ec7" path="res://Resources/Level/Enemies/EnemyStats/LightElemental.tres" id="8_37vid"]
+[ext_resource type="Resource" uid="uid://cjun01lkoegjb" path="res://Resources/Level/Enemies/EnemyStats/SteelElemental.tres" id="9_rb38k"]
+[ext_resource type="Resource" uid="uid://c1dithye81xi0" path="res://Resources/Level/Enemies/EnemyStats/WaterElemental.tres" id="10_38d7i"]
 
 [sub_resource type="Curve2D" id="Curve2D_gc4f3"]
 _data = {
@@ -34,7 +42,7 @@ radius = 94.5304
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_hyp13")
-enemies = [ExtResource("2_htvb3")]
+enemies = [ExtResource("2_51uii"), ExtResource("3_rvtxp"), ExtResource("4_0ket5"), ExtResource("5_8kk5y"), ExtResource("6_02spu"), ExtResource("7_tycaq"), ExtResource("8_37vid"), ExtResource("9_rb38k"), ExtResource("10_38d7i")]
 
 [node name="MapSprite" type="Sprite2D" parent="."]
 position = Vector2(575.5, 323.5)
