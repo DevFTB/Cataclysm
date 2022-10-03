@@ -6,13 +6,12 @@
 
 [resource]
 script = ExtResource("1_keash")
-self_damage = 100
+self_damage = 200
 self_damage_element = ExtResource("2_y0pra")
 element1 = ExtResource("1_gh6v4")
 element2 = ExtResource("2_y0pra")
 display_name = "Poison"
-duration = 1
+duration = 3
 colour = Color(0.513726, 0.701961, 0.313726, 1)
-resistance_modifier = null
 move_speed_modifier = 1
 attack_modifier = 1
