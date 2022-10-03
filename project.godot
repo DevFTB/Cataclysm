@@ -44,6 +44,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://Scripts/Elemental/ReactionLifecycle.gd"
 }, {
+"base": "Resource",
+"class": &"ResistanceSet",
+"language": &"GDScript",
+"path": "res://Scripts/ResistanceSet.gd"
+}, {
 "base": "Reaction",
 "class": &"SelfDamageReaction",
 "language": &"GDScript",
@@ -67,6 +72,7 @@ _global_script_class_icons={
 "Game": "",
 "Reaction": "",
 "ReactionLifecycle": "",
+"ResistanceSet": "",
 "SelfDamageReaction": "",
 "Tower": "",
 "TowerLifecycle": ""

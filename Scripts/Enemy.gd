@@ -13,7 +13,7 @@ class Damage:
 @export var base_move_speed = 5
 
 @export var enemy_name : String = "Enemy"
-@export var resistances : Dictionary
+@export var resistances : ResistanceSet
 
 @export var max_rand_offset : float = 0
 
@@ -26,7 +26,7 @@ var applied_elements : Array[Element] = []
 var is_dead = false
 var is_paused
 
-var resistance_cache : Dictionary = {}
+var resistance_cache : Array[ResistanceSet]
 var damage_cache : Array[Damage] = []
 
 var move_speed_modifier = 1
@@ -67,21 +67,22 @@ func tick():
 	
 func calculate_and_deal_damage():
 	var total_damage = 0
+	
+	var modified_resistances = ResistanceSet.combine_resistances(resistance_cache)
+	
 	for dmg_instance in damage_cache:
-		total_damage += apply_resistances(dmg_instance.damage, dmg_instance.element)
+		total_damage += apply_resistances(dmg_instance.damage, dmg_instance.element, modified_resistances)
 	modify_health(-1 * total_damage * attack_modifier)
 	damage_cache.clear()
 	resistance_cache.clear()
 	attack_modifier = 1
 	pass
 	
-func apply_resistances(damage: int, element: Element) -> int:
+func apply_resistances(damage: int, element: Element, resistance_set: ResistanceSet) -> int:
 	var resistance = 1
-	
-	if resistances.has(element):
-		resistance *= resistances[element]
-	if resistance_cache.has(element):
-		resistance *= resistance_cache[element]
+
+	if resistance_set.has(element):
+		resistance *= resistance_set.resistances[element]
 	
 	return floor(damage *  resistance)
 
@@ -152,10 +153,8 @@ func apply_post_death_reactions():
 	pass
 	
 	
-func apply_resistance_modifier(modifier : Dictionary):
-	for element in modifier.keys():
-		if resistance_cache.has(element):
-			resistance_cache[element] = resistance_cache[element] * modifier[element]
+func apply_resistance_modifier(modifier : ResistanceSet):
+	resistance_cache.append(modifier)
 	pass
 	
 func apply_move_speed_modifier(modifier: float):
