@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://b3n6dywciugoy"]
+[gd_scene load_steps=47 format=3 uid="uid://b3n6dywciugoy"]
 
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="1_f45j7"]
 [ext_resource type="Texture2D" uid="uid://l6bfomveh046" path="res://Resources/UI/cursor.png" id="2_4rqab"]
@@ -45,6 +45,7 @@
 [ext_resource type="Texture2D" uid="uid://crhnp1xb53y3u" path="res://Resources/UI/Menus/cataclysm_play.png" id="42_g24qe"]
 [ext_resource type="Texture2D" uid="uid://cr43u6w65rs3d" path="res://Resources/UI/Menus/cataclysm_play_pressed.png" id="43_vyfl2"]
 [ext_resource type="AudioStream" uid="uid://y6rp67ij82iy" path="res://Resources/Sounds/cataclysm.wav" id="45_jycqq"]
+[ext_resource type="AudioStream" uid="uid://bemly76oq2njj" path="res://Resources/Sounds/cataclysm stopped loop.wav" id="45_trx3e"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_f45j7")
@@ -470,6 +471,19 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 columns = 2
 
+[node name="TickTimer" type="Label" parent="GUI"]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 26.0
+grow_horizontal = 2
+scale = Vector2(3, 3)
+horizontal_alignment = 1
+
 [node name="GameOver" type="Control" parent="."]
 visible = false
 layout_mode = 3
@@ -533,7 +547,10 @@ texture_normal = ExtResource("42_g24qe")
 texture_pressed = ExtResource("43_vyfl2")
 stretch_mode = 3
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AmbientMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("45_trx3e")
+
+[node name="ActionMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("45_jycqq")
 
 [connection signal="paused" from="." to="GUI/TimelineGUI/VSplitContainer/Control/HSplitContainer/VBoxContainer/PlayButton" method="_on_game_paused"]

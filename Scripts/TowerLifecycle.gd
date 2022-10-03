@@ -37,8 +37,13 @@ func deactivate() -> void:
 	activated = false
 	
 func tick() -> void:
+
 	if not tower.is_aoe and activated:
+		if tick_counter > 0:
+				$Node2d/Label.modulate = Color.WHITE
 		if activated and tick_counter < tower.attack_duration:
+			if tick_counter == 0:
+				$Node2d/Label.modulate = Color.YELLOW
 			attack()
 			tick_counter+=1
 		if tick_counter >= tower.attack_duration:
@@ -151,5 +156,10 @@ func _draw():
 		
 
 func refund():
+	get_node("/root/Game").unregister_tower(self)
 	get_node("/root/Game").add_to_currency(tower.get_refund_price())
+	get_node("/root/Game")
 	queue_free()
+
+func set_tick(tick):
+	$Node2d/Label.text = str(tick + 1)

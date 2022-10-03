@@ -25,7 +25,6 @@ var turn = 0
 var time = 0
 var tick_registration : Dictionary = {}
 
-
 var currency = 0
 
 # Called when the node enters the scene tree for the first time.
@@ -38,8 +37,10 @@ func _ready():
 	get_node("Map").connect("cores_dead", _on_cores_dead)
 	
 	add_to_currency(starting_currency)
-	$AudioStreamPlayer.play()
-	$AudioStreamPlayer.stream_paused = true
+	$ActionMusic.play()
+	$ActionMusic.stream_paused = true
+	
+	$AmbientMusic.play()
 	pass # Replace with function body.
 
 func _on_cores_dead():
@@ -68,8 +69,8 @@ func _physics_process(delta):
 				else:
 					emit_signal("paused")
 					game_paused = true
-					$AudioStreamPlayer.stream_paused = true
-			
+					$ActionMusic.stream_paused = true
+					$AmbientMusic.stream_paused = false
 		if game_paused:
 			pass
 
@@ -82,9 +83,11 @@ func new_turn():
 	game_paused = false
 	emit_signal("resumed")
 	print("new turn")
-	$AudioStreamPlayer.stream_paused = false
+	$ActionMusic.stream_paused = false
+	$AmbientMusic.stream_paused = true
 	
 func do_tick(tick): 
+	$GUI/TickTimer.text = str(tick + 1)
 	print('tick')
 	# 1. Activate towers 
 	var tower_to_activate = tick_registration[tick]
@@ -125,18 +128,31 @@ func auto_register_tower(tower):
 		if tick_registration[tick] == null:
 			tick_registration[tick] = tower
 			break
-	$GUI/TimelineGUI.regenerate_list()
+	on_update_registration()
 	
 func swap_tower_to(src_tick, dest_tick):
 	var old = tick_registration[dest_tick]
 	var new = tick_registration[src_tick]
 	tick_registration[dest_tick] = new
 	tick_registration[src_tick] = old
-	$GUI/TimelineGUI.regenerate_list()
+	on_update_registration()
 	
 func register_tower(tick, tower):
 	tick_registration[tick] = tower
+	on_update_registration()
+	
+func unregister_tower(tower):
+	var tick = tick_registration.find_key(tower)
+	if tick != null:
+		$TowerPlacer.towers_active -= 1
+		tick_registration[tick] = null
+	
+func on_update_registration():
 	$GUI/TimelineGUI.regenerate_list()
+	for tick in tick_registration.keys():
+		if tick_registration[tick]:
+			tick_registration[tick].set_tick(tick)
+	pass
 	
 func get_reaction(elements: Array[Element]):
 	if elements.size() >  2:
