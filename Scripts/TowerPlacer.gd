@@ -35,6 +35,7 @@ func _process(_delta):
 func _input(event):
 	if event is InputEventMouseButton:
 		print("mode is %s" % mode)
+		print(event.global_position)
 		if mode == 0:
 			if event.is_action_pressed("select"):
 				if tower_selection_candidate != null:
@@ -54,7 +55,8 @@ func _input(event):
 					unset_tower_placement()
 		if mode == 2:
 			if event.is_action_pressed("select"):
-				end_spot_selection(event.global_position)
+
+				end_spot_selection(get_viewport().get_mouse_position())
 			if event.is_action_pressed("cancel"):
 				end_spot_selection(null)
 				

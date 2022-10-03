@@ -1,7 +1,6 @@
 extends Control
 
 var tower : Tower = null
-
 var tower_instance = null
 
 @export var spot_selector_path : NodePath
@@ -43,12 +42,13 @@ func generate_description() -> String:
 	
 func unset_tower() -> void:
 	tower = null
+	tower_instance = null
 	details_parent.visible = false
 	pass
 
 func confirm_spot(spot):
-	if (spot == null) or (spot != null and (spot - tower.global_position).length() < tower.attack_range):
-		tower.set_spot(spot)
+	if (spot == null) or (spot != null and (spot - tower_instance.global_position).length() < tower.attack_range):
+		tower_instance.set_spot(spot)
 		details_parent.get_node("TowerSetSpotButton").set_toggle(false)
 		print("Spot %s was selected" % spot)	
 		return true
@@ -57,7 +57,7 @@ func confirm_spot(spot):
 
 func _on_targeting_option_button_item_selected(index):
 	details_parent.get_node("TowerSetSpotButton").visible = tower.is_aoe and index == 2
-	tower.targeting_category = index
+	tower_instance.targeting_category = index
 	pass # Replace with function body.
 
 func _on_tower_set_spot_button_pressed():
