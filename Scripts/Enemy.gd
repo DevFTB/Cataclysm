@@ -24,6 +24,7 @@ var damage_cache : Array[Damage] = []
 
 var move_speed_modifiers = []
 var attack_modifier = 1
+var currency_multiplier = 0
 
 var body
 
@@ -58,7 +59,6 @@ func _process(delta):
 
 var tick_counter = 0
 func tick():
-	print('%s is ticking' % name)
 	# 4. Apply Elements to Enemy => Generate Reactions <-- POST-TOWER PHASE
 	react()
 	apply_reaction_effects()
@@ -162,7 +162,8 @@ func die():
 	
 	apply_post_death_reactions()
 	
-	game.add_to_currency(stats.currency_on_death)
+	print('on death adding currency of %s' % (stats.currency_on_death * currency_multiplier))
+	game.add_to_currency(stats.currency_on_death * currency_multiplier)
 	
 	queue_free()
 	pass

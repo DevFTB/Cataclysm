@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://biotuk7ubekhf"]
+
+[ext_resource type="Resource" uid="uid://b0pxq5mvfvjij" path="res://Resources/Elemental/Elements/Fire.tres" id="1_c2vm5"]
+[ext_resource type="Resource" uid="uid://c537smfv6044" path="res://Resources/Elemental/Elements/Earth.tres" id="2_k1r43"]
+[ext_resource type="Script" path="res://Scripts/Elemental/WealthReaction.gd" id="3_r822e"]
+
+[resource]
+script = ExtResource("3_r822e")
+currency_multiplier = 2
+element1 = ExtResource("1_c2vm5")
+element2 = ExtResource("2_k1r43")
+display_name = "Wealth"
+duration = 3
+colour = Color(0.952941, 0.803922, 0.156863, 1)
+move_speed_modifier = 1
+attack_modifier = 1
