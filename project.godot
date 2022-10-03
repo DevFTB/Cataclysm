@@ -93,8 +93,6 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/size/mode=2
-window/size/resizable=false
 window/stretch/mode="viewport"
 
 [input]

@@ -3,7 +3,11 @@ extends Area2D
 var target : Vector2
 var element: Element
 var damage = 0
+
+@export var timeout = 3
 @export var speed = 150
+
+var timer = 0
 
 @onready var game = get_node("/root/Game")
 
@@ -17,8 +21,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if not game.game_paused:
+		timer += delta
 		global_position += (target - global_position).normalized() * speed * delta
-		if(target - global_position).length() < 1:
+		if timer > timeout:
 			queue_free()
 	pass
 	
