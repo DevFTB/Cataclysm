@@ -11,7 +11,7 @@ height = 34.0
 [node name="SpriteBody" type="Node2D"]
 
 [node name="Sprite2d" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
+rotation = -1.5708
 
 [node name="HPBar" parent="." instance=ExtResource("3_xbeyu")]
 offset_left = -16.0

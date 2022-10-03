@@ -1,0 +1,22 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://cjun01lkoegjb"]
+
+[ext_resource type="Script" path="res://Scripts/EnemyStats.gd" id="1_63vjw"]
+[ext_resource type="PackedScene" uid="uid://u0tglfhnl6wc" path="res://PackedScenes/EnemyBodys/EnemySmallBody.tscn" id="1_j0djt"]
+[ext_resource type="Texture2D" uid="uid://cmui58yxn8b7t" path="res://Resources/Level/Enemies/EnemyTextures/steel elemental.png" id="2_33lpd"]
+[ext_resource type="Script" path="res://Scripts/ResistanceSet.gd" id="3_40kv3"]
+
+[sub_resource type="Resource" id="Resource_ettjm"]
+script = ExtResource("3_40kv3")
+resistances = {}
+default_value = 0.9
+
+[resource]
+script = ExtResource("1_63vjw")
+enemy_name = "Enemy"
+enemy_texture = ExtResource("2_33lpd")
+enemy_body_type = ExtResource("1_j0djt")
+max_health = 2000
+base_move_speed = 10
+resistances = SubResource("Resource_ettjm")
+currency_on_death = 10
+max_rand_offset = 0
