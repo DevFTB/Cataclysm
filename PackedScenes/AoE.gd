@@ -19,7 +19,7 @@ func _ready():
 	
 func tick():
 	print(enemies_inside)
-	for enemy in $DamageArea.get_overlapping_areas().map(func (v): return v.get_parent()):
+	for enemy in $DamageArea.get_overlapping_areas().map(func (v): return v.get_enemy()):
 		
 		enemy.take_damage(damage, element)
 		print('damaging %s' % enemy.name)

@@ -31,11 +31,14 @@ var body
 func _ready():
 	rng.randomize()
 	
+	add_to_group("enemy")
+	
 	body = stats.enemy_body_type.instantiate()
 	add_child(body)
 	
 	var reactions_node = Node2D.new()
 	reactions_node.name  = "Reactions"
+	add_child(reactions_node)
 	
 	body.get_node("Sprite2d").texture = stats.enemy_texture
 	body.position += Vector2(0, rng.randf_range(-stats.max_rand_offset, stats.max_rand_offset))
@@ -74,6 +77,7 @@ func calculate_and_deal_damage():
 	
 	for dmg_instance in damage_cache:
 		total_damage += apply_resistances(dmg_instance.damage, dmg_instance.element, modified_resistances)
+	print("-1 * %s * %s" % [total_damage, attack_modifier])
 	modify_health(-1 * total_damage * attack_modifier)
 	damage_cache.clear()
 	resistance_cache.clear()
@@ -83,7 +87,7 @@ func calculate_and_deal_damage():
 func apply_resistances(damage: int, element: Element, resistance_set: ResistanceSet) -> int:
 	var resistance = 1
 
-	if resistance_set.has(element):
+	if resistance_set.resistances.has(element):
 		resistance *= resistance_set.resistances[element]
 	
 	return floor(damage *  resistance)
@@ -103,6 +107,7 @@ func modify_health(amount : int):
 	$SpriteBody/HPBar.set_value(value)
 	
 func react() -> void:
+	print('has %s' % applied_elements.map(func (v): return v.display_name))
 	if applied_elements.size() > 1:
 		print('reacting %s' % applied_elements.map(func (v): return v.display_name))
 		var reaction = game.get_reaction(applied_elements)
@@ -113,8 +118,7 @@ func react() -> void:
 		applied_elements.clear()
 		$Reactions.add_child(new_rl)
 		$SpriteBody/ElementBar.show_elements(applied_elements)
-		
-		
+	
 		create_reaction_text(reaction)
 
 

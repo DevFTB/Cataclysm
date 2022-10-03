@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://u0tglfhnl6wc"]
+[gd_scene load_steps=5 format=3 uid="uid://u0tglfhnl6wc"]
 
+[ext_resource type="Script" path="res://Scripts/EnemyHitbox.gd" id="3_43w50"]
 [ext_resource type="PackedScene" uid="uid://0fro8ru7emgc" path="res://Scenes/HPBar.tscn" id="3_xbeyu"]
 [ext_resource type="Script" path="res://Scenes/ElementBar.gd" id="4_jnlal"]
 
@@ -40,6 +41,7 @@ scale = Vector2(0.5, 0.5)
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 0
+script = ExtResource("3_43w50")
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_ag00i")
