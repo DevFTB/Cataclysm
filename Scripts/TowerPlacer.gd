@@ -71,6 +71,8 @@ func start_spot_selection(aoe: int):
 	queue_redraw()
 
 func _draw():
+	if mode == 1:
+		draw_circle(Vector2(0,0), placement_tower.attack_range, Color(Color.CHARTREUSE, 0.1))
 	if should_draw_aoe:
 		draw_circle(Vector2(0,0), draw_aoe, Color(Color.CHARTREUSE, 0.1))
 
@@ -120,12 +122,14 @@ func set_tower_placement(tower: Tower, icon: Texture2D) -> void:
 	$GhostIcon.visible = true
 	
 	mode = 1
+	queue_redraw()
 	
 func unset_tower_placement():
 	placement_tower = null
 	$GhostIcon.visible = false
 	
 	mode = 0
+	queue_redraw()
 
 func _on_placeable_area_can_place_changed(placeable):
 	in_placeable_area = placeable
