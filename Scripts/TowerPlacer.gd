@@ -80,7 +80,7 @@ func select_tower() -> void:
 	tower_selection.set_highlight(true)
 	print("%s was selected. " % tower_selection)
 	
-	game.get_node("GUI/TowerGUI").set_tower(tower_selection.tower)
+	game.get_node("GUI/TowerGUI").set_tower(tower_selection)
 	pass
 	
 func deselect_tower() -> void:

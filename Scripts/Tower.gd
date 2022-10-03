@@ -22,3 +22,6 @@ enum TargetingCategory {
 
 @export var is_aoe = false
 @export var aoe_range = 30
+
+func get_refund_price() -> int:
+	return roundi(float(currency_cost) / 2)

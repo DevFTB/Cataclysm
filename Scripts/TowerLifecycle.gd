@@ -149,3 +149,7 @@ func _draw():
 			print('drawing at offset %s', spot - global_position)
 			draw_circle(spot - global_position, tower.aoe_range, Color(Color.BLUE, 0.2))
 		
+
+func refund():
+	get_node("/root/Game").add_to_currency(tower.get_refund_price())
+	queue_free()

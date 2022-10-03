@@ -2,6 +2,8 @@ extends Control
 
 var tower : Tower = null
 
+var tower_instance = null
+
 @export var spot_selector_path : NodePath
 
 @onready var spot_selector = get_node(spot_selector_path)
@@ -13,8 +15,9 @@ func _ready():
 func _on_minimise_button_toggled(button_pressed):
 	$VSplitContainer/Control.visible = button_pressed
 
-func set_tower(new_tower) -> void:
-	tower = new_tower
+func set_tower(new_tower_instance) -> void:
+	tower_instance = new_tower_instance
+	tower = new_tower_instance.tower
 	details_parent.visible = true
 	
 	details_parent.get_node("TowerTitle").text = tower.tower_name
@@ -31,6 +34,7 @@ func set_tower(new_tower) -> void:
 			op_button.remove_item(2)
 			
 	details_parent.get_node("TowerSetSpotButton").visible = tower.is_aoe and op_button.selected == 2
+	details_parent.get_node("TowerSellButton/TowerSellCostContainer/Label").text = str(tower.get_refund_price())
 	pass
 
 func generate_description() -> String:
@@ -63,4 +67,10 @@ func _on_tower_set_spot_button_pressed():
 		else: 
 			spot_selector.end_spot_selection(null)
 		pass # Replace with function body.
+	pass # Replace with function body.
+
+
+func _on_tower_sell_button_pressed():
+	tower_instance.refund()
+	unset_tower()
 	pass # Replace with function body.
