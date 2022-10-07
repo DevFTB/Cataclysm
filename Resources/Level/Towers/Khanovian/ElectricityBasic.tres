@@ -3,7 +3,7 @@
 [ext_resource type="AudioStream" uid="uid://bdh0prt6j4fhv" path="res://Resources/Sounds/high_fire.wav" id="1_acr2l"]
 [ext_resource type="Script" path="res://Scripts/Tower.gd" id="1_jyxs6"]
 [ext_resource type="Resource" uid="uid://dynneobgf0tsx" path="res://Resources/Elemental/Elements/Electricity.tres" id="1_x2hms"]
-[ext_resource type="PackedScene" uid="uid://dxhrlgv1poj84" path="res://PackedScenes/Projectile.tscn" id="2_6me2n"]
+[ext_resource type="PackedScene" uid="uid://duqvliiywp11e" path="res://PackedScenes/Projectile.tscn" id="2_6me2n"]
 [ext_resource type="Texture2D" uid="uid://gn00d0pmt0qx" path="res://Resources/Level/Towers/Khanovian/electricity_basic.png" id="4_i5lfp"]
 
 [resource]

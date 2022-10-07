@@ -1,9 +1,10 @@
 extends Node2D
 
 @export var tower_scene : PackedScene
-
 @onready var game = get_node("/root/Game")
 @onready var max_towers = game.ticks_per_turn
+
+
 
 var tower_parent : NodePath
 var placement_tower : Tower
@@ -29,7 +30,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	position = get_viewport().get_mouse_position()
+	position = get_global_mouse_position()
 	pass
 
 func _input(event):

@@ -2,7 +2,7 @@ extends PathFollow2D
 class_name Enemy
 
 class Damage:
-	var damage: int
+	var damage:int
 	var element: Element
 	
 	func _init(p_damage: int, p_element : Element):
@@ -41,8 +41,11 @@ func _ready():
 	reactions_node.name  = "Reactions"
 	add_child(reactions_node)
 	
-	body.get_node("Sprite2d").texture = stats.enemy_texture
+	var sprite = body.get_node("Sprite2d")
+	sprite.frames = stats.enemy_frames
 	body.position += Vector2(0, rng.randf_range(-stats.max_rand_offset, stats.max_rand_offset))
+	
+	sprite.play("walk")
 	pass # Replace with function body.
 
 var time = 0

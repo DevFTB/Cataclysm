@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://c00h1nxrjn6pv"]
+[gd_scene load_steps=5 format=3 uid="uid://bqwaehvp4lmlu"]
 
 [ext_resource type="Script" path="res://Scripts/TowerLifecycle.gd" id="1_8tqvp"]
-[ext_resource type="Script" path="res://PackedScenes/Towers/HighlightableSprite2d.gd" id="3_r7e7k"]
+[ext_resource type="Script" path="res://Scripts/IgnoreTextureSizeSprite.gd" id="2_8tr0v"]
 [ext_resource type="Material" uid="uid://b7vry5ry4w7iu" path="res://Shaders/OutlineShader.tres" id="4_pr0y4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e1rum"]
-size = Vector2(61, 52)
+size = Vector2(128, 128)
 
 [node name="Tower" type="Area2D"]
 script = ExtResource("1_8tqvp")
@@ -16,12 +16,13 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_e1rum")
 
 [node name="Sprite2d" type="Sprite2D" parent="."]
-texture_filter = 1
-script = ExtResource("3_r7e7k")
+texture_filter = 5
+region_rect = Rect2(0, 0, 64, 64)
+script = ExtResource("2_8tr0v")
+desired_size = Vector2(128, 128)
 highlight_shader = ExtResource("4_pr0y4")
 
 [node name="AudioStreamPlayer2d" type="AudioStreamPlayer2D" parent="."]

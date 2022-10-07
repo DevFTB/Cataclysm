@@ -1,0 +1,55 @@
+[gd_resource type="Resource" load_steps=13 format=3 uid="uid://b7mspcg0b7qu1"]
+
+[ext_resource type="Script" path="res://Scripts/EnemyStats.gd" id="1_63vjw"]
+[ext_resource type="PackedScene" uid="uid://cm6tv1mdxnhp7" path="res://PackedScenes/EnemyBodys/BasicEnemyBody.tscn" id="1_swy58"]
+[ext_resource type="Texture2D" uid="uid://hmtdewj1i1c2" path="res://Resources/Level/grewt_land/en_large.png" id="2_4u028"]
+[ext_resource type="Script" path="res://Scripts/ResistanceSet.gd" id="3_40kv3"]
+[ext_resource type="Resource" uid="uid://dhn2wf7od8i0k" path="res://Resources/Elemental/Elements/Air.tres" id="5_xfxak"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4myot"]
+atlas = ExtResource("2_4u028")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fvok"]
+atlas = ExtResource("2_4u028")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jf5j"]
+atlas = ExtResource("2_4u028")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjmb3"]
+atlas = ExtResource("2_4u028")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edchr"]
+atlas = ExtResource("2_4u028")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5e4bf"]
+animations = [{
+"frames": [SubResource("AtlasTexture_4myot"), SubResource("AtlasTexture_8fvok"), SubResource("AtlasTexture_6jf5j"), SubResource("AtlasTexture_tjmb3"), SubResource("AtlasTexture_edchr")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_sxstd"]
+script = ExtResource("3_40kv3")
+resistances = {
+ExtResource("5_xfxak"): 0.0
+}
+default_value = 0.9
+
+[resource]
+script = ExtResource("1_63vjw")
+enemy_name = "Robot Elemental"
+enemy_frames = SubResource("SpriteFrames_5e4bf")
+enemy_body_type = ExtResource("1_swy58")
+max_health = 800
+base_move_speed = 40
+resistances = SubResource("Resource_sxstd")
+currency_on_death = 10
+self_apply_element = ExtResource("5_xfxak")
+self_apply_period = 2
+max_rand_offset = 0

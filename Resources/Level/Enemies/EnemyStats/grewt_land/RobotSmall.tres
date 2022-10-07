@@ -1,0 +1,51 @@
+[gd_resource type="Resource" load_steps=12 format=3 uid="uid://dgyi2uevq6p6c"]
+
+[ext_resource type="Script" path="res://Scripts/EnemyStats.gd" id="1_63vjw"]
+[ext_resource type="PackedScene" uid="uid://cm6tv1mdxnhp7" path="res://PackedScenes/EnemyBodys/BasicEnemyBody.tscn" id="1_i80d0"]
+[ext_resource type="Texture2D" uid="uid://b0rgw4s7m2of" path="res://Resources/Level/grewt_land/en_small.png" id="2_mw3do"]
+[ext_resource type="Script" path="res://Scripts/ResistanceSet.gd" id="3_40kv3"]
+[ext_resource type="Resource" uid="uid://dhn2wf7od8i0k" path="res://Resources/Elemental/Elements/Air.tres" id="5_xfxak"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4eg1"]
+atlas = ExtResource("2_mw3do")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7btm4"]
+atlas = ExtResource("2_mw3do")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkk73"]
+atlas = ExtResource("2_mw3do")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_um5bm"]
+atlas = ExtResource("2_mw3do")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s2q3f"]
+animations = [{
+"frames": [SubResource("AtlasTexture_f4eg1"), SubResource("AtlasTexture_7btm4"), SubResource("AtlasTexture_rkk73"), SubResource("AtlasTexture_um5bm")],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_sxstd"]
+script = ExtResource("3_40kv3")
+resistances = {
+ExtResource("5_xfxak"): 0.0
+}
+default_value = 0.9
+
+[resource]
+script = ExtResource("1_63vjw")
+enemy_name = "Robot Small"
+enemy_frames = SubResource("SpriteFrames_s2q3f")
+enemy_body_type = ExtResource("1_i80d0")
+max_health = 800
+base_move_speed = 40
+resistances = SubResource("Resource_sxstd")
+currency_on_death = 10
+self_apply_element = ExtResource("5_xfxak")
+self_apply_period = 2
+max_rand_offset = 0

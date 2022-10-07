@@ -4,12 +4,12 @@
 [ext_resource type="Script" path="res://Scripts/Tower.gd" id="1_jyxs6"]
 [ext_resource type="AudioStream" uid="uid://36csivdmj6bu" path="res://Resources/Sounds/block-warp.wav" id="1_r3nhi"]
 [ext_resource type="PackedScene" uid="uid://dxhrlgv1poj84" path="res://PackedScenes/Projectile.tscn" id="2_76wl7"]
-[ext_resource type="Texture2D" uid="uid://y63di8or1h3p" path="res://Resources/Level/Towers/Grewt/earth_basic.png" id="4_3grpa"]
+[ext_resource type="Texture2D" uid="uid://cphj0qyaa6u3o" path="res://Resources/Level/Towers/Grewt/earth_basic_real.png" id="5_0essy"]
 
 [resource]
 script = ExtResource("1_jyxs6")
 tower_name = "Earth Basic"
-ui_image = ExtResource("4_3grpa")
+ui_image = ExtResource("5_0essy")
 clan = 0
 element = ExtResource("1_55cpf")
 currency_cost = 7

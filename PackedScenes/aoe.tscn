@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmn2yj1j6lu86"]
+[gd_scene load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://PackedScenes/AoE.gd" id="1_nffge"]
+[ext_resource type="Script" path="res://Scripts/AoE.gd" id="1_nffge"]
 
 [node name="aoe" type="Node2D" groups=["aoe"]]
 script = ExtResource("1_nffge")

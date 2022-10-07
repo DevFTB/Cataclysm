@@ -1,42 +1,42 @@
-[gd_scene load_steps=21 format=3 uid="uid://clh7wxy6scu0p"]
+[gd_scene load_steps=21 format=3 uid="uid://nl5dh0qpbko2"]
 
 [ext_resource type="Texture2D" uid="uid://d0otmx15iojel" path="res://Resources/Level/notkhanmap.png" id="1_a7gao"]
 [ext_resource type="Script" path="res://Scripts/GameMap.gd" id="1_hyp13"]
 [ext_resource type="Script" path="res://Scripts/PlaceableArea.gd" id="2_41fu2"]
-[ext_resource type="Resource" uid="uid://c5lbbvaqxhctr" path="res://Resources/Level/Enemies/EnemyStats/Slendroid.tres" id="2_51uii"]
-[ext_resource type="Resource" uid="uid://bchjbvc3xajv2" path="res://Resources/Level/Enemies/EnemyStats/AirElemental.tres" id="3_rvtxp"]
-[ext_resource type="Resource" uid="uid://bf3qccsvmi31y" path="res://Resources/Level/Enemies/EnemyStats/DarkElemental.tres" id="4_0ket5"]
-[ext_resource type="Resource" uid="uid://bawegehi7xudx" path="res://Resources/Level/Enemies/EnemyStats/EarthElemental.tres" id="5_8kk5y"]
-[ext_resource type="Resource" uid="uid://8aypbaaih436" path="res://Resources/Level/Enemies/EnemyStats/ElectricElemental.tres" id="6_02spu"]
-[ext_resource type="Resource" uid="uid://ms8gn6tk21e5" path="res://Resources/Level/Enemies/EnemyStats/FireElemental.tres" id="7_tycaq"]
-[ext_resource type="Resource" uid="uid://dr3eqsbla8ec7" path="res://Resources/Level/Enemies/EnemyStats/LightElemental.tres" id="8_37vid"]
-[ext_resource type="Resource" uid="uid://cjun01lkoegjb" path="res://Resources/Level/Enemies/EnemyStats/SteelElemental.tres" id="9_rb38k"]
-[ext_resource type="Resource" uid="uid://c1dithye81xi0" path="res://Resources/Level/Enemies/EnemyStats/WaterElemental.tres" id="10_38d7i"]
-[ext_resource type="Script" path="res://Scenes/Core.gd" id="13_6pkge"]
+[ext_resource type="Resource" path="res://Resources/Level/Enemies/EnemyStats/Slendroid.tres" id="2_51uii"]
+[ext_resource type="Resource" path="res://Resources/Level/Enemies/EnemyStats/AirElemental.tres" id="3_rvtxp"]
+[ext_resource type="Resource" path="res://Resources/Level/Enemies/EnemyStats/DarkElemental.tres" id="4_0ket5"]
+[ext_resource type="Resource" path="res://Resources/Level/Enemies/EnemyStats/EarthElemental.tres" id="5_8kk5y"]
+[ext_resource type="Resource" path="res://Resources/Level/Enemies/EnemyStats/ElectricElemental.tres" id="6_02spu"]
+[ext_resource type="Resource" path="res://Resources/Level/Enemies/EnemyStats/FireElemental.tres" id="7_tycaq"]
+[ext_resource type="Resource" path="res://Resources/Level/Enemies/EnemyStats/LightElemental.tres" id="8_37vid"]
+[ext_resource type="Resource" path="res://Resources/Level/Enemies/EnemyStats/SteelElemental.tres" id="9_rb38k"]
+[ext_resource type="Resource" path="res://Resources/Level/Enemies/EnemyStats/WaterElemental.tres" id="10_38d7i"]
+[ext_resource type="Script" path="res://Scripts/Core.gd" id="13_ila76"]
 [ext_resource type="PackedScene" path="res://Scenes/HPBar.tscn" id="14_ay4oe"]
 [ext_resource type="AudioStream" uid="uid://csfil2l4ke1mf" path="res://Resources/Sounds/core_hurt.wav" id="15_i74ki"]
 
 [sub_resource type="Curve2D" id="Curve2D_gc4f3"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 322, 0, 0, 0, 0, 191, 323, 0, 0, 0, 0, 185, 434, 0, 0, 0, 0, 342, 446, 0, 0, 0, 0, 362, 179, 0, 0, 0, 0, 467, 167, 0, 0, 0, 0, 561, 182, 0, 0, 0, 0, 600, 288, 0, 0, 0, 0, 600, 288)
+"points": PackedVector2Array(0, 0, 0, 0, -9, 538, 0, 0, 0, 0, 303, 541, 0, 0, 0, 0, 300, 736, 0, 0, 0, 0, 574, 734, 0, 0, 0, 0, 614, 290, 0, 0, 0, 0, 922, 307, 0, 0, 0, 0, 974, 480)
 }
-point_count = 9
+point_count = 7
 
 [sub_resource type="Curve2D" id="Curve2D_u88vn"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 174, 3, 0, 0, 0, 0, 188, 51, 0, 0, 0, 0, 1051, 66, 0, 0, 0, 0, 1051, 123, 0, 0, 0, 0, 747, 142, 0, 0, 0, 0, 719, 330, 0, 0, 0, 0, 638, 338)
+"points": PackedVector2Array(0, 0, 0, 0, 298, 6, 0, 0, 0, 0, 314, 85, 0, 0, 0, 0, 1753, 114, 0, 0, 0, 0, 1744, 222, 0, 0, 0, 0, 1234, 251, 0, 0, 0, 0, 1205, 559, 0, 0, 0, 0, 1005, 579)
 }
 point_count = 7
 
 [sub_resource type="Curve2D" id="Curve2D_7mwlv"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1136, 217, 0, 0, 0, 0, 893, 214, 0, 0, 0, 0, 903, 297, 0, 0, 0, 0, 1034, 321, 0, 0, 0, 0, 1050, 470, 0, 0, 0, 0, 735, 468, 0, 0, 0, 0, 705, 386, 0, 0, 0, 0, 641, 381)
+"points": PackedVector2Array(0, 0, 0, 0, 1914, 355, 0, 0, 0, 0, 1511, 362, 0, 0, 0, 0, 1503, 501, 0, 0, 0, 0, 1725, 536, 0, 0, 0, 0, 1753, 781, 0, 0, 0, 0, 1223, 783, 0, 0, 0, 0, 1176, 670, 0, 0, 0, 0, 1017, 632)
 }
 point_count = 8
 
 [sub_resource type="Curve2D" id="Curve2D_oc53c"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 132, 647, 0, 0, 0, 0, 157, 552, 0, 0, 0, 0, 349, 543, 0, 0, 0, 0, 369, 606, 0, 0, 0, 0, 768, 614, 0, 0, 0, 0, 767, 526, 0, 0, 0, 0, 427, 500, 0, 0, 0, 0, 439, 382, 0, 0, 0, 0, 521, 380)
+"points": PackedVector2Array(0, 0, 0, 0, 230, 1069, 0, 0, 0, 0, 265, 910, 0, 0, 0, 0, 580, 907, 0, 0, 0, 0, 605, 1036, 0, 0, 0, 0, 1290, 1033, 0, 0, 0, 0, 1288, 895, 0, 0, 0, 0, 711, 844, 0, 0, 0, 0, 726, 638, 0, 0, 0, 0, 943, 643)
 }
 point_count = 9
 
@@ -48,8 +48,8 @@ script = ExtResource("1_hyp13")
 enemies = [ExtResource("2_51uii"), ExtResource("3_rvtxp"), ExtResource("4_0ket5"), ExtResource("5_8kk5y"), ExtResource("6_02spu"), ExtResource("7_tycaq"), ExtResource("8_37vid"), ExtResource("9_rb38k"), ExtResource("10_38d7i")]
 
 [node name="MapSprite" type="Sprite2D" parent="."]
-position = Vector2(575.5, 323.5)
-scale = Vector2(0.719375, 0.540833)
+position = Vector2(959, 543.5)
+scale = Vector2(1.2, 0.899167)
 texture = ExtResource("1_a7gao")
 
 [node name="PlaceableArea" type="Node2D" parent="."]
@@ -58,44 +58,44 @@ script = ExtResource("2_41fu2")
 [node name="BottomLeftArea" type="Area2D" parent="PlaceableArea"]
 
 [node name="CollisionShape2d" type="CollisionPolygon2D" parent="PlaceableArea/BottomLeftArea"]
-position = Vector2(650, 5)
-polygon = PackedVector2Array(449, 33, 452, 138, 422, 157, 150, 170, 122, 232, 123, 323, 106, 364, 127, 433, 363, 441, 371, 383, 347, 347, 244, 330, 209, 309, 198, 247, 211, 177, 488, 174, 493, 0, 26, 1, -429, 2, -426, 17)
+position = Vector2(1091, 9)
+polygon = PackedVector2Array(724, 57, 754, 185, 680, 265, 383, 263, 245, 297, 205, 366, 205, 584, 178, 625, 208, 727, 599, 732, 588, 593, 359, 533, 326, 328, 356, 297, 810, 285, 812, 11, 26, 1, -429, 2, -426, 17)
 
 [node name="BottomRightArea" type="Area2D" parent="PlaceableArea"]
 
 [node name="CollisionShape2d" type="CollisionPolygon2D" parent="PlaceableArea/BottomRightArea"]
-position = Vector2(777, 190)
-polygon = PackedVector2Array(157, 91, 286, 104, 313, 169, 304, 306, 252, 325, 42, 322, 40, 447, 365, 450, 359, 58, 192, 41, 150, 64)
+position = Vector2(1304, 327)
+polygon = PackedVector2Array(251, 127, 457, 162, 510, 241, 513, 450, 462, 521, 63, 513, 76, 732, 602, 739, 586, 78, 248, 74)
 
 [node name="BottomRightArea2" type="Area2D" parent="PlaceableArea"]
 
-[node name="CollisionShape2d" type="CollisionPolygon2D" parent="PlaceableArea/BottomRightArea2"]
-position = Vector2(499, 407)
-polygon = PackedVector2Array(-29, 80, 189, 85, 178, 42, 161, 29, 47, 42, -26, 16)
+[node name="CollisionShape2d2" type="CollisionPolygon2D" parent="PlaceableArea/BottomRightArea2"]
+position = Vector2(847, 704)
+polygon = PackedVector2Array(-59, 90, 91, 112, 298, 112, 268, 21, 115.646, 34.1719, -56, 7)
 
 [node name="BottomRightArea4" type="Area2D" parent="PlaceableArea"]
 
 [node name="CollisionShape2d" type="CollisionPolygon2D" parent="PlaceableArea/BottomRightArea4"]
-position = Vector2(434, 193)
-polygon = PackedVector2Array(-25, 170, 17, 155, 15, 128, 21, 89, 67, 67, 115, 59, 96, 15, -4, 11, -23, 29, -23, 70)
+position = Vector2(714, 315)
+polygon = PackedVector2Array(-41.9998, 296, 26.0002, 280, 94.0002, 146, 192, 115, 175, 39, 7.00018, 24, -22.9998, 40, -39.9998, 83)
 
 [node name="BottomRightArea3" type="Area2D" parent="PlaceableArea"]
 
 [node name="CollisionShape2d" type="CollisionPolygon2D" parent="PlaceableArea/BottomRightArea3"]
-position = Vector2(205, 551)
-polygon = PackedVector2Array(-25, 78, 120, 78, 108, 26, 43, 17, -18, 26)
+position = Vector2(341, 941)
+polygon = PackedVector2Array(-33, 98, 83, 112, 185, 104, 174, 25, 43, 17, -18, 26)
 
 [node name="TopLeftArea" type="Area2D" parent="PlaceableArea"]
 
 [node name="CollisionShape2d" type="CollisionPolygon2D" parent="PlaceableArea/TopLeftArea"]
-position = Vector2(-9, -13)
-polygon = PackedVector2Array(20, 288, 240, 295, 252, 406, 322, 410, 318, 174, 350, 143, 568, 151, 611, 194, 625, 240, 695, 277, 698, 177, 716, 125, 999, 124, 1002, 104, 172, 94, 145, 18, 21, 19)
+position = Vector2(-9, -6)
+polygon = PackedVector2Array(20, 288, 16, 472, 384, 486, 398, 686, 518, 680, 538, 248, 984, 250, 1068, 470, 1148, 466, 1170, 208, 1686, 198, 1680, 172, 1036, 168, 734, 166, 284, 164, 236, 18, 21, 19)
 
 [node name="TopRightArea" type="Area2D" parent="PlaceableArea"]
 
 [node name="CollisionShape2d" type="CollisionPolygon2D" parent="PlaceableArea/TopRightArea"]
-position = Vector2(4, 459)
-polygon = PackedVector2Array(2, -101, 5, 181, 87, 174, 106, 93, 164, 57, 246, 50, 365, 53, 391, 122, 732, 138, 724, 100, 408, 78, 398, 71, 391, 55, 383, 18, 265, 29, 150, 20, 127, -8, 139, -98)
+position = Vector2(-5, 763)
+polygon = PackedVector2Array(21, -161, 10, 241, 178, 248, 209, 106, 397, 86.9999, 631, 103, 670, 205, 1212, 231, 1215, 171, 663, 143, 651, 30.9999, 460, 39.9999, 265, 29, 231, 16.9999, 225, -20.0001, 243, -148)
 
 [node name="Towers" type="Node2D" parent="."]
 
@@ -118,17 +118,17 @@ curve = SubResource("Curve2D_oc53c")
 [node name="Core" type="Area2D" parent="Cores"]
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("13_6pkge")
+script = ExtResource("13_ila76")
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="Cores/Core"]
 position = Vector2(585, 349)
 shape = SubResource("CircleShape2D_n137f")
 
 [node name="CoreHPBar" parent="Cores/Core" instance=ExtResource("14_ay4oe")]
-offset_left = 524.0
-offset_top = 232.0
-offset_right = 556.0
-offset_bottom = 264.0
+offset_left = 908.0
+offset_top = 517.0
+offset_right = 940.0
+offset_bottom = 549.0
 scale = Vector2(4, 4)
 
 [node name="AudioStreamPlayer2d" type="AudioStreamPlayer2D" parent="Cores/Core"]

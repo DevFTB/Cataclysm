@@ -7,7 +7,7 @@ var clan : int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	tower_selector = get_node("/root/Game/GUI/TowerSelectionGUI")
+	tower_selector = get_node("/root/Game/CanvasLayer/GUI/TowerSelectionGUI")
 	var game = get_node("/root/Game")
 	game.connect("currency_changed", _on_currency_changed)
 	disabled =	not game.can_buy(tower)

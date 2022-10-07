@@ -2,7 +2,7 @@ extends Resource
 class_name EnemyStats
 
 @export var enemy_name : String = "Enemy"
-@export var enemy_texture : Texture2D
+@export var enemy_frames : SpriteFrames
 @export var enemy_body_type : PackedScene
 
 @export var max_health = 50

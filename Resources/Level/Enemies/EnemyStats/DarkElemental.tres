@@ -1,7 +1,7 @@
-[gd_resource type="Resource" load_steps=7 format=3 uid="uid://bf3qccsvmi31y"]
+[gd_resource type="Resource" load_steps=7 format=3]
 
 [ext_resource type="Script" path="res://Scripts/EnemyStats.gd" id="1_63vjw"]
-[ext_resource type="PackedScene" uid="uid://u0tglfhnl6wc" path="res://PackedScenes/EnemyBodys/EnemySmallBody.tscn" id="1_j0djt"]
+[ext_resource type="PackedScene" path="res://PackedScenes/EnemyBodys/BasicEnemyBody.tscn" id="1_j0djt"]
 [ext_resource type="Texture2D" uid="uid://vthpgm485h76" path="res://Resources/Level/Enemies/EnemyTextures/dark elemental.png" id="2_yohod"]
 [ext_resource type="Script" path="res://Scripts/ResistanceSet.gd" id="3_40kv3"]
 [ext_resource type="Resource" uid="uid://dix2yac0870ui" path="res://Resources/Elemental/Elements/Dark.tres" id="5_swvuh"]

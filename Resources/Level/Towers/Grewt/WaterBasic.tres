@@ -2,7 +2,7 @@
 
 [ext_resource type="AudioStream" uid="uid://swuxls08bmru" path="res://Resources/Sounds/watery_attack.wav" id="1_a6j32"]
 [ext_resource type="Resource" uid="uid://eld45dnueksj" path="res://Resources/Elemental/Elements/Water.tres" id="1_kxjms"]
-[ext_resource type="PackedScene" uid="uid://dxhrlgv1poj84" path="res://PackedScenes/Projectile.tscn" id="2_q6cqn"]
+[ext_resource type="PackedScene" uid="uid://duqvliiywp11e" path="res://PackedScenes/Projectile.tscn" id="2_q6cqn"]
 [ext_resource type="Script" path="res://Scripts/Tower.gd" id="3_so5gh"]
 [ext_resource type="Texture2D" uid="uid://si2of2ojsqj3" path="res://Resources/Level/Towers/Grewt/water_basic.png" id="4_m4c45"]
 

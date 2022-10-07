@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=6 format=3 uid="uid://cjau4u8w0f6yu"]
 
 [ext_resource type="Script" path="res://Scripts/Tower.gd" id="1_jyxs6"]
-[ext_resource type="PackedScene" uid="uid://bmn2yj1j6lu86" path="res://PackedScenes/aoe.tscn" id="1_rvgrt"]
+[ext_resource type="PackedScene" path="res://PackedScenes/aoe.tscn" id="1_rvgrt"]
 [ext_resource type="Resource" uid="uid://dhn2wf7od8i0k" path="res://Resources/Elemental/Elements/Air.tres" id="2_bqtu6"]
 [ext_resource type="AudioStream" uid="uid://b2naf2jw2455h" path="res://Resources/Sounds/bouncy_aoe.wav" id="2_xkvha"]
 [ext_resource type="Texture2D" uid="uid://u2knrsbug1ie" path="res://Resources/Level/Towers/Grewt/air_basic.png" id="4_0lgeu"]

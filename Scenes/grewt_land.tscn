@@ -1,0 +1,155 @@
+[gd_scene load_steps=20 format=3 uid="uid://b2j1l8fgb7hmq"]
+
+[ext_resource type="Texture2D" uid="uid://bh51wq0fda77a" path="res://Resources/Level/grewt_land/blank.png" id="1_3xv04"]
+[ext_resource type="Script" path="res://Scripts/PlaceableArea.gd" id="2_41fu2"]
+[ext_resource type="Texture2D" uid="uid://cgewi6a0peqy4" path="res://Resources/Level/grewt_land/n_level.png" id="11_vp5rl"]
+[ext_resource type="Script" path="res://Scripts/Core.gd" id="13_ila76"]
+[ext_resource type="PackedScene" path="res://Scenes/HPBar.tscn" id="14_ay4oe"]
+[ext_resource type="AudioStream" uid="uid://csfil2l4ke1mf" path="res://Resources/Sounds/core_hurt.wav" id="15_i74ki"]
+[ext_resource type="Texture2D" uid="uid://cl8oenc4ytrmc" path="res://Resources/Level/grewt_land/grewt_core.png" id="16_vm565"]
+
+[sub_resource type="Curve2D" id="Curve2D_gc4f3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -9, 538, 0, 0, 0, 0, 115, 540, 0, 0, 0, 0, 113, 944, 0, 0, 0, 0, 345, 944, 0, 0, 0, 0, 351, 533, 0, 0, 0, 0, 481, 535)
+}
+point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_u88vn"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 271, 9, 0, 0, 0, 0, 278, 210, 0, 0, 0, 0, 512, 206, 0, 0, 0, 0, 512, 112, 0, 0, 0, 0, 750, 112, 0, 0, 0, 0, 742, 500)
+}
+point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_7mwlv"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1269, 296, 0, 0, 0, 0, 919, 296, 0, 0, 0, 0, 918, 458, 0, 0, 0, 0, 1069, 460, 0, 0, 0, 0, 1075, 689, 0, 0, 0, 0, 786, 683)
+}
+point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_oc53c"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 837, 1280, 0, 0, 0, 0, 839, 1101, 0, 0, 0, 0, 1070, 1093, 0, 0, 0, 0, 1064, 935, 0, 0, 0, 0, 513, 937, 0, 0, 0, 0, 513, 789)
+}
+point_count = 6
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j0nwv"]
+size = Vector2(334, 311)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e35wg"]
+atlas = ExtResource("16_vm565")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6o32p"]
+atlas = ExtResource("16_vm565")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eem71"]
+atlas = ExtResource("16_vm565")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x735u"]
+atlas = ExtResource("16_vm565")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85q6s"]
+atlas = ExtResource("16_vm565")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndypa"]
+atlas = ExtResource("16_vm565")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tuqxv"]
+animations = [{
+"frames": [SubResource("AtlasTexture_e35wg"), SubResource("AtlasTexture_6o32p"), SubResource("AtlasTexture_eem71"), SubResource("AtlasTexture_x735u"), SubResource("AtlasTexture_85q6s"), SubResource("AtlasTexture_ndypa")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Map" type="Node2D"]
+
+[node name="Sprite2d" type="Sprite2D" parent="."]
+modulate = Color(0.350425, 0.222473, 0.568584, 1)
+position = Vector2(-900, -800)
+scale = Vector2(3000, 3000)
+texture = ExtResource("1_3xv04")
+centered = false
+
+[node name="MapSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(640, 640)
+scale = Vector2(5, 5)
+texture = ExtResource("11_vp5rl")
+
+[node name="PlaceableArea" type="Node2D" parent="."]
+script = ExtResource("2_41fu2")
+
+[node name="TopLeftArea" type="Area2D" parent="PlaceableArea"]
+
+[node name="CollisionPolygon2d" type="CollisionPolygon2D" parent="PlaceableArea/TopLeftArea"]
+position = Vector2(16, -4)
+polygon = PackedVector2Array(5, 14, 5, 464, 168, 470, 169, 870, 285, 871, 290, 469, 699, 473, 697, 191, 580, 188, 581, 269, 216, 268, 214, 14)
+
+[node name="TopRightArea" type="Area2D" parent="PlaceableArea"]
+
+[node name="CollisionPolygon2d" type="CollisionPolygon2D" parent="PlaceableArea/TopRightArea"]
+polygon = PackedVector2Array(355, 11, 357, 154, 468, 157, 470, 51, 821, 51, 824, 632, 1013, 630, 1017, 511, 871, 509, 870, 232, 1258, 229, 1268, 19)
+
+[node name="BottomRightArea" type="Area2D" parent="PlaceableArea"]
+
+[node name="CollisionPolygon2d" type="CollisionPolygon2D" parent="PlaceableArea/BottomRightArea"]
+position = Vector2(7, -7)
+polygon = PackedVector2Array(1129, 744, 811, 743, 811, 820, 574, 817, 577, 868, 1121, 881, 1121, 1157, 895, 1148, 889, 1269, 1256, 1267, 1256, 356, 972, 350, 972, 400, 1125, 400)
+
+[node name="BottomLeftArea" type="Area2D" parent="PlaceableArea"]
+
+[node name="CollisionPolygon2d" type="CollisionPolygon2D" parent="PlaceableArea/BottomLeftArea"]
+position = Vector2(-471, 962)
+scale = Vector2(1.32661, 0.371804)
+polygon = PackedVector2Array(652.075, 813.938, 943.041, 819.317, 948.318, 216.848, 1119.43, 211.469, 1117.92, 71.6106, 704.087, 82.3689, 701.826, -1039.19, 669.412, -1039.19, 667.905, 90.4377, 399.552, 58.1626, 401.06, -1033.81, 361.862, -1049.95, 368.646, 800.49)
+
+[node name="Towers" type="Node2D" parent="."]
+
+[node name="Paths" type="Node2D" parent="."]
+
+[node name="WestPath" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_gc4f3")
+
+[node name="NorthPath" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_u88vn")
+
+[node name="EastPath" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_7mwlv")
+
+[node name="SouthPath" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_oc53c")
+
+[node name="Cores" type="Node2D" parent="."]
+
+[node name="Core" type="Area2D" parent="Cores"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("13_ila76")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Cores/Core"]
+position = Vector2(631, 641.5)
+shape = SubResource("RectangleShape2D_j0nwv")
+
+[node name="CoreHPBar" parent="Cores/Core" instance=ExtResource("14_ay4oe")]
+offset_left = 579.0
+offset_top = 501.0
+offset_right = 611.0
+offset_bottom = 533.0
+scale = Vector2(4, 4)
+
+[node name="AudioStreamPlayer2d" type="AudioStreamPlayer2D" parent="Cores/Core"]
+stream = ExtResource("15_i74ki")
+
+[node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="Cores/Core"]
+texture_filter = 1
+position = Vector2(631, 633)
+scale = Vector2(5, 5)
+frames = SubResource("SpriteFrames_tuqxv")
+
+[connection signal="area_entered" from="Cores/Core" to="Cores/Core" method="_on_core_area_entered"]

@@ -32,7 +32,7 @@ func _ready():
 	for i in ticks_per_turn:
 		tick_registration[i] = null
 		
-	$GUI/TimelineGUI.regenerate_list()
+	$CanvasLayer/GUI/TimelineGUI.regenerate_list()
 	
 	get_node("Map").connect("cores_dead", _on_cores_dead)
 	
@@ -48,7 +48,7 @@ func _on_cores_dead():
 
 func set_game_over():
 	game_over = true
-	$GUI.visible = false
+	$CanvasLayer/GUI.visible = false
 	$GameOver.visible = true
 	$GameOver/Control/Score.text = "You lasted %s turns!" % str(turn + 1)
 
@@ -89,7 +89,7 @@ func new_turn():
 	$AmbientMusic.stream_paused = true
 	
 func do_tick(tick): 
-	$GUI/TickTimer.text = str(tick + 1)
+	$CanvasLayer/GUI/TickTimer.text = str(tick + 1)
 	print('tick')
 	# 1. Activate towers 
 	var tower_to_activate = tick_registration[tick]
@@ -119,7 +119,7 @@ func tick_aoe():
 		aoe.tick()
 
 func tick_towers(tick) -> void:
-	$GUI/TimelineGUI.set_highlight_for_tick(tick)
+	$CanvasLayer/GUI/TimelineGUI.set_highlight_for_tick(tick)
 	
 	for tower in tick_registration.values():
 		if tower != null:
@@ -150,7 +150,7 @@ func unregister_tower(tower):
 		tick_registration[tick] = null
 	
 func on_update_registration():
-	$GUI/TimelineGUI.regenerate_list()
+	$CanvasLayer/GUI/TimelineGUI.regenerate_list()
 	for tick in tick_registration.keys():
 		if tick_registration[tick]:
 			tick_registration[tick].set_tick(tick)

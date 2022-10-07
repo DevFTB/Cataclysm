@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=5 format=3 uid="uid://cuu1ro5685cpn"]
 
 [ext_resource type="Script" path="res://Scripts/Tower.gd" id="1_jyxs6"]
-[ext_resource type="PackedScene" uid="uid://dxhrlgv1poj84" path="res://PackedScenes/Projectile.tscn" id="2_0i7wu"]
+[ext_resource type="PackedScene" uid="uid://duqvliiywp11e" path="res://PackedScenes/Projectile.tscn" id="2_0i7wu"]
 [ext_resource type="Resource" uid="uid://cog5qfsmawcvy" path="res://Resources/Elemental/Elements/Steel.tres" id="2_arpv1"]
 [ext_resource type="Texture2D" uid="uid://bocu4bp0gchj" path="res://Resources/Level/Towers/Khanovian/basic_steel.png" id="4_s41wa"]
 

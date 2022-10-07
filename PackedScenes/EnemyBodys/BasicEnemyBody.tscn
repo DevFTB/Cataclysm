@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://u0tglfhnl6wc"]
+[gd_scene load_steps=5 format=3 uid="uid://cm6tv1mdxnhp7"]
 
-[ext_resource type="Script" path="res://Scripts/EnemyHitbox.gd" id="3_43w50"]
-[ext_resource type="PackedScene" path="res://Scenes/HPBar.tscn" id="3_xbeyu"]
-[ext_resource type="Script" path="res://Scenes/ElementBar.gd" id="4_jnlal"]
+[ext_resource type="PackedScene" path="res://Scenes/HPBar.tscn" id="2_qhdaw"]
+[ext_resource type="Script" path="res://Scripts/ElementBar.gd" id="3_q87kq"]
+[ext_resource type="Script" path="res://Scripts/EnemyHitbox.gd" id="4_5aqya"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ag00i"]
 radius = 13.0
@@ -10,10 +10,12 @@ height = 34.0
 
 [node name="SpriteBody" type="Node2D"]
 
-[node name="Sprite2d" type="Sprite2D" parent="."]
+[node name="Sprite2d" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 rotation = -1.5708
+scale = Vector2(5, 5)
 
-[node name="HPBar" parent="." instance=ExtResource("3_xbeyu")]
+[node name="HPBar" parent="." instance=ExtResource("2_qhdaw")]
 offset_left = -16.0
 offset_top = -35.0
 offset_right = 16.0
@@ -32,7 +34,7 @@ offset_bottom = -28.0
 grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
-script = ExtResource("4_jnlal")
+script = ExtResource("3_q87kq")
 
 [node name="FadeAwayTextSource" type="Node2D" parent="."]
 position = Vector2(0, -21)
@@ -41,7 +43,7 @@ scale = Vector2(0.5, 0.5)
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("3_43w50")
+script = ExtResource("4_5aqya")
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_ag00i")

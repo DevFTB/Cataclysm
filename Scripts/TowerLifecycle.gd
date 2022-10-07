@@ -14,6 +14,7 @@ var duration_upgrade = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Sprite2d.texture = tower.ui_image
+	$Sprite2d.update_size()
 	$AudioStreamPlayer2d.stream = tower.attack_sound
 	regenerate_collision_shape(tower.attack_range)
 	
